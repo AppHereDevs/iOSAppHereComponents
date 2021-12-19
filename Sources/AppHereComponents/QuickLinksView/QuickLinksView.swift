@@ -13,7 +13,7 @@ public final class QuickLinksView: AppHereComponentView {
     // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: AppHereLabel!
     
-    var viewModel: QuickLinksViewModel? {
+    public var viewModel: QuickLinksViewModel? {
         didSet {
             guard let viewModel = viewModel else {
                 self.isHidden = true
