@@ -8,7 +8,7 @@
 import AppHereCore
 import UIKit
 
-final class QuickLinksView: AppHereComponentView {
+public final class QuickLinksView: AppHereComponentView {
     
     // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: AppHereLabel!

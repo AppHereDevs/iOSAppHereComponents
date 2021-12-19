@@ -7,7 +7,7 @@
 
 import Foundation
 
-class QuickLinksViewThemeModel {
+public class QuickLinksViewThemeModel {
     var key: String
     var backgroundColor: String?
     var labelThemeKey: String?
