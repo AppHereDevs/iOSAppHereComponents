@@ -1,0 +1,10 @@
+//
+//  QuickLinksViewModel.swift
+//  ooAutos
+//
+//  Created by Arda Onat on 18.12.2021.
+//
+
+struct QuickLinksViewModel {
+    var title: String?
+}
