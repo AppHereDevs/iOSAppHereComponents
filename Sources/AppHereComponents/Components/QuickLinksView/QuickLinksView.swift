@@ -5,7 +5,6 @@
 //  Created by Arda Onat on 18.12.2021.
 //
 
-import AppHereCore
 import UIKit
 
 public final class QuickLinksView: AppHereComponentView {
