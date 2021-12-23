@@ -41,7 +41,7 @@ open class AppHereComponentView: UIView, Themeable {
     }
     
     func fromNib() -> UIView {
-        let bundle = Bundle(for: type(of: self))
+        let bundle = Bundle.module
         let nibName = type(of: self).description().components(separatedBy: ".").last!
         let nib = UINib(nibName: nibName, bundle: bundle)
         return nib.instantiate(withOwner: self, options: nil).first as! UIView
