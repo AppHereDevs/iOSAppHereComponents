@@ -1,0 +1,19 @@
+{
+    "themes": {
+        "components": [
+            {
+                "key": "XViewTheme",
+                "backgroundColor": "#0000FF",
+                "labelThemeKey": "LabelTheme1"
+            },
+            {
+                "key": "LabelTheme1",
+                "textColor": "#00000",
+                "backgroundColor": "#FFFFFF",
+            },
+            {
+                "key": "LabelThemeNoValue"
+            }
+        ]
+    }
+}

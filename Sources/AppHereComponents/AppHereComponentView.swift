@@ -8,11 +8,6 @@
 import Foundation
 import UIKit
 
-public protocol Themeable {
-    var themeKey: String? { get set }
-    var themeDict: NSDictionary? { get set }
-}
-
 open class AppHereComponentView: UIView, Themeable {
     
     var view: UIView!
