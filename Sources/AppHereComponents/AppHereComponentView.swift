@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 open class AppHereComponentView: UIView, Themeable {
-    
+     
     var view: UIView!
     public var themeDict: NSDictionary?
     
