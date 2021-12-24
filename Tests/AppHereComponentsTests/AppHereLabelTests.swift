@@ -29,18 +29,6 @@ final class AppHereLabelTest: XCTestCase {
         XCTAssertFalse(sut.isHidden)
     }
     
-    func testLabelAppearanceHasBeenSetWhenThemeDoesNotIncludeBackgroundColor() {
-        // Given
-        setupAppThemeManager()
-        let sut = AppHereLabel()
-
-        // When
-        sut.themeKey = "LabelThemeNoValue"
-
-        // Then
-        XCTAssertEqual(sut.backgroundColor, UIColor(hexString: AppHereLabelThemeModel.defaultBackgroundColor))
-    }
-    
     func testLabelAppearanceHasBeenSetWhenThemeDoesNotIncludeTextColor() {
         // Given
         setupAppThemeManager()
@@ -50,6 +38,7 @@ final class AppHereLabelTest: XCTestCase {
         sut.themeKey = "LabelThemeNoValue"
 
         // Then
+        XCTAssertEqual(sut.backgroundColor, UIColor(hexString: AppHereLabelThemeModel.defaultBackgroundColor))
         XCTAssertEqual(sut.textColor, UIColor(hexString: AppHereLabelThemeModel.defaultTextColor))
     }
     
