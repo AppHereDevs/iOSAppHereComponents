@@ -8,9 +8,9 @@
 import Foundation
 
 public class QuickLinksViewThemeModel {
-    public var key: String
-    public var backgroundColor: String?
-    public var labelThemeKey: String?
+    var key: String
+    var backgroundColor: String?
+    var labelThemeKey: String?
     
     public init(with themeDict: NSDictionary) throws {
         self.key = themeDict.value(forKey: "key") as! String

@@ -6,7 +6,7 @@
 //
 
 public struct QuickLinksViewModel {
-    public var title: String?
+    var title: String?
     
     public init(title: String?) {
         self.title = title

@@ -11,7 +11,7 @@ import UIKit
 open class AppHereComponentView: UIView, Themeable {
      
     var view: UIView!
-    public var themeDict: NSDictionary?
+    var themeDict: NSDictionary?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +31,7 @@ open class AppHereComponentView: UIView, Themeable {
         addSubview(view)
     }
     
-    public var themeKey: String? {
+    var themeKey: String? {
         didSet {
             guard let themeKey = themeKey, let themeDict = AppHereThemeManager.shared.getTheme(byKey: themeKey) else {
                 return
