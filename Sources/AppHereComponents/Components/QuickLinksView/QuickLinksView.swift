@@ -30,9 +30,9 @@ public final class QuickLinksView: AppHereComponentView {
         
         // MARK: Setup view's appearance with viewTheme
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor!)
+        titleLabel.themeKey = viewTheme.labelThemeKey
         
         // MARK: Setup view values with viewModel
         titleLabel.text = viewModel.title
-        titleLabel.themeKey = viewTheme.labelThemeKey
     }
 }
