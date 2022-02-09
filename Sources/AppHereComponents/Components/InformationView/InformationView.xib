@@ -22,16 +22,16 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WQJ-vt-5xn">
-                    <rect key="frame" x="16" y="16" width="41.5" height="49"/>
+                    <rect key="frame" x="16" y="16" width="41.5" height="67"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2R-wH-ivK" customClass="AppHereLabel" customModule="AppHereComponents">
-                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="29.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttT-m4-dWe" customClass="AppHereLabel" customModule="AppHereComponents">
-                            <rect key="frame" x="0.0" y="28.5" width="41.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="37.5" width="41.5" height="29.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -46,6 +46,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="WQJ-vt-5xn" firstAttribute="leading" secondItem="C8s-I5-HyI" secondAttribute="leading" constant="16" id="GS4-ak-9qR"/>
+                <constraint firstItem="C8s-I5-HyI" firstAttribute="bottom" secondItem="WQJ-vt-5xn" secondAttribute="bottom" id="GgT-Mg-UuQ"/>
                 <constraint firstItem="WQJ-vt-5xn" firstAttribute="top" secondItem="iYt-Mg-tst" secondAttribute="top" constant="16" id="Qkr-QL-l6r"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
