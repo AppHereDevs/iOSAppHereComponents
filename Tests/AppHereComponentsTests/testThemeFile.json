@@ -12,7 +12,19 @@
                 "backgroundColor": "#FFFFFF",
             },
             {
+                "key": "LabelTheme1",
+                "textColor": "#00000",
+                "backgroundColor": "#FFFFFF",
+            },
+            {
                 "key": "LabelThemeNoValue"
+            },
+            {
+                "key": "InformationViewTestTheme",
+                "backgroundColor": "#0000FF",
+                "firstLabelThemeKey": "LabelTheme1",
+                "secondLabelThemeKey": "LabelTheme1",
+                "maxLineWidth": 100
             }
         ]
     }
