@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public class AppHereTextView: UITextView, Themeable {
-//    typealias T =
+
     public var placeHolderText: String?
     public var themeDict: NSDictionary?
     
@@ -67,16 +67,26 @@ public class AppHereTextView: UITextView, Themeable {
     }
     
     @objc private func textViewDidBeginEditing(_ notification: NSNotification) {
-        if textColor == themeDict.placeHolderTextColor {
+        guard let themeDict = themeDict, let viewTheme = try? AppHereTextViewThemeModel(with: themeDict) else {
+            self.isHidden = true
+            return
+        }
+        
+        if textColor == UIColor.init(hexString: viewTheme.placeHolderTextColor) {
             text = ""
-            textColor = themeDict.textColor
+            textColor = UIColor.init(hexString: viewTheme.textColor)
         }
     }
     
     @objc private func textViewDidEndEditing(_ notification: NSNotification) {
+        guard let themeDict = themeDict, let viewTheme = try? AppHereTextViewThemeModel(with: themeDict) else {
+            self.isHidden = true
+            return
+        }
+        
         if text?.isEmpty ?? true {
             text = placeHolderText
-            textColor = themeDict.placeHolderTextColor
+            textColor = UIColor.init(hexString: viewTheme.placeHolderTextColor)
         }
     }
     
