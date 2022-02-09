@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class AppHereLabelThemeModel {
     static var defaultTextColor: String = "#FFFFF"
@@ -14,6 +15,7 @@ public class AppHereLabelThemeModel {
     var key: String
     var textColor: String
     var backgroundColor: String
+    var font: UIFont
    
     // TODO: Add remaining values
     
@@ -30,5 +32,8 @@ public class AppHereLabelThemeModel {
         self.key = themeDict.value(forKey: "key") as! String
         self.textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereLabelThemeModel.defaultTextColor
         self.backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereLabelThemeModel.defaultBackgroundColor
+        let fontName = themeDict.value(forKey: "fontName") as? String
+        let fontSize = themeDict.value(forKey: "fontSize") as? CGFloat
+        self.font = UIFont(name: fontName ?? "HelveticaNeue-Regular", size: fontSize ?? 16) ?? UIFont.systemFont(ofSize: 16)
     }
 }

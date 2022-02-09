@@ -34,7 +34,7 @@ public final class InformationView: AppHereComponentView {
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor!)
         firstInformationLabel.themeKey = viewTheme.firstLabelThemeKey
         secondInformationLabel.themeKey = viewTheme.secondLabelThemeKey
-        maxLineWidthConstraint.constant = viewTheme.maxLineWidth ?? view.bounds.width
+        maxLineWidthConstraint.constant = viewTheme.maxLineWidth ?? 200 // TODO: Change default value.
         
         // MARK: Setup view values with viewModel
         firstInformationLabel.text = viewModel.firstInformationText

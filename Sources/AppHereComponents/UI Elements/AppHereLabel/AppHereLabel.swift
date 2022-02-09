@@ -31,5 +31,6 @@ public class AppHereLabel: UILabel, Themeable {
 
         textColor = UIColor(hexString: viewTheme.textColor)
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
+        self.font = viewTheme.font
     }
 }
