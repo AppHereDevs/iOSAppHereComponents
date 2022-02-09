@@ -30,7 +30,11 @@ public final class InformationView: AppHereComponentView {
         }
         
         // MARK: Setup view's appearance with viewTheme
-        backgroundColor = UIColor(hexString: viewTheme.backgroundColor!)
+        if let backgroundColor = viewTheme.backgroundColor {
+            view.backgroundColor = UIColor(hexString: backgroundColor)
+        } else {
+            view.backgroundColor = UIColor.clear
+        }
         
         // MARK: Setup view values with viewModel
         if let firstInformationText = viewModel.firstInformationText {
@@ -41,8 +45,8 @@ public final class InformationView: AppHereComponentView {
         }
         
         if let secondInformationText = viewModel.secondInformationText {
-            secondInformationLabel.text = secondInformationText
             secondInformationLabel.themeKey = viewTheme.secondLabelThemeKey
+            secondInformationLabel.text = secondInformationText
         } else {
             secondInformationLabel.isHidden = true
         }
