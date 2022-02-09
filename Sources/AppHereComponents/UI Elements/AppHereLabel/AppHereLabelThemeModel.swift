@@ -14,6 +14,8 @@ public class AppHereLabelThemeModel {
     var key: String
     var textColor: String
     var backgroundColor: String
+    var fontName: String?
+    var fontSize: Float?
    
     // TODO: Add remaining values
     
@@ -30,5 +32,7 @@ public class AppHereLabelThemeModel {
         self.key = themeDict.value(forKey: "key") as! String
         self.textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereLabelThemeModel.defaultTextColor
         self.backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereLabelThemeModel.defaultBackgroundColor
+        self.fontName = themeDict.value(forKey: "fontName") as? String
+        self.fontSize = themeDict.value(forKey: "fontSize") as? Float
     }
 }

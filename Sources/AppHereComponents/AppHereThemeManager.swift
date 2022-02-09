@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreGraphics
 
 public class AppHereThemeManager {
     
@@ -52,4 +54,19 @@ public class AppHereThemeManager {
     public func getTheme(byKey key: String) -> NSDictionary? {
         return (AppHereThemeManager.themes.value(forKey:  key) as? NSDictionary)
     }
+    
+    public func getFont(fontName: String?, fontSize: Float?) -> UIFont {
+        let fontSizeCG = fontSize?.cgFloatValue ?? UIFont.systemFontSize
+        let defaultSystemFont = UIFont.systemFont(ofSize: fontSizeCG)
+        return UIFont(name: fontName ?? defaultSystemFont.fontName, size: fontSizeCG) ?? defaultSystemFont
+    }
+    
+    // TODO: Get color with name.
+    /*
+    public func getColor(name: "DarkBlack") -> UIColor {
+        let colorNameArray [String:String] = ["DarkBlack": "#124124"]
+        
+        
+        return UIColor(hexString: colorHex)
+    }*/
 }
