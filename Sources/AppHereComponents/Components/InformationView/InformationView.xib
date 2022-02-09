@@ -21,16 +21,16 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WQJ-vt-5xn">
-                    <rect key="frame" x="16" y="16" width="180" height="51"/>
+                    <rect key="frame" x="16" y="16" width="180" height="49"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2R-wH-ivK" customClass="AppHereLabel" customModule="AppHereComponents">
-                            <rect key="frame" x="0.0" y="0.0" width="180" height="21.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="180" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttT-m4-dWe" customClass="AppHereLabel" customModule="AppHereComponents">
-                            <rect key="frame" x="0.0" y="29.5" width="180" height="21.5"/>
+                            <rect key="frame" x="0.0" y="28.5" width="180" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -43,7 +43,6 @@
             <constraints>
                 <constraint firstItem="C8s-I5-HyI" firstAttribute="trailing" secondItem="WQJ-vt-5xn" secondAttribute="trailing" constant="16" id="2yd-wu-Mz2"/>
                 <constraint firstItem="WQJ-vt-5xn" firstAttribute="leading" secondItem="C8s-I5-HyI" secondAttribute="leading" constant="16" id="GS4-ak-9qR"/>
-                <constraint firstItem="C8s-I5-HyI" firstAttribute="bottom" secondItem="WQJ-vt-5xn" secondAttribute="bottom" constant="16" id="MNw-4E-Z6l"/>
                 <constraint firstItem="WQJ-vt-5xn" firstAttribute="top" secondItem="iYt-Mg-tst" secondAttribute="top" constant="16" id="Qkr-QL-l6r"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
