@@ -12,7 +12,6 @@ public final class InformationView: AppHereComponentView {
     // MARK: - IBOutlets
     @IBOutlet weak var firstInformationLabel: AppHereLabel!
     @IBOutlet weak var secondInformationLabel: AppHereLabel!
-    @IBOutlet weak var maxLineWidthConstraint: NSLayoutConstraint!
     
     public var viewModel: InformationViewModel? {
         didSet {
@@ -32,12 +31,20 @@ public final class InformationView: AppHereComponentView {
         
         // MARK: Setup view's appearance with viewTheme
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor!)
-        firstInformationLabel.themeKey = viewTheme.firstLabelThemeKey
-        secondInformationLabel.themeKey = viewTheme.secondLabelThemeKey
-        maxLineWidthConstraint.constant = viewTheme.maxLineWidth ?? 200 // TODO: Change default value.
         
         // MARK: Setup view values with viewModel
-        firstInformationLabel.text = viewModel.firstInformationText
-        secondInformationLabel.text = viewModel.secondInformationText
+        if let firstInformationText = viewModel.firstInformationText {
+            firstInformationLabel.themeKey = viewTheme.firstLabelThemeKey
+            firstInformationLabel.text = firstInformationText
+        } else {
+            firstInformationLabel.isHidden = true
+        }
+        
+        if let secondInformationText = viewModel.secondInformationText {
+            secondInformationLabel.text = secondInformationText
+            secondInformationLabel.themeKey = viewTheme.secondLabelThemeKey
+        } else {
+            secondInformationLabel.isHidden = true
+        }
     }
 }

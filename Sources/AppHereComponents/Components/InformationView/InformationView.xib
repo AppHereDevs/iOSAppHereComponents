@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InformationView">
             <connections>
                 <outlet property="firstInformationLabel" destination="D2R-wH-ivK" id="3R5-oa-cuo"/>
-                <outlet property="maxLineWidthConstraint" destination="sKR-PU-ldQ" id="gpg-8r-1oA"/>
                 <outlet property="secondInformationLabel" destination="ttT-m4-dWe" id="WVn-ce-ofS"/>
             </connections>
         </placeholder>
@@ -21,31 +21,29 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WQJ-vt-5xn">
-                    <rect key="frame" x="16" y="16" width="41.5" height="67"/>
+                    <rect key="frame" x="16" y="16" width="180" height="51"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2R-wH-ivK" customClass="AppHereLabel" customModule="AppHereComponents">
-                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="29.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="180" height="21.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttT-m4-dWe" customClass="AppHereLabel" customModule="AppHereComponents">
-                            <rect key="frame" x="0.0" y="37.5" width="41.5" height="29.5"/>
+                            <rect key="frame" x="0.0" y="29.5" width="180" height="21.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="41.5" id="sKR-PU-ldQ"/>
-                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="C8s-I5-HyI"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="C8s-I5-HyI" firstAttribute="trailing" secondItem="WQJ-vt-5xn" secondAttribute="trailing" constant="16" id="2yd-wu-Mz2"/>
                 <constraint firstItem="WQJ-vt-5xn" firstAttribute="leading" secondItem="C8s-I5-HyI" secondAttribute="leading" constant="16" id="GS4-ak-9qR"/>
-                <constraint firstItem="C8s-I5-HyI" firstAttribute="bottom" secondItem="WQJ-vt-5xn" secondAttribute="bottom" priority="999" id="GgT-Mg-UuQ"/>
+                <constraint firstItem="C8s-I5-HyI" firstAttribute="bottom" secondItem="WQJ-vt-5xn" secondAttribute="bottom" constant="16" id="MNw-4E-Z6l"/>
                 <constraint firstItem="WQJ-vt-5xn" firstAttribute="top" secondItem="iYt-Mg-tst" secondAttribute="top" constant="16" id="Qkr-QL-l6r"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

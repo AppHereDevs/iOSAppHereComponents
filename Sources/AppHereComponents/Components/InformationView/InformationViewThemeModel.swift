@@ -20,6 +20,5 @@ public class InformationViewThemeModel {
         backgroundColor = themeDict.value(forKey: "backgroundColor") as? String
         firstLabelThemeKey = themeDict.value(forKey: "firstLabelThemeKey") as? String
         secondLabelThemeKey = themeDict.value(forKey: "secondLabelThemeKey") as? String
-        maxLineWidth = themeDict.value(forKey: "maxLineWidth") as? Double
     }
 }
