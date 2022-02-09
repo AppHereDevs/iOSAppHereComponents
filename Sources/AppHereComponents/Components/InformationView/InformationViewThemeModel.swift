@@ -13,7 +13,6 @@ public class InformationViewThemeModel {
     var backgroundColor: String?
     var firstLabelThemeKey: String?
     var secondLabelThemeKey: String?
-    var maxLineWidth: Double?
     
     public init(with themeDict: NSDictionary) throws {
         key = themeDict.value(forKey: "key") as! String
