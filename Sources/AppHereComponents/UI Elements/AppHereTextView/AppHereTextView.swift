@@ -35,12 +35,49 @@ public class AppHereTextView: UITextView, Themeable {
     }
     
     private func configureLabelAppearance() {
-        guard let themeDict = themeDict, let viewTheme = try? AppHereLabelThemeModel(with: themeDict) else {
+        guard let themeDict = themeDict, let viewTheme = try? AppHereTextViewThemeModel(with: themeDict) else {
             self.isHidden = true
             return
         }
-
-        textColor = UIColor(hexString: viewTheme.textColor)
+        
+        textColor = UIColor(hexString: viewTheme.placeHolderTextColor)
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
+        font = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
+        
+        //TODO: Should add Text Alignment
+        /*
+        if let textAlignment = theme.textAlignment {
+            self.textAlignment = textAlignment
+        }
+        */
     }
+    
+    private func initComponent() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textViewDidBeginEditing(_:)),
+                                               name: UITextView.textDidBeginEditingNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(textViewDidEndEditing(_:)),
+                                               name: UITextView.textDidEndEditingNotification,
+                                               object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func textViewDidBeginEditing(_ notification: NSNotification) {
+        if textColor == themeDict.placeHolderTextColor {
+            text = ""
+            textColor = themeDict.textColor
+        }
+    }
+    
+    @objc private func textViewDidEndEditing(_ notification: NSNotification) {
+        if text?.isEmpty ?? true {
+            text = placeHolderText
+            textColor = themeDict.placeHolderTextColor
+        }
+    }
+    
 }
