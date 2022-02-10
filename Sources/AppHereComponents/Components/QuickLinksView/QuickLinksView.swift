@@ -35,7 +35,7 @@ public final class QuickLinksView: AppHereComponentView {
         textView.themeKey = viewTheme.textViewThemeKey
         
         // MARK: Setup view values with viewModel
-        titleLabel.text = viewModel.titles
+        titleLabel.text = viewModel.title
         textView.placeHolderText = "placeHolder"
         textView.resignFirstResponder()
     }
