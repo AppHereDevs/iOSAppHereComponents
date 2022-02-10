@@ -16,12 +16,12 @@ public struct AppHereLabelThemeModel {
     var backgroundColor: String
     var fontName: String?
     var fontSize: Float?
+    var cornerRadius: Float?
    
     // TODO: Add remaining values
     
     /*
     var numberOfLines: Int?
-    var cornerRadius: CGFloat?
     var textAlignment: NSTextAlignment*/
     
     // TODO: Research UILabel default values
@@ -32,5 +32,6 @@ public struct AppHereLabelThemeModel {
         self.backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereLabelThemeModel.defaultBackgroundColor
         self.fontName = themeDict.value(forKey: "fontName") as? String
         self.fontSize = themeDict.value(forKey: "fontSize") as? Float
+        self.cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
     }
 }

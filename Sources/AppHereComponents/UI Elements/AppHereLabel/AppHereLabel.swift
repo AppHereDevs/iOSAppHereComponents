@@ -32,5 +32,11 @@ public class AppHereLabel: UILabel, Themeable {
         textColor = UIColor(hexString: viewTheme.textColor)
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
         font = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
+        
+        if let cornerRadius = viewTheme.cornerRadius {
+            layer.cornerRadius = cornerRadius.CGFloatValue
+            layer.masksToBounds = true
+        }
+        
     }
 }
