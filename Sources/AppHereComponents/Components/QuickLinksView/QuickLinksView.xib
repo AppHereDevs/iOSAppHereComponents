@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuickLinksView" customModule="AppHereComponents">
             <connections>
+                <outlet property="textView" destination="Rtf-Aj-qyS" id="Pp3-mg-L0B"/>
                 <outlet property="titleLabel" destination="wMY-mT-3BM" id="xXa-gN-JKl"/>
             </connections>
         </placeholder>
@@ -25,18 +26,32 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rtf-Aj-qyS" customClass="AppHereTextView" customModule="AppHereComponents">
+                    <rect key="frame" x="20" y="176" width="424" height="128"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="wMY-mT-3BM" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Nge-m6-E7p"/>
+                <constraint firstItem="Rtf-Aj-qyS" firstAttribute="top" secondItem="wMY-mT-3BM" secondAttribute="bottom" constant="8" id="OoW-m9-IsL"/>
+                <constraint firstItem="Rtf-Aj-qyS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="bDe-AS-F6N"/>
                 <constraint firstItem="wMY-mT-3BM" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="dUh-E8-fjG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Rtf-Aj-qyS" secondAttribute="bottom" constant="11" id="olC-5F-6je"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Rtf-Aj-qyS" secondAttribute="trailing" constant="20" id="pZt-tF-0fw"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="173.91304347826087" y="-43.861607142857139"/>
+            <point key="canvasLocation" x="172.80000000000001" y="-44.527736131934034"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
