@@ -32,7 +32,7 @@ public class AppHereButton: UILabel, Themeable {
         textColor = UIColor(hexString: viewTheme.textColor)
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
         font = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
-        layer.cornerRadius = viewTheme.cornerRadius.nullableCGFloatValue
-        layer.borderWidth = viewTheme.borderWidth.nullableCGFloatValue
+        layer.cornerRadius = viewTheme.cornerRadius.valueOrEmpty.CGFloatValue
+        layer.borderWidth = viewTheme.borderWidth.valueOrEmpty.CGFloatValue
     }
 }
