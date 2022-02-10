@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import CoreGraphics
 
 public extension Float {
-    var cgFloatValue: CGFloat {
+    var CGFloatValue: CGFloat {
         return CGFloat(self)
     }
 }

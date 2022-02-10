@@ -7,9 +7,9 @@
 
 import Foundation
 
-public class AppHereLabelThemeModel {
+public struct AppHereLabelThemeModel {
     static var defaultTextColor: String = "#FFFFF"
-    static var defaultBackgroundColor: String = "#00000"
+    static var defaultBackgroundColor: String = "#00000000"
     
     var key: String
     var textColor: String
@@ -19,11 +19,9 @@ public class AppHereLabelThemeModel {
    
     // TODO: Add remaining values
     
-    /*var isUnderlined: Bool?
+    /*
     var numberOfLines: Int?
     var cornerRadius: CGFloat?
-    var letterSpacing: Double?
-    var layoutMargin: CGFloat
     var textAlignment: NSTextAlignment*/
     
     // TODO: Research UILabel default values

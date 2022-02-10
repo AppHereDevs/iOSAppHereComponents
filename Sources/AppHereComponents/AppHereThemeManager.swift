@@ -56,7 +56,7 @@ public class AppHereThemeManager {
     }
     
     public func getFont(fontName: String?, fontSize: Float?) -> UIFont {
-        let fontSizeCG = fontSize?.cgFloatValue ?? UIFont.systemFontSize
+        let fontSizeCG = fontSize?.CGFloatValue ?? UIFont.systemFontSize
         let defaultSystemFont = UIFont.systemFont(ofSize: fontSizeCG)
         return UIFont(name: fontName ?? defaultSystemFont.fontName, size: fontSizeCG) ?? defaultSystemFont
     }

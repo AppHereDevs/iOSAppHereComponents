@@ -11,13 +11,14 @@
                 "textColor": "#00000",
                 "backgroundColor": "#FFFFFF",
             },
+
             {
-                "key": "LabelTheme1",
-                "textColor": "#00000",
-                "backgroundColor": "#FFFFFF",
+                "key": "AppHereLabel-NoValue"
             },
             {
-                "key": "LabelThemeNoValue"
+                "key": "AppHereLabel-Values",
+                "textColor": "#00000",
+                "backgroundColor": "#FFFFFF",
             },
             {
                 "key": "InformationViewTestTheme",
@@ -25,6 +26,16 @@
                 "firstLabelThemeKey": "LabelTheme1",
                 "secondLabelThemeKey": "LabelTheme1",
                 "maxLineWidth": 100
+            },
+            {
+                "key": "AppHereButton-NoValue"
+            },
+            {
+                "key": "AppHereButton-Values",
+                "textColor": "#FFF000",
+                "backgroundColor": "#0CBFDC",
+                "cornerRadius": 8,
+                "borderWidth": 8
             }
         ]
     }

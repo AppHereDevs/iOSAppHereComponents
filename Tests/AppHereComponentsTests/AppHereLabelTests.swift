@@ -1,3 +1,10 @@
+//
+//  AppHereLabelTest.swift
+//
+//
+//  Created by Arda Onat on 19.12.2021.
+//
+
 import XCTest
 @testable import AppHereComponents
 
@@ -22,33 +29,33 @@ final class AppHereLabelTest: XCTestCase {
         let sut = AppHereLabel()
 
         // When
-        sut.themeKey = "LabelTheme1"
+        sut.themeKey = "AppHereLabel-NoValue"
 
         // Then
         XCTAssertNotNil(sut.themeDict)
         XCTAssertFalse(sut.isHidden)
     }
     
-    func testLabelAppearanceHasBeenSetWhenThemeDoesNotIncludeTextColor() {
+    func testLabelAppearanceWhenThemeDoesNotIncludeValues() {
         // Given
         setupAppThemeManager()
         let sut = AppHereLabel()
 
         // When
-        sut.themeKey = "LabelThemeNoValue"
+        sut.themeKey = "AppHereLabel-NoValue"
 
         // Then
         XCTAssertEqual(sut.backgroundColor, UIColor(hexString: AppHereLabelThemeModel.defaultBackgroundColor))
         XCTAssertEqual(sut.textColor, UIColor(hexString: AppHereLabelThemeModel.defaultTextColor))
     }
     
-    func testLabelAppearanceHasBeenSetWhenThemeIsFoundWithValues() {
+    func testLabelAppearanceWhenThemeIncludesValues() {
         // Given
         setupAppThemeManager()
         let sut = AppHereLabel()
 
         // When
-        sut.themeKey = "LabelTheme1"
+        sut.themeKey = "AppHereLabel-Values"
 
         // Then
         XCTAssertEqual(sut.backgroundColor, UIColor(hexString:"#FFFFFF"))
