@@ -66,9 +66,9 @@ public class AppHereTextView: UITextView, Themeable {
         NotificationCenter.default.addObserver(self, selector: #selector(textViewDidEndEditing(_:)),
                                                name: UITextView.textDidEndEditingNotification,
                                                object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(textViewDidChange(_:)),
-                                               name: UITextView.textDidChangeNotification,
-                                               object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(textViewDidChange(_:)),
+//                                               name: UITextView.textDidChangeNotification,
+//                                               object: nil)
     }
     
     deinit {
