@@ -8,7 +8,7 @@
 import UIKit
 import CoreModule
 
-public class AppHereButton: UILabel, Themeable {
+public class AppHereButton: UIButton, Themeable {
     
     public var themeDict: NSDictionary?
     
@@ -30,9 +30,9 @@ public class AppHereButton: UILabel, Themeable {
             return
         }
 
-        textColor = UIColor(hexString: viewTheme.textColor)
+        setTitleColor(UIColor(hexString: viewTheme.textColor), for: .normal)
+        titleLabel?.font = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
-        font = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
         layer.cornerRadius = viewTheme.cornerRadius.valueOrEmpty.CGFloatValue
         layer.borderWidth = viewTheme.borderWidth.valueOrEmpty.CGFloatValue
     }
