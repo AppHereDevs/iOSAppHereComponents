@@ -30,7 +30,7 @@ public class AppHereButton: UIButton, Themeable {
             return
         }
 
-        setTitleColor(UIColor(hexString: viewTheme.textColor), for: .normal)
+        titleLabel?.textColor = UIColor(hexString: viewTheme.textColor)
         titleLabel?.font = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
         layer.cornerRadius = viewTheme.cornerRadius.valueOrEmpty.CGFloatValue
