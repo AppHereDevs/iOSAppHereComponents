@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreModule
 
 public class AppHereButton: UILabel, Themeable {
     

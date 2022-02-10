@@ -8,7 +8,7 @@
 import Foundation
 
 public struct AppHereButtonThemeModel {
-    static var defaultTextColor: String = "#FFFFF"
+    static var defaultTextColor: String = "#FFFFFFF"
     static var defaultBackgroundColor: String = "#000000"
     
     var key: String
@@ -23,8 +23,8 @@ public struct AppHereButtonThemeModel {
     
     public init(with themeDict: NSDictionary) throws {
         self.key = themeDict.value(forKey: "key") as! String
-        self.textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereLabelThemeModel.defaultTextColor
-        self.backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereLabelThemeModel.defaultBackgroundColor
+        self.textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereButtonThemeModel.defaultTextColor
+        self.backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereButtonThemeModel.defaultBackgroundColor
         self.fontName = themeDict.value(forKey: "fontName") as? String
         self.fontSize = themeDict.value(forKey: "fontSize") as? Float
         self.cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
