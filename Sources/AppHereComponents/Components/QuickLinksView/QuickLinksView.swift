@@ -12,6 +12,7 @@ public final class QuickLinksView: AppHereComponentView {
     // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: AppHereLabel!
     @IBOutlet weak var textView: AppHereTextView!
+    @IBOutlet weak var textField: AppHereTextField!
     
     public var viewModel: QuickLinksViewModel? {
         didSet {
@@ -38,5 +39,8 @@ public final class QuickLinksView: AppHereComponentView {
         titleLabel.text = viewModel.title
         textView.placeHolderText = "placeHolder"
         textView.resignFirstResponder()
+        textField.placeholder = "Telefon Numaranızı Giriniz.."
+        textField.regexPattern = "LL LLL L"
+        textField.keyboardType = .default
     }
 }
