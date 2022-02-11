@@ -17,7 +17,16 @@ public class AppHereCheckboxView: AppHereComponentView {
     @IBOutlet weak var checkboxImageView: UIImageView!
     @IBOutlet weak var informationLabel: AppHereLabel!
     
-    private var isChecked: Bool = false
+    public var isChecked: Bool? = false {
+        didSet {
+            guard let isChecked = isChecked else {
+                return
+            }
+
+            checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
+        }
+    }
+    
     private var checkboxDefaultImageName: String = ""
     private var checkboxSelectedImageName: String = ""
     
@@ -60,14 +69,6 @@ public class AppHereCheckboxView: AppHereComponentView {
         checkboxDefaultImageName =  viewModel.checkboxDefaultImageName.valueOrEmpty
         checkboxSelectedImageName = viewModel.checkboxSelectedImageName.valueOrEmpty
         checkboxImageView.image = UIImage(named: checkboxDefaultImageName)
-        
-        checkboxButton.addTarget(self, action: #selector(checkboxButtonPressed), for:.touchUpInside)
-    }
-    
-    @objc func checkboxButtonPressed() {
-        isChecked  = !isChecked
-        
-        checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
     }
 }
 
