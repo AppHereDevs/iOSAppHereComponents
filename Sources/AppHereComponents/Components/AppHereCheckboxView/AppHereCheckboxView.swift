@@ -65,6 +65,6 @@ public class AppHereCheckboxView: AppHereComponentView {
     @IBAction func checkboxButtonPressed(_ sender: Any) {
         isChecked  = !isChecked
         
-        checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxSelectedImageName)
+        checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
     }
 }
