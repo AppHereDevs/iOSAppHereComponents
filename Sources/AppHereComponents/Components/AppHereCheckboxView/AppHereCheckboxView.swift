@@ -60,11 +60,14 @@ public class AppHereCheckboxView: AppHereComponentView {
         checkboxDefaultImageName =  viewModel.checkboxDefaultImageName.valueOrEmpty
         checkboxSelectedImageName = viewModel.checkboxSelectedImageName.valueOrEmpty
         checkboxImageView.image = UIImage(named: checkboxDefaultImageName)
+        
+        checkboxButton.addTarget(self, action: #selector(checkboxButtonPressed), for:.touchUpInside)
     }
     
-    @IBAction func checkboxButtonPressed(_ sender: Any) {
+    @objc func checkboxButtonPressed() {
         isChecked  = !isChecked
         
         checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
     }
 }
+
