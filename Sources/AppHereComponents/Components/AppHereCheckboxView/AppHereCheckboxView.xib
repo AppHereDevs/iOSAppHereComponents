@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,6 +14,7 @@
                 <outlet property="bottomConstraint" destination="fms-Tc-riw" id="0SW-RN-f0a"/>
                 <outlet property="checkboxButton" destination="fKW-d1-iej" id="U9f-0I-dIy"/>
                 <outlet property="checkboxImageView" destination="b7Z-NN-q6W" id="tfs-G7-CYb"/>
+                <outlet property="componentStackView" destination="WVf-Ye-Rc0" id="B4Z-rg-y7L"/>
                 <outlet property="informationLabel" destination="K2K-u4-Fq0" id="4ZA-rd-WLw"/>
                 <outlet property="leadingConstraint" destination="NIX-cB-mE5" id="LMd-AQ-9d1"/>
                 <outlet property="topConstraint" destination="uWS-Yw-yiv" id="cMV-yl-Bu4"/>
@@ -24,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="489" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="WVf-Ye-Rc0">
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WVf-Ye-Rc0">
                     <rect key="frame" x="16" y="16" width="457" height="50"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b7Z-NN-q6W">
@@ -35,7 +37,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2K-u4-Fq0" customClass="AppHereLabel" customModule="AppHereComponents">
-                            <rect key="frame" x="66" y="0.0" width="391" height="50"/>
+                            <rect key="frame" x="54" y="0.0" width="403" height="50"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

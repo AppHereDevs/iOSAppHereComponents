@@ -16,6 +16,7 @@ public class AppHereCheckboxView: AppHereComponentView {
     @IBOutlet weak var checkboxButton: AppHereButton!
     @IBOutlet weak var checkboxImageView: UIImageView!
     @IBOutlet weak var informationLabel: AppHereLabel!
+    @IBOutlet weak var componentStackView: UIStackView!
     
     private var isChecked: Bool = false
     private var checkboxDefaultImageName: String = ""
@@ -52,6 +53,7 @@ public class AppHereCheckboxView: AppHereComponentView {
         bottomConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
         topConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
         leadingConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
+        componentStackView.spacing = viewTheme.stackViewSpacing.valueOrEmpty.CGFloatValue
         informationLabel.themeKey = viewTheme.informationLabelThemeKey
         checkboxButton.themeKey = viewTheme.checkBoxButtonThemeKey
         

@@ -17,6 +17,7 @@ public class AppHereCheckboxViewThemeModel {
     var informationLabelThemeKey: String?
     var checkBoxButtonThemeKey: String?
     var inset: Float?
+    var stackViewSpacing: Float?
     
     public init(with themeDict: NSDictionary) throws {
         
@@ -26,5 +27,6 @@ public class AppHereCheckboxViewThemeModel {
         self.informationLabelThemeKey = themeDict.value(forKey: "informationLabelThemeKey") as? String
         self.checkBoxButtonThemeKey = themeDict.value(forKey: "checkBoxButtonThemeKey") as? String
         self.inset = themeDict.value(forKey: "inset") as? Float
+        self.stackViewSpacing = themeDict.value(forKey: "stackViewSpacing") as? Float
     }
 }
