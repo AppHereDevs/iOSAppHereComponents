@@ -11,7 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHereInputView">
             <connections>
-                <outlet property="bottomConstraint" destination="ppk-mH-UpU" id="nJB-9C-XyZ"/>
+                <outlet property="bottomConstraint" destination="era-zO-20v" id="gxj-zN-cGT"/>
+                <outlet property="errorLabel" destination="81i-cS-94q" id="4xr-fR-XuX"/>
                 <outlet property="inputTextField" destination="87n-Nw-A2j" id="ulh-jH-aKB"/>
                 <outlet property="leadingConstraint" destination="Sse-EX-7fL" id="2uS-gB-DpH"/>
                 <outlet property="phoneLabel" destination="27j-sM-47g" id="hLl-CH-0o1"/>
@@ -22,26 +23,26 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="NX1-0t-Oor">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BTA-cs-igo">
-                    <rect key="frame" x="16" y="16" width="382" height="154"/>
+                <stackView opaque="NO" contentMode="top" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BTA-cs-igo">
+                    <rect key="frame" x="16" y="16" width="382" height="91.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zx7-To-jyb" customClass="AppHereLabel" customModule="AppHereComponents">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="73"/>
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="42"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZjN-VH-eKT">
-                            <rect key="frame" x="0.0" y="81" width="382" height="73"/>
+                            <rect key="frame" x="0.0" y="50" width="382" height="41.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWl-nr-qgK">
-                                    <rect key="frame" x="0.0" y="0.0" width="73" height="73"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="42" height="41.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27j-sM-47g" customClass="AppHereLabel" customModule="AppHereComponents">
-                                            <rect key="frame" x="0.0" y="0.0" width="73" height="73"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="42" height="41.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -57,7 +58,7 @@
                                     </constraints>
                                 </view>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="87n-Nw-A2j" customClass="AppHereTextField" customModule="AppHereComponents">
-                                    <rect key="frame" x="89" y="0.0" width="293" height="73"/>
+                                    <rect key="frame" x="58" y="0.0" width="324" height="41.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -71,17 +72,26 @@
                         <constraint firstAttribute="trailing" secondItem="Zx7-To-jyb" secondAttribute="trailing" id="uNI-Cr-Ck1"/>
                     </constraints>
                 </stackView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81i-cS-94q" customClass="AppHereLabel" customModule="AppHereComponents">
+                    <rect key="frame" x="16" y="115.5" width="382" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="kXP-dm-401"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="BTA-cs-igo" firstAttribute="top" secondItem="NX1-0t-Oor" secondAttribute="top" constant="16" id="2YW-iA-jBj"/>
+                <constraint firstItem="81i-cS-94q" firstAttribute="top" secondItem="BTA-cs-igo" secondAttribute="bottom" constant="8" id="32F-9g-H17"/>
                 <constraint firstItem="kXP-dm-401" firstAttribute="trailing" secondItem="BTA-cs-igo" secondAttribute="trailing" constant="16" id="Dg1-Pn-xhy"/>
                 <constraint firstItem="BTA-cs-igo" firstAttribute="leading" secondItem="kXP-dm-401" secondAttribute="leading" constant="16" id="Sse-EX-7fL"/>
-                <constraint firstItem="kXP-dm-401" firstAttribute="bottom" secondItem="BTA-cs-igo" secondAttribute="bottom" constant="16" id="ppk-mH-UpU"/>
+                <constraint firstItem="81i-cS-94q" firstAttribute="leading" secondItem="kXP-dm-401" secondAttribute="leading" constant="16" id="Xxd-KU-rsU"/>
+                <constraint firstItem="kXP-dm-401" firstAttribute="bottom" secondItem="81i-cS-94q" secondAttribute="bottom" constant="8" id="era-zO-20v"/>
+                <constraint firstItem="kXP-dm-401" firstAttribute="trailing" secondItem="81i-cS-94q" secondAttribute="trailing" constant="16" id="l51-Yg-q6z"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-146.37681159420291" y="-34.151785714285715"/>
+            <point key="canvasLocation" x="-146.37681159420291" y="-38.169642857142854"/>
         </view>
     </objects>
     <resources>
