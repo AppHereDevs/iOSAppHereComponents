@@ -9,6 +9,15 @@
           "revision": "2b05999dbea4bb22dab2e0d251d2648050be24da",
           "version": "1.1.6"
         }
+      },
+      {
+        "package": "Validator",
+        "repositoryURL": "https://github.com/adamwaite/Validator.git",
+        "state": {
+          "branch": "master",
+          "revision": "8dacfee6a28b1b8ffe3aa082b0647328dde454d7",
+          "version": null
+        }
       }
     ]
   },
