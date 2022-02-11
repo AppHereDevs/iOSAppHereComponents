@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHereCheckboxView" customModule="AppHereComponents">
+            <connections>
+                <outlet property="bottomConstraint" destination="fms-Tc-riw" id="8rm-l5-B8T"/>
+                <outlet property="checkboxButton" destination="fKW-d1-iej" id="zEx-5f-u0s"/>
+                <outlet property="checkboxImageView" destination="b7Z-NN-q6W" id="bnK-D2-edx"/>
+                <outlet property="informationLabel" destination="K2K-u4-Fq0" id="fgb-Mk-4f8"/>
+                <outlet property="leadingConstraint" destination="NIX-cB-mE5" id="a5j-0k-U4m"/>
+                <outlet property="topConstraint" destination="uWS-Yw-yiv" id="MNv-B1-Uje"/>
+                <outlet property="trailingConstraint" destination="odX-Sr-OXZ" id="h3Q-pK-Wtn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Uw8-Vp-UhB">
+            <rect key="frame" x="0.0" y="0.0" width="489" height="82"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="WVf-Ye-Rc0">
+                    <rect key="frame" x="16" y="16" width="457" height="50"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b7Z-NN-q6W">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="oaI-eb-rhC"/>
+                                <constraint firstAttribute="height" constant="50" id="yiU-sK-bZ5"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2K-u4-Fq0" customClass="AppHereLabel" customModule="AppHereComponents">
+                            <rect key="frame" x="66" y="0.0" width="391" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKW-d1-iej" customClass="AppHereButton" customModule="AppHereComponents">
+                    <rect key="frame" x="16" y="16" width="50" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="checkboxButtonPressed:" destination="-1" eventType="touchUpInside" id="I9I-vG-9hX"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="xAU-cx-96O"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fKW-d1-iej" firstAttribute="centerY" secondItem="b7Z-NN-q6W" secondAttribute="centerY" id="GlL-l5-ibY"/>
+                <constraint firstItem="WVf-Ye-Rc0" firstAttribute="leading" secondItem="xAU-cx-96O" secondAttribute="leading" constant="16" id="NIX-cB-mE5"/>
+                <constraint firstItem="fKW-d1-iej" firstAttribute="width" secondItem="b7Z-NN-q6W" secondAttribute="width" id="PDF-6t-Y64"/>
+                <constraint firstAttribute="bottom" secondItem="WVf-Ye-Rc0" secondAttribute="bottom" constant="16" id="fms-Tc-riw"/>
+                <constraint firstItem="fKW-d1-iej" firstAttribute="height" secondItem="b7Z-NN-q6W" secondAttribute="height" id="jLw-HA-xTv"/>
+                <constraint firstItem="xAU-cx-96O" firstAttribute="trailing" secondItem="WVf-Ye-Rc0" secondAttribute="trailing" constant="16" id="odX-Sr-OXZ"/>
+                <constraint firstItem="fKW-d1-iej" firstAttribute="centerX" secondItem="b7Z-NN-q6W" secondAttribute="centerX" id="pDT-mB-rXc"/>
+                <constraint firstItem="WVf-Ye-Rc0" firstAttribute="top" secondItem="Uw8-Vp-UhB" secondAttribute="top" constant="16" id="uWS-Yw-yiv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="78.985507246376812" y="83.705357142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
