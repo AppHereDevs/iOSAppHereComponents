@@ -17,8 +17,6 @@ public class AppHereCheckboxView: AppHereComponentView {
     @IBOutlet weak var checkboxImageView: UIImageView!
     @IBOutlet weak var informationLabel: AppHereLabel!
     
-    var checkboxButtonClicked: (() -> ())?
-    
     private var isChecked: Bool = false
     private var checkboxDefaultImageName: String = ""
     private var checkboxSelectedImageName: String = ""

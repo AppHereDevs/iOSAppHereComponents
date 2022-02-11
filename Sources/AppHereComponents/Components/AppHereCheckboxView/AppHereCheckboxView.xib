@@ -11,17 +11,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHereCheckboxView" customModule="AppHereComponents">
             <connections>
-                <outlet property="bottomConstraint" destination="fms-Tc-riw" id="8rm-l5-B8T"/>
-                <outlet property="checkboxButton" destination="fKW-d1-iej" id="D3f-Be-oUu"/>
-                <outlet property="checkboxImageView" destination="b7Z-NN-q6W" id="bnK-D2-edx"/>
-                <outlet property="informationLabel" destination="K2K-u4-Fq0" id="fgb-Mk-4f8"/>
-                <outlet property="leadingConstraint" destination="NIX-cB-mE5" id="a5j-0k-U4m"/>
-                <outlet property="topConstraint" destination="uWS-Yw-yiv" id="MNv-B1-Uje"/>
-                <outlet property="trailingConstraint" destination="odX-Sr-OXZ" id="h3Q-pK-Wtn"/>
+                <outlet property="bottomConstraint" destination="fms-Tc-riw" id="0SW-RN-f0a"/>
+                <outlet property="checkboxButton" destination="fKW-d1-iej" id="U9f-0I-dIy"/>
+                <outlet property="checkboxImageView" destination="b7Z-NN-q6W" id="tfs-G7-CYb"/>
+                <outlet property="informationLabel" destination="K2K-u4-Fq0" id="4ZA-rd-WLw"/>
+                <outlet property="leadingConstraint" destination="NIX-cB-mE5" id="LMd-AQ-9d1"/>
+                <outlet property="topConstraint" destination="uWS-Yw-yiv" id="cMV-yl-Bu4"/>
+                <outlet property="trailingConstraint" destination="odX-Sr-OXZ" id="N1c-AN-N08"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Uw8-Vp-UhB" customClass="AppHereCheckboxView" customModule="AppHereComponents">
+        <view contentMode="scaleToFill" id="Uw8-Vp-UhB">
             <rect key="frame" x="0.0" y="0.0" width="489" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -48,9 +48,6 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain"/>
-                    <connections>
-                        <action selector="checkBoxButtonPressed:" destination="-1" eventType="touchUpInside" id="fw9-MZ-put"/>
-                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="xAU-cx-96O"/>
