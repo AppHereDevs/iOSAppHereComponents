@@ -7,7 +7,6 @@
 
 import XCTest
 @testable import AppHereComponents
-import UIKit
 
 final class AppHereButtonTest: XCTestCase {
 
