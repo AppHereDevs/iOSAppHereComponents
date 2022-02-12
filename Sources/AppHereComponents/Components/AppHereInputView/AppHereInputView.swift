@@ -88,11 +88,16 @@ public final class AppHereInputView: AppHereComponentView {
         inputTextField.keyboardType = viewModel.keyboardType
         
         if let righImage = viewModel.textFieldRightImageName {
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
-            let image = UIImage(named: righImage)
-            imageView.image = image
+            let rightImageView = UIImageView()
+            rightImageView.image = UIImage(named: righImage)
+
+            let rightView = UIView()
+            rightView.addSubview(rightImageView)
+
+            rightView.frame = CGRect(x: 0, y: 0, width: 30, height: 20)
+            rightImageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
             inputTextField.rightViewMode = UITextField.ViewMode.always
-            inputTextField.rightView = imageView
+            inputTextField.rightView = rightView
         }
     }
     
