@@ -18,6 +18,7 @@ public final class AppHereInputView: AppHereComponentView {
     @IBOutlet weak var phoneLabel: AppHereLabel!
     @IBOutlet weak var inputTextField: AppHereTextField!
     @IBOutlet weak var errorLabel: AppHereLabel!
+    @IBOutlet weak var phoneLabelView: UIView!
     
     public var isValid: Bool = false
     
@@ -67,6 +68,7 @@ public final class AppHereInputView: AppHereComponentView {
             phoneLabel.text = phoneText
         } else {
             phoneLabel.isHidden = true
+            phoneLabelView.isHidden = true
         }
         
         if let errorText = viewModel.errorLabelText {
@@ -84,6 +86,19 @@ public final class AppHereInputView: AppHereComponentView {
         }
         
         inputTextField.keyboardType = viewModel.keyboardType
+        
+        if let righImage = viewModel.textFieldRightImageName {
+            let rightImageView = UIImageView()
+            rightImageView.image = UIImage(named: righImage)
+
+            let rightView = UIView()
+            rightView.addSubview(rightImageView)
+
+            rightView.frame = CGRect(x: 0, y: 0, width: 30, height: 20)
+            rightImageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+            inputTextField.rightViewMode = UITextField.ViewMode.always
+            inputTextField.rightView = rightView
+        }
     }
     
     public func setValidationRuleSet(_ patternType: PatternType) {
