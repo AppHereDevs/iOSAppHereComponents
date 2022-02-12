@@ -47,7 +47,7 @@ public class AppHereCheckboxView: AppHereComponentView {
             layer.masksToBounds = true
         }
         
-        // MARK: Setup view insets
+        // MARK: Setup view's appearance with viewTheme
         checkboxButton.setTitle("", for: .normal)
         trailingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
         bottomConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
