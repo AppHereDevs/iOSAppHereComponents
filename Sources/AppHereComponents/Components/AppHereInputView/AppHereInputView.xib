@@ -49,7 +49,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="27j-sM-47g" firstAttribute="centerY" secondItem="lWl-nr-qgK" secondAttribute="centerY" id="3Ch-4l-BzG"/>
                                         <constraint firstItem="27j-sM-47g" firstAttribute="centerX" secondItem="lWl-nr-qgK" secondAttribute="centerX" id="8s6-CR-p7S"/>
