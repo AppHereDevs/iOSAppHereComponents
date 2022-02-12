@@ -15,6 +15,7 @@ public struct AppHereInputViewModel {
     var regex: String?
     var keyboardType: UIKeyboardType
     let validationModel: ValidationModel?
+    let textFieldRightImageName: String?
     
     public init(title: String? = nil,
                 phoneLabelText: String? = nil,
@@ -22,7 +23,8 @@ public struct AppHereInputViewModel {
                 placeholder: String,
                 regex: String? = nil,
                 keyboardType: UIKeyboardType = .default,
-                validationModel: ValidationModel? = nil) {
+                validationModel: ValidationModel? = nil,
+                textFieldRightImageName: String? = nil) {
         
         self.title = title
         self.phoneLabelText = phoneLabelText
@@ -31,6 +33,7 @@ public struct AppHereInputViewModel {
         self.keyboardType = keyboardType
         self.errorLabelText = errorLabelText
         self.validationModel = validationModel
+        self.textFieldRightImageName = textFieldRightImageName
     }
     
     public struct ValidationModel {
