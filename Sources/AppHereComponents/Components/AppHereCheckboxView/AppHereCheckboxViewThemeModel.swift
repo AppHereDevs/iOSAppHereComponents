@@ -16,7 +16,8 @@ public class AppHereCheckboxViewThemeModel {
     var cornerRadius: Float?
     var informationLabelThemeKey: String?
     var checkBoxButtonThemeKey: String?
-    var inset: Float?
+    var verticalInset: Float?
+    var horizontalInset: Float?
     var stackViewSpacing: Float?
     
     public init(with themeDict: NSDictionary) throws {
@@ -26,7 +27,8 @@ public class AppHereCheckboxViewThemeModel {
         self.cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
         self.informationLabelThemeKey = themeDict.value(forKey: "informationLabelThemeKey") as? String
         self.checkBoxButtonThemeKey = themeDict.value(forKey: "checkBoxButtonThemeKey") as? String
-        self.inset = themeDict.value(forKey: "inset") as? Float
+        self.verticalInset = themeDict.value(forKey: "verticalInset") as? Float
+        self.horizontalInset = themeDict.value(forKey: "horizontalInset") as? Float
         self.stackViewSpacing = themeDict.value(forKey: "stackViewSpacing") as? Float
     }
 }

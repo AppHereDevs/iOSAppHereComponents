@@ -46,10 +46,10 @@ public final class AppHereInputView: AppHereComponentView {
         }
         
         // MARK: Setup view insets
-        trailingConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
-        bottomConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
-        topConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
-        leadingConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
+        trailingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
+        bottomConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
+        topConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
+        leadingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
         titleLabel.themeKey = viewTheme.titleLabelThemeKey
         inputTextField.themeKey = viewTheme.inputTextFieldThemeKey
         phoneLabel.themeKey = viewTheme.phoneLabelThemeKey

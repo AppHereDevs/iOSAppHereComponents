@@ -49,10 +49,10 @@ public class AppHereCheckboxView: AppHereComponentView {
         
         // MARK: Setup view insets
         checkboxButton.setTitle("", for: .normal)
-        trailingConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
-        bottomConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
-        topConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
-        leadingConstraint.constant = viewTheme.inset.valueOrEmpty.CGFloatValue
+        trailingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
+        bottomConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
+        topConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
+        leadingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
         componentStackView.spacing = viewTheme.stackViewSpacing.valueOrEmpty.CGFloatValue
         informationLabel.themeKey = viewTheme.informationLabelThemeKey
         checkboxButton.themeKey = viewTheme.checkBoxButtonThemeKey
