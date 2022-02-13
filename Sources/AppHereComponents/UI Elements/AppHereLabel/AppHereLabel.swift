@@ -46,7 +46,7 @@ public class AppHereLabel: UILabel, Themeable {
     
     public func startCountdown(from seconds: Int, completion: (() -> ())?) {
         isHidden = false
-        text = String(seconds)
+        text = seconds.timerString
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
         
         self.countDownSeconds = seconds
