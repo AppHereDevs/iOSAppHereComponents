@@ -9,9 +9,10 @@ import UIKit
 
 public class AppHereLabel: UILabel, Themeable {
     
-    public var themeDict: NSDictionary?
+    // MARK: Countdown variable
+    private var countDownSeconds: Int = 0
     
-    private var seconds: Int = 0
+    public var themeDict: NSDictionary?
     
     public var themeKey: String? {
         didSet {
@@ -42,14 +43,15 @@ public class AppHereLabel: UILabel, Themeable {
         
     }
     
-    public func startTimer(seconds: Int) {
-        self.seconds = seconds
-        var timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+    public func startCountdown(from seconds: Int) {
+        isHidden = false
+        self.countDownSeconds = seconds
+        _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     }
     
     @objc func update() {
-        seconds -= 1
-        self.text = seconds.timerString
+        self.countDownSeconds -= 1
+        self.text = countDownSeconds.timerString
     }
 }
 
