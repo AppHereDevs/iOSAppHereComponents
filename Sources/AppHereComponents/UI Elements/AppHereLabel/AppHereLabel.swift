@@ -16,7 +16,7 @@ public class AppHereLabel: UILabel, Themeable {
     
     public var themeDict: NSDictionary?
     
-    public var themeKey: String? {
+    @IBInspectable public var themeKey: String? {
         didSet {
             guard let themeKey = themeKey, let themeDict = AppHereThemeManager.shared.getTheme(byKey: themeKey) else {
                 self.isHidden = true
