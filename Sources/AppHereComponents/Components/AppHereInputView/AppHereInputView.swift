@@ -16,7 +16,7 @@ public final class AppHereInputView: AppHereComponentView {
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: AppHereLabel!
     @IBOutlet weak var phoneLabel: AppHereLabel!
-    @IBOutlet weak var inputTextField: AppHereTextField!
+    @IBOutlet public weak var inputTextField: AppHereTextField!
     @IBOutlet weak var errorLabel: AppHereLabel!
     @IBOutlet weak var phoneLabelView: UIView!
     
