@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AppHereInformationView.swift
 //  
 //
 //  Created by Arda Onat on 8.02.2022.
@@ -7,13 +7,17 @@
 
 import UIKit
 
-public final class InformationView: AppHereComponentView {
+public final class AppHereInformationView: AppHereComponentView {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var firstInformationLabel: AppHereLabel!
     @IBOutlet weak var secondInformationLabel: AppHereLabel!
     
-    public var viewModel: InformationViewModel? {
+    public var viewModel: AppHereInformationViewModel? {
         didSet {
             guard let viewModel = viewModel else {
                 self.isHidden = true
@@ -23,8 +27,8 @@ public final class InformationView: AppHereComponentView {
         }
     }
     
-    private func setupView(with viewModel: InformationViewModel) {
-        guard let themeDict = themeDict, let viewTheme = try? InformationViewThemeModel(with: themeDict) else {
+    private func setupView(with viewModel: AppHereInformationViewModel) {
+        guard let themeDict = themeDict, let viewTheme = try? AppHereInformationViewThemeModel(with: themeDict) else {
             self.isHidden = true
             return
         }
@@ -35,6 +39,10 @@ public final class InformationView: AppHereComponentView {
         } else {
             view.backgroundColor = UIColor.clear
         }
+        trailingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
+        bottomConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
+        topConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
+        leadingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
         
         // MARK: Setup view values with viewModel
         if let firstInformationText = viewModel.firstInformationText {
