@@ -44,7 +44,7 @@ public class AppHereLabel: UILabel, Themeable {
     
     public func startTimer(seconds: Int) {
         self.seconds = seconds
-        var timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerText), userInfo: nil, repeats: true)
+        var timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     }
     
     @objc func update() {
@@ -57,6 +57,6 @@ extension Int {
     var timerString: String {
         let minutes = self / 60 % 60
         let seconds = self % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+        return String(format:"%02i:%02i", minutes, seconds)
     }
 }
