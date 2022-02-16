@@ -151,10 +151,13 @@ extension AppHereInputView: UserInputtable {
             let isValid = inputText.count > 0
             
             if isValid {
-                errorLabel.isHidden = true
+                inputTextField.layer.borderWidth = 0
+                //errorLabel.isHidden = true
             } else {
-                errorLabel.isHidden = false
-                showError()
+                inputTextField.layer.borderColor = UIColor.red.cgColor
+                inputTextField.layer.borderWidth = 3.0
+                //errorLabel.isHidden = false
+                //showError()
             }
             return isValid
         }
