@@ -73,12 +73,16 @@ public class AppHereCheckboxView: AppHereComponentView {
 extension AppHereCheckboxView: UserInputtable {
     
     public var isValidInput: Bool {
-        get {
-            return isChecked
-        }
+        return isChecked
+    }
+    
+    public func hideError() {
+        checkboxButton.layer.borderWidth = 0
     }
     
     public func showError() {
-        // TODO: Add error label 
+        checkboxButton.layer.borderColor = UIColor(hexString: "B84D97").cgColor
+        checkboxButton.layer.borderWidth = 3.0
+        checkboxButton.layer.cornerRadius = 5
     }
 }
