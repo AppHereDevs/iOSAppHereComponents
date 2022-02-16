@@ -7,6 +7,7 @@
 
 import UIKit
 import Validator
+import CoreModule
 
 public final class AppHereInputView: AppHereComponentView {
     
