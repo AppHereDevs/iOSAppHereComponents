@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreModule
 
 public class AppHereCheckboxView: AppHereComponentView {
     
@@ -21,7 +22,6 @@ public class AppHereCheckboxView: AppHereComponentView {
     private var isChecked: Bool = false
     private var checkboxDefaultImageName: String = ""
     private var checkboxSelectedImageName: String = ""
-    
     
     public var viewModel: AppHereCheckboxViewModel? {
         didSet {
@@ -67,5 +67,18 @@ public class AppHereCheckboxView: AppHereComponentView {
     @IBAction func checkBoxButtonPressed(_ sender: Any) {
         isChecked = !isChecked
         checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
+    }
+}
+
+extension AppHereCheckboxView: UserInputtable {
+    
+    public var isValidInput: Bool {
+        get {
+            return isChecked
+        }
+    }
+    
+    public func showError() {
+        // TODO: Add error label 
     }
 }
