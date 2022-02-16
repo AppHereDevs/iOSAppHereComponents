@@ -6,14 +6,16 @@
 //
 
 public struct AppHereCheckboxViewModel {
-    var checkboxDefaultImageName: String?
-    var checkboxSelectedImageName: String?
+    var checkboxDefaultImageName: String
+    var checkboxSelectedImageName: String
+    var checkboxErrorImageName: String
     var informationText: String
     
-    public init(checkboxDefaultImageName: String, checkboxSelectedImageName: String, informationText: String) {
+    public init(checkboxDefaultImageName: String, checkboxSelectedImageName: String, checkboxErrorImageName: String, informationText: String) {
         
         self.checkboxDefaultImageName = checkboxDefaultImageName
         self.checkboxSelectedImageName = checkboxSelectedImageName
+        self.checkboxErrorImageName = checkboxErrorImageName
         self.informationText = informationText
     }
 }

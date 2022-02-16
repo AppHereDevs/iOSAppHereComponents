@@ -22,6 +22,7 @@ public class AppHereCheckboxView: AppHereComponentView {
     private var isChecked: Bool = false
     private var checkboxDefaultImageName: String = ""
     private var checkboxSelectedImageName: String = ""
+    private var checkboxErrorImageName: String = ""
     
     public var viewModel: AppHereCheckboxViewModel? {
         didSet {
@@ -59,8 +60,9 @@ public class AppHereCheckboxView: AppHereComponentView {
         
         // MARK: Setup view values with viewModel
         informationLabel.text = viewModel.informationText
-        checkboxDefaultImageName =  viewModel.checkboxDefaultImageName.valueOrEmpty
-        checkboxSelectedImageName = viewModel.checkboxSelectedImageName.valueOrEmpty
+        checkboxDefaultImageName =  viewModel.checkboxDefaultImageName
+        checkboxSelectedImageName = viewModel.checkboxSelectedImageName
+        checkboxErrorImageName = viewModel.checkboxErrorImageName
         checkboxImageView.image = UIImage(named: checkboxDefaultImageName)
     }
     
@@ -82,12 +84,6 @@ extension AppHereCheckboxView: UserInputtable {
     }
     
     public func showError() {
-        checkboxButton.layer.borderColor = UIColor(hexString: "B84D97").cgColor
-        checkboxButton.layer.borderWidth = 3.0
-        checkboxButton.layer.cornerRadius = 5
-        
-        checkboxImageView.layer.borderColor = UIColor(hexString: "B84D97").cgColor
-        checkboxImageView.layer.borderWidth = 3.0
-        checkboxImageView.layer.cornerRadius = 5
+        checkboxImageView.image = UIImage(named: checkboxSelectedImageName)
     }
 }
