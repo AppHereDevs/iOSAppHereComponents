@@ -78,11 +78,16 @@ extension AppHereCheckboxView: UserInputtable {
     
     public func hideError() {
         checkboxButton.layer.borderWidth = 0
+        checkboxImageView.layer.borderWidth = 0
     }
     
     public func showError() {
         checkboxButton.layer.borderColor = UIColor(hexString: "B84D97").cgColor
         checkboxButton.layer.borderWidth = 3.0
         checkboxButton.layer.cornerRadius = 5
+        
+        checkboxImageView.layer.borderColor = UIColor(hexString: "B84D97").cgColor
+        checkboxImageView.layer.borderWidth = 3.0
+        checkboxImageView.layer.cornerRadius = 5
     }
 }
