@@ -153,7 +153,7 @@ extension AppHereInputView: UserInputtable {
             if isValid {
                 errorLabel.isHidden = true
             } else {
-                errorLabel.isEnabled = false
+                errorLabel.isHidden = false
                 showError()
             }
             return isValid
