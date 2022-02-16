@@ -148,7 +148,15 @@ extension AppHereInputView: UserInputtable {
     public var isValidInput: Bool {
         get {
             guard let inputText = inputTextField.text else { return false }
-            return inputText.count > 0
+            let isValid = inputText.count > 0
+            
+            if isValid {
+                errorLabel.isHidden = true
+            } else {
+                errorLabel.isEnabled = false
+                showError()
+            }
+            return isValid
         }
     }
     
