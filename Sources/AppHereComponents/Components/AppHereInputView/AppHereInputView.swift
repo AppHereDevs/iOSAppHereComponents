@@ -154,8 +154,9 @@ extension AppHereInputView: UserInputtable {
                 inputTextField.layer.borderWidth = 0
                 //errorLabel.isHidden = true
             } else {
-                inputTextField.layer.borderColor = UIColor.red.cgColor
+                inputTextField.layer.borderColor = UIColor(hexString: "B84D97").cgColor
                 inputTextField.layer.borderWidth = 3.0
+                inputTextField.layer.cornerRadius = 5
                 //errorLabel.isHidden = false
                 //showError()
             }
