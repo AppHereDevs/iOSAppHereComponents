@@ -84,6 +84,6 @@ extension AppHereCheckboxView: UserInputtable {
     }
     
     public func showError() {
-        checkboxImageView.image = UIImage(named: checkboxSelectedImageName)
+        checkboxImageView.image = UIImage(named: checkboxErrorImageName)
     }
 }
