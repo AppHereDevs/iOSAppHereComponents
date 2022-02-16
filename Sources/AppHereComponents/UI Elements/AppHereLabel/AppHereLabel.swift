@@ -22,8 +22,8 @@ public class AppHereLabel: UILabel, Themeable {
                 self.isHidden = true
                 return
             }
-            self.themeDict = themeDict
             
+            self.themeDict = themeDict
             configureLabelAppearance()
         }
     }
