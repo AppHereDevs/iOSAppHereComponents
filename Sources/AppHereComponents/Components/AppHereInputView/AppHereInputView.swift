@@ -148,23 +148,17 @@ extension AppHereInputView: UserInputtable {
     public var isValidInput: Bool {
         get {
             guard let inputText = inputTextField.text else { return false }
-            let isValid = inputText.count > 0
-            
-            if isValid {
-                errorLabel.isHidden = true
-            } else {
-                errorLabel.isHidden = false
-                showError()
-            }
-            return isValid
+            return inputText.count > 0
         }
     }
     
+    public func hideError() {
+        inputTextField.layer.borderWidth = 0
+    }
+    
     public func showError() {
-        if let errorText = viewModel?.errorLabelText {
-            errorLabel.text = errorText
-        } else {
-            errorLabel.text = "Gerekli alanları doldurmalısın."
-        }
+        inputTextField.layer.borderColor = UIColor(hexString: "B84D97").cgColor
+        inputTextField.layer.borderWidth = 3.0
+        inputTextField.layer.cornerRadius = 5
     }
 }
