@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreModule
 
 public protocol AppHereOTPTextFieldDelegate: AnyObject {
     func didUserFinishEnter(the code: String)
+    func showError()
+    func hideError()
 }
 
 public class AppHereOTPTextField: UITextField, Themeable {
@@ -25,6 +28,7 @@ public class AppHereOTPTextField: UITextField, Themeable {
     private var otpTextColor: UIColor?
     private var otpFontSize: Float?
     private var otpFont: UIFont = UIFont.boldSystemFont(ofSize: 24)
+    private var slotCount: Int = 0
     public weak var otpDelegate: AppHereOTPTextFieldDelegate?
     
     private var implementation = AppHereOTPTextFieldImplementation()
@@ -80,6 +84,7 @@ public class AppHereOTPTextField: UITextField, Themeable {
         
         guard isConfigured == false else { return }
         isConfigured.toggle()
+        self.slotCount = slotCount
         configureTextField()
         
         let labelsStackView = createLabelsStackView(with: slotCount)
@@ -169,5 +174,22 @@ public class AppHereOTPTextField: UITextField, Themeable {
 extension AppHereOTPTextField: AppHereOTPTextFieldImplementationProtocol {
     func digitalLabelsCount() -> Int {
         digitLabels.count
+    }
+}
+
+extension AppHereOTPTextField: UserInputtable {
+    public var isValidInput: Bool {
+        get {
+            guard let text = text else { return false }
+            return text.count == slotCount
+        }
+    }
+    
+    public func showError() {
+        otpDelegate?.showError()
+    }
+    
+    public func hideError() {
+        otpDelegate?.hideError()
     }
 }
