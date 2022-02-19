@@ -37,7 +37,7 @@ public class AppHereTextField: UITextField, Themeable {
     private var patternRegexArray = [AppHereTextFieldRegexInputItem]()
     private var inputText = String()
     
-    public var themeKey: String? {
+    @IBInspectable public var themeKey: String? {
         didSet {
             guard let themeKey = themeKey, let themeDict = AppHereThemeManager.shared.getTheme(byKey: themeKey) else {
                 self.isHidden = true

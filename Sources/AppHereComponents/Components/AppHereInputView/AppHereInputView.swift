@@ -7,6 +7,7 @@
 
 import UIKit
 import Validator
+import CoreModule
 
 public final class AppHereInputView: AppHereComponentView {
     
@@ -20,7 +21,7 @@ public final class AppHereInputView: AppHereComponentView {
     @IBOutlet weak var errorLabel: AppHereLabel!
     @IBOutlet weak var phoneLabelView: UIView!
     
-    public var isValid: Bool = false
+    private var isValid: Bool = false
     
     public var viewModel: AppHereInputViewModel? {
         didSet {
@@ -70,13 +71,6 @@ public final class AppHereInputView: AppHereComponentView {
             phoneLabel.isHidden = true
             phoneLabelView.isHidden = true
         }
-        
-        if let errorText = viewModel.errorLabelText {
-            errorLabel.text = errorText
-        } else {
-            errorLabel.isHidden = true
-        }
-        
         inputTextField.placeholder = viewModel.placeholder
         
         if let patternType = viewModel.validationModel?.patternType {
@@ -147,5 +141,24 @@ extension AppHereInputView: UITextFieldDelegate {
         
         return (textField.text.valueOrEmpty + string).count <= maxChar
     }
+}
 
+extension AppHereInputView: UserInputtable {
+    
+    public var isValidInput: Bool {
+        get {
+            guard let inputText = inputTextField.text else { return false }
+            return inputText.count > 0
+        }
+    }
+    
+    public func hideError() {
+        inputTextField.layer.borderWidth = 0
+    }
+    
+    public func showError() {
+        inputTextField.layer.borderColor = UIColor(hexString: "B84D97").cgColor
+        inputTextField.layer.borderWidth = 3.0
+        inputTextField.layer.cornerRadius = 5
+    }
 }
