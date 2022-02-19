@@ -13,6 +13,7 @@ public class QuickLinksViewThemeModel {
     var labelThemeKey: String?
     var textViewThemeKey: String?
     var textFieldThemeKey: String?
+    var otpTextFieldThemeKey: String?
     
     public init(with themeDict: NSDictionary) throws {
         self.key = themeDict.value(forKey: "key") as! String
@@ -20,5 +21,6 @@ public class QuickLinksViewThemeModel {
         self.labelThemeKey = themeDict.value(forKey: "labelThemeKey") as? String
         self.textViewThemeKey = themeDict.value(forKey: "textViewThemeKey") as? String
         self.textFieldThemeKey = themeDict.value(forKey: "textFieldThemeKey") as? String
+        self.otpTextFieldThemeKey = themeDict.value(forKey: "otpTextFieldThemeKey") as? String
     }
 }

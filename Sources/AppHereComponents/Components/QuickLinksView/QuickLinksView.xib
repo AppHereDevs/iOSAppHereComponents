@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuickLinksView" customModule="AppHereComponents">
             <connections>
+                <outlet property="otpTextField" destination="EGu-bT-AyO" id="JYd-OS-kfv"/>
                 <outlet property="textField" destination="AWa-HY-AxT" id="Gac-YG-eVG"/>
                 <outlet property="textView" destination="Rtf-Aj-qyS" id="Pp3-mg-L0B"/>
                 <outlet property="titleLabel" destination="wMY-mT-3BM" id="xXa-gN-JKl"/>
@@ -42,13 +43,24 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EGu-bT-AyO" customClass="AppHereOTPTextField" customModule="AppHereComponents">
+                    <rect key="frame" x="20" y="62" width="424" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="KYr-rk-s1b"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="EGu-bT-AyO" firstAttribute="top" secondItem="AWa-HY-AxT" secondAttribute="bottom" constant="8" id="2XO-pG-Ckv"/>
                 <constraint firstItem="AWa-HY-AxT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="AgJ-pU-vXS"/>
+                <constraint firstItem="EGu-bT-AyO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="FYP-fY-rrX"/>
                 <constraint firstItem="wMY-mT-3BM" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Nge-m6-E7p"/>
                 <constraint firstItem="Rtf-Aj-qyS" firstAttribute="top" secondItem="wMY-mT-3BM" secondAttribute="bottom" constant="8" id="OoW-m9-IsL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EGu-bT-AyO" secondAttribute="trailing" constant="20" id="Whf-Nh-JiT"/>
                 <constraint firstItem="AWa-HY-AxT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="Y3i-jC-R8H"/>
                 <constraint firstItem="AWa-HY-AxT" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="YZt-91-lLw"/>
                 <constraint firstItem="Rtf-Aj-qyS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="bDe-AS-F6N"/>

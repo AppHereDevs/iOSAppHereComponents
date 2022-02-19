@@ -13,6 +13,7 @@ public final class QuickLinksView: AppHereComponentView {
     @IBOutlet weak var titleLabel: AppHereLabel!
     @IBOutlet weak var textView: AppHereTextView!
     @IBOutlet weak var textField: AppHereTextField!
+    @IBOutlet weak var otpTextField: AppHereOTPTextField!
     
     public var viewModel: QuickLinksViewModel? {
         didSet {
@@ -42,5 +43,7 @@ public final class QuickLinksView: AppHereComponentView {
         textField.placeholder = "Telefon Numaranızı Giriniz.."
         textField.regexPattern = "LL LLL L"
         textField.keyboardType = .default
+        otpTextField.themeKey = viewTheme.otpTextFieldThemeKey
+        otpTextField.configure(with: 4)
     }
 }
