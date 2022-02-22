@@ -89,7 +89,7 @@ extension AppHereCheckboxView: UserInputtable {
         return isChecked
     }
     
-    public func hideError() {
+    public func hideError(s) {
         
     }
     
