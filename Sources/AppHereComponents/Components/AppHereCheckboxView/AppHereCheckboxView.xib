@@ -27,14 +27,6 @@
             <rect key="frame" x="0.0" y="0.0" width="489" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vog-Wc-bwf">
-                    <rect key="frame" x="0.0" y="0.0" width="489" height="82"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain"/>
-                    <connections>
-                        <action selector="firstClickButtonPressed:" destination="-1" eventType="touchUpInside" id="oN4-5s-PdB"/>
-                    </connections>
-                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WVf-Ye-Rc0">
                     <rect key="frame" x="16" y="16" width="457" height="50"/>
                     <subviews>
@@ -59,6 +51,14 @@
                     <buttonConfiguration key="configuration" style="plain"/>
                     <connections>
                         <action selector="checkBoxButtonPressed:" destination="-1" eventType="touchUpInside" id="maS-BW-6IY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vog-Wc-bwf">
+                    <rect key="frame" x="0.0" y="0.0" width="489" height="82"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="firstClickButtonPressed:" destination="-1" eventType="touchUpInside" id="oN4-5s-PdB"/>
                     </connections>
                 </button>
             </subviews>
