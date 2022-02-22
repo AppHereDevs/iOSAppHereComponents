@@ -71,12 +71,12 @@ public class AppHereCheckboxView: AppHereComponentView {
         checkboxImageView.image = UIImage(named: checkboxDefaultImageName)
     }
     
-    @IBAction func checkBoxButtonPressed(_ sender: Any) {
+    @IBAction private func checkBoxButtonPressed(_ sender: Any) {
         isChecked = !isChecked
         checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
     }
     
-    @IBAction func firstClickButtonPressed(_ sender: Any) {
+    @IBAction private func firstClickButtonPressed(_ sender: Any) {
         isFirstClick = false
         firstClickButton.isHidden = true
         firstClickFunction?()
@@ -90,8 +90,7 @@ extension AppHereCheckboxView: UserInputtable {
     }
     
     public func hideError() {
-        checkboxButton.layer.borderWidth = 0
-        checkboxImageView.layer.borderWidth = 0
+        
     }
     
     public func showError() {
