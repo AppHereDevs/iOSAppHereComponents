@@ -34,8 +34,7 @@ public class AppHereLabel: UILabel, Themeable {
                     NSAttributedString.Key.backgroundColor: backgroundColor
                 ] as [NSAttributedString.Key : Any]
                 
-                let attributedString = NSAttributedString(string: text, attributes: underlineAttribute)
-                self.attributedText = attributedString
+                self.attributedText = NSAttributedString(string: text, attributes: underlineAttribute)
             }
         }
     }
