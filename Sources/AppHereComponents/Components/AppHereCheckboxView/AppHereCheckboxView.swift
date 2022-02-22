@@ -10,24 +10,28 @@ import CoreModule
 
 public class AppHereCheckboxView: AppHereComponentView {
     
-    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var checkboxButton: AppHereButton!
-    @IBOutlet weak var checkboxImageView: UIImageView!
-    @IBOutlet weak var informationLabel: AppHereLabel!
-    @IBOutlet weak var componentStackView: UIStackView!
+    @IBOutlet private weak var trailingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var checkboxButton: AppHereButton!
+    @IBOutlet private weak var checkboxImageView: UIImageView!
+    @IBOutlet private weak var informationLabel: AppHereLabel!
+    @IBOutlet private weak var componentStackView: UIStackView!
+    @IBOutlet private weak var firstClickButton: UIButton!
     
+    private var isFirstClick: Bool = true
     private var isChecked: Bool = false
     private var checkboxDefaultImageName: String = ""
     private var checkboxSelectedImageName: String = ""
     private var checkboxErrorImageName: String = ""
     
+    public var firstClickFunction: (() -> ())?
+    
     public var viewModel: AppHereCheckboxViewModel? {
         didSet {
             guard let viewModel = viewModel else {
-                self.isHidden = true
+                isHidden = true
                 return
             }
             setupView(with: viewModel)
@@ -36,7 +40,7 @@ public class AppHereCheckboxView: AppHereComponentView {
     
     private func setupView(with viewModel: AppHereCheckboxViewModel) {
         guard let themeDict = themeDict, let viewTheme = try? AppHereCheckboxViewThemeModel(with: themeDict) else {
-            self.isHidden = true
+            isHidden = true
             return
         }
         
@@ -69,6 +73,12 @@ public class AppHereCheckboxView: AppHereComponentView {
     @IBAction func checkBoxButtonPressed(_ sender: Any) {
         isChecked = !isChecked
         checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
+    }
+    
+    @IBAction func firstClickButtonPressed(_ sender: Any) {
+        isFirstClick = false
+        firstClickButton.isHidden = true
+        firstClickFunction?()
     }
 }
 

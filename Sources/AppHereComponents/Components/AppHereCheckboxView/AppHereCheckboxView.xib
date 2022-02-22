@@ -15,6 +15,7 @@
                 <outlet property="checkboxButton" destination="fKW-d1-iej" id="U9f-0I-dIy"/>
                 <outlet property="checkboxImageView" destination="b7Z-NN-q6W" id="tfs-G7-CYb"/>
                 <outlet property="componentStackView" destination="WVf-Ye-Rc0" id="B4Z-rg-y7L"/>
+                <outlet property="firstClickButton" destination="vog-Wc-bwf" id="Mn1-Xx-Ibs"/>
                 <outlet property="informationLabel" destination="K2K-u4-Fq0" id="4ZA-rd-WLw"/>
                 <outlet property="leadingConstraint" destination="NIX-cB-mE5" id="LMd-AQ-9d1"/>
                 <outlet property="topConstraint" destination="uWS-Yw-yiv" id="cMV-yl-Bu4"/>
@@ -26,6 +27,14 @@
             <rect key="frame" x="0.0" y="0.0" width="489" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vog-Wc-bwf">
+                    <rect key="frame" x="0.0" y="0.0" width="489" height="82"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    <connections>
+                        <action selector="firstClickButtonPressed:" destination="-1" eventType="touchUpInside" id="oN4-5s-PdB"/>
+                    </connections>
+                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WVf-Ye-Rc0">
                     <rect key="frame" x="16" y="16" width="457" height="50"/>
                     <subviews>
@@ -56,14 +65,18 @@
             <viewLayoutGuide key="safeArea" id="xAU-cx-96O"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="vog-Wc-bwf" firstAttribute="leading" secondItem="xAU-cx-96O" secondAttribute="leading" id="4Ui-6m-78f"/>
                 <constraint firstItem="fKW-d1-iej" firstAttribute="centerY" secondItem="b7Z-NN-q6W" secondAttribute="centerY" id="GlL-l5-ibY"/>
                 <constraint firstItem="WVf-Ye-Rc0" firstAttribute="leading" secondItem="xAU-cx-96O" secondAttribute="leading" constant="16" id="NIX-cB-mE5"/>
                 <constraint firstItem="fKW-d1-iej" firstAttribute="width" secondItem="b7Z-NN-q6W" secondAttribute="width" id="PDF-6t-Y64"/>
+                <constraint firstItem="vog-Wc-bwf" firstAttribute="top" secondItem="Uw8-Vp-UhB" secondAttribute="top" id="Qh4-9w-sMM"/>
+                <constraint firstItem="xAU-cx-96O" firstAttribute="trailing" secondItem="vog-Wc-bwf" secondAttribute="trailing" id="f97-qt-fTL"/>
                 <constraint firstAttribute="bottom" secondItem="WVf-Ye-Rc0" secondAttribute="bottom" constant="16" id="fms-Tc-riw"/>
                 <constraint firstItem="fKW-d1-iej" firstAttribute="height" secondItem="b7Z-NN-q6W" secondAttribute="height" id="jLw-HA-xTv"/>
                 <constraint firstItem="xAU-cx-96O" firstAttribute="trailing" secondItem="WVf-Ye-Rc0" secondAttribute="trailing" constant="16" id="odX-Sr-OXZ"/>
                 <constraint firstItem="fKW-d1-iej" firstAttribute="centerX" secondItem="b7Z-NN-q6W" secondAttribute="centerX" id="pDT-mB-rXc"/>
                 <constraint firstItem="WVf-Ye-Rc0" firstAttribute="top" secondItem="Uw8-Vp-UhB" secondAttribute="top" constant="16" id="uWS-Yw-yiv"/>
+                <constraint firstAttribute="bottom" secondItem="vog-Wc-bwf" secondAttribute="bottom" id="z90-pH-kQU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="78.985507246376812" y="83.705357142857139"/>
