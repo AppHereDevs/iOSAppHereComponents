@@ -28,8 +28,6 @@ public class AppHereLabel: UILabel, Themeable {
             
             if textType == .underlined {
                 self.attributedText = text.underLined
-            } else {
-                self.text = text
             }
         }
     }
