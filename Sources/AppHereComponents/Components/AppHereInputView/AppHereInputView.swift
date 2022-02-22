@@ -11,15 +11,15 @@ import CoreModule
 
 public final class AppHereInputView: AppHereComponentView {
     
-    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var titleLabel: AppHereLabel!
-    @IBOutlet weak var phoneLabel: AppHereLabel!
+    @IBOutlet private weak var trailingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var titleLabel: AppHereLabel!
+    @IBOutlet private weak var phoneLabel: AppHereLabel!
     @IBOutlet public weak var inputTextField: AppHereTextField!
-    @IBOutlet weak var errorLabel: AppHereLabel!
-    @IBOutlet weak var phoneLabelView: UIView!
+    @IBOutlet private weak var errorLabel: AppHereLabel!
+    @IBOutlet private weak var phoneLabelView: UIView!
     
     private var isValid: Bool = false
     
