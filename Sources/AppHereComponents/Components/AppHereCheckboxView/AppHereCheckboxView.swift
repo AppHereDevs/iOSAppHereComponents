@@ -54,6 +54,7 @@ public class AppHereCheckboxView: AppHereComponentView {
         
         // MARK: Setup view's appearance with viewTheme
         checkboxButton.setTitle("", for: .normal)
+        firstClickButton.setTitle("", for: .normal)
         trailingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
         bottomConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
         topConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
