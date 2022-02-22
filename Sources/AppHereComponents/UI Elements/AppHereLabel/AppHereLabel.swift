@@ -27,7 +27,15 @@ public class AppHereLabel: UILabel, Themeable {
             guard let text = text else { return }
             
             if textType == .underlined {
-                self.attributedText = text.underLined
+                let underlineAttribute = [
+                    NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+                    NSAttributedString.Key.foregroundColor: textColor,
+                    NSAttributedString.Key.font : font,
+                    NSAttributedString.Key.backgroundColor: backgroundColor
+                ] as [NSAttributedString.Key : Any]
+                
+                let attributedString = NSAttributedString(string: text, attributes: underlineAttribute)
+                self.attributedText = attributedString
             }
         }
     }
