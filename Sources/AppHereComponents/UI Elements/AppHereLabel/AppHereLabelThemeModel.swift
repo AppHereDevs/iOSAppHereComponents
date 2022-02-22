@@ -17,6 +17,7 @@ public struct AppHereLabelThemeModel {
     var fontName: String?
     var fontSize: Float?
     var cornerRadius: Float?
+    var isUnderlined: Bool
    
     // TODO: Add remaining values
     
@@ -27,11 +28,12 @@ public struct AppHereLabelThemeModel {
     // TODO: Research UILabel default values
     
     public init(with themeDict: NSDictionary) throws {
-        self.key = themeDict.value(forKey: "key") as! String
-        self.textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereLabelThemeModel.defaultTextColor
-        self.backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereLabelThemeModel.defaultBackgroundColor
-        self.fontName = themeDict.value(forKey: "fontName") as? String
-        self.fontSize = themeDict.value(forKey: "fontSize") as? Float
-        self.cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
+        key = themeDict.value(forKey: "key") as! String
+        textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereLabelThemeModel.defaultTextColor
+        backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereLabelThemeModel.defaultBackgroundColor
+        fontName = themeDict.value(forKey: "fontName") as? String
+        fontSize = themeDict.value(forKey: "fontSize") as? Float
+        cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
+        isUnderlined = themeDict.value(forKey: "isUnderlined") as? Bool ?? false
     }
 }

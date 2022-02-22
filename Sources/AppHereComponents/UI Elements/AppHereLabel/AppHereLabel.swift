@@ -9,12 +9,30 @@ import UIKit
 
 public class AppHereLabel: UILabel, Themeable {
     
+    private enum TextType {
+        case underlined
+        case defaultText
+    }
+    
     // MARK: Countdown variable
     private var timer = Timer()
     private var countDownSeconds: Int = 0
     private var timerCompletion: (() -> ())?
+    private var textType: TextType = .defaultText
     
     public var themeDict: NSDictionary?
+    
+    public override var text: String? {
+        didSet {
+            guard let text = text else { return }
+            
+            if textType == .underlined {
+                self.attributedText = text.underLined
+            } else {
+                self.text = text
+            }
+        }
+    }
     
     @IBInspectable public var themeKey: String? {
         didSet {
@@ -34,6 +52,12 @@ public class AppHereLabel: UILabel, Themeable {
             return
         }
 
+        if viewTheme.isUnderlined {
+            textType = .underlined
+        } else {
+            textType = .defaultText
+        }
+        
         textColor = UIColor(hexString: viewTheme.textColor)
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
         font = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
@@ -53,7 +77,7 @@ public class AppHereLabel: UILabel, Themeable {
         self.timerCompletion = completion
     }
     
-    @objc func update() {
+    @objc private func update() {
         self.countDownSeconds -= 1
         self.text = countDownSeconds.timerString
         
@@ -65,9 +89,17 @@ public class AppHereLabel: UILabel, Themeable {
 }
 
 extension Int {
+    
     var timerString: String {
         let minutes = self / 60 % 60
         let seconds = self % 60
         return String(format:"%02i:%02i", minutes, seconds)
+    }
+}
+
+extension String {
+
+    var underLined: NSAttributedString {
+        NSMutableAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
 }
