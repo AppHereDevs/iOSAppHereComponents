@@ -15,7 +15,7 @@ let package = Package(
             targets: ["AppHereComponents"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ArdOnat/CoreModule.git", .exact("1.1.8")),
+        .package(url: "https://github.com/ArdOnat/CoreModule.git", .exact("1.1.9")),
         .package(name: "Validator", url: "https://github.com/adamwaite/Validator.git", branch: "master")
     ],
     targets: [
