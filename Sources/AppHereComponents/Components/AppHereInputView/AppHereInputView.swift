@@ -161,7 +161,7 @@ extension AppHereInputView: UserInputtable {
     
     public func hideError() {
         inputTextField.layer.borderWidth = 0
-        errorLabel.text = ""
+        errorLabel.text = " "
     }
     
     public func showError() {
