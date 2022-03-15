@@ -55,6 +55,13 @@ public final class AppHereInputView: AppHereComponentView {
         titleLabel.themeKey = viewTheme.titleLabelThemeKey
         inputTextField.themeKey = viewTheme.inputTextFieldThemeKey
         phoneLabel.themeKey = viewTheme.phoneLabelThemeKey
+        
+        if let errorLabelThemeKey = viewTheme.errorLabelThemeKey {
+            errorLabel.themeKey = errorLabelThemeKey
+        } else {
+            errorLabel.isHidden = true
+        }
+        
         errorLabel.themeKey = viewTheme.errorLabelThemeKey
         inputTextField.delegate = self
         
@@ -154,11 +161,15 @@ extension AppHereInputView: UserInputtable {
     
     public func hideError() {
         inputTextField.layer.borderWidth = 0
+        errorLabel.text = ""
     }
     
     public func showError() {
         inputTextField.layer.borderColor = UIColor(hexString: "B84D97").cgColor
         inputTextField.layer.borderWidth = 3.0
         inputTextField.layer.cornerRadius = 5
+        
+        guard let errorLabelText = viewModel?.errorLabelText else { return }
+        errorLabel.text = errorLabelText
     }
 }
