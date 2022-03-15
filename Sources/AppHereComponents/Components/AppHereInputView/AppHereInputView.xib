@@ -76,7 +76,7 @@
                         <constraint firstAttribute="trailing" secondItem="Zx7-To-jyb" secondAttribute="trailing" id="uNI-Cr-Ck1"/>
                     </constraints>
                 </stackView>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81i-cS-94q" customClass="AppHereLabel" customModule="AppHereComponents">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81i-cS-94q" customClass="AppHereLabel" customModule="AppHereComponents">
                     <rect key="frame" x="16" y="115.5" width="382" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
