@@ -10,12 +10,12 @@ import UIKit
 public final class AppHereInformationView: AppHereComponentView {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var firstInformationLabel: AppHereLabel!
-    @IBOutlet weak var secondInformationLabel: AppHereLabel!
+    @IBOutlet private weak var trailingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var firstInformationLabel: AppHereLabel!
+    @IBOutlet private weak var secondInformationLabel: AppHereLabel!
     
     public var viewModel: AppHereInformationViewModel? {
         didSet {

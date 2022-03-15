@@ -10,12 +10,14 @@ public struct AppHereCheckboxViewModel {
     var checkboxSelectedImageName: String
     var checkboxErrorImageName: String
     var informationText: String
+    var isFirstClickButtonEnabled: Bool
     
-    public init(checkboxDefaultImageName: String, checkboxSelectedImageName: String, checkboxErrorImageName: String, informationText: String) {
+    public init(checkboxDefaultImageName: String, checkboxSelectedImageName: String, checkboxErrorImageName: String, informationText: String, isFirstClickButtonEnabled: Bool = false) {
         
         self.checkboxDefaultImageName = checkboxDefaultImageName
         self.checkboxSelectedImageName = checkboxSelectedImageName
         self.checkboxErrorImageName = checkboxErrorImageName
         self.informationText = informationText
+        self.isFirstClickButtonEnabled = isFirstClickButtonEnabled
     }
 }

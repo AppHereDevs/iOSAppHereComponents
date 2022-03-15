@@ -10,10 +10,10 @@ import UIKit
 public final class QuickLinksView: AppHereComponentView {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var titleLabel: AppHereLabel!
-    @IBOutlet weak var textView: AppHereTextView!
-    @IBOutlet weak var textField: AppHereTextField!
-    @IBOutlet weak var otpTextField: AppHereOTPTextField!
+    @IBOutlet private weak var titleLabel: AppHereLabel!
+    @IBOutlet private weak var textView: AppHereTextView!
+    @IBOutlet private weak var textField: AppHereTextField!
+    @IBOutlet private weak var otpTextField: AppHereOTPTextField!
     
     public var viewModel: QuickLinksViewModel? {
         didSet {

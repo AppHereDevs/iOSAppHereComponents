@@ -29,8 +29,6 @@ public class AppHereOTPTextField: UITextField, Themeable {
     private var otpFontSize: Float?
     private var otpFont: UIFont = UIFont.boldSystemFont(ofSize: 24)
     private var slotCount: Int = 0
-    public weak var otpDelegate: AppHereOTPTextFieldDelegate?
-    
     private var implementation = AppHereOTPTextFieldImplementation()
     private var isConfigured = false
     private var digitLabels = [UILabel]()
@@ -39,6 +37,8 @@ public class AppHereOTPTextField: UITextField, Themeable {
         recognizer.addTarget(self, action: #selector(becomeFirstResponder))
         return recognizer
     }()
+    
+    public weak var otpDelegate: AppHereOTPTextFieldDelegate?
     
     public override var text: String? {
         didSet {

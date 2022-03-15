@@ -10,24 +10,28 @@ import CoreModule
 
 public class AppHereCheckboxView: AppHereComponentView {
     
-    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var checkboxButton: AppHereButton!
-    @IBOutlet weak var checkboxImageView: UIImageView!
-    @IBOutlet weak var informationLabel: AppHereLabel!
-    @IBOutlet weak var componentStackView: UIStackView!
+    @IBOutlet private weak var trailingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var checkboxButton: AppHereButton!
+    @IBOutlet private weak var checkboxImageView: UIImageView!
+    @IBOutlet private weak var informationLabel: AppHereLabel!
+    @IBOutlet private weak var componentStackView: UIStackView!
+    @IBOutlet private weak var firstClickButton: UIButton!
     
+    private var isFirstClick: Bool = true
     private var isChecked: Bool = false
     private var checkboxDefaultImageName: String = ""
     private var checkboxSelectedImageName: String = ""
     private var checkboxErrorImageName: String = ""
     
+    public var firstClickFunction: (() -> ())?
+    
     public var viewModel: AppHereCheckboxViewModel? {
         didSet {
             guard let viewModel = viewModel else {
-                self.isHidden = true
+                isHidden = true
                 return
             }
             setupView(with: viewModel)
@@ -36,7 +40,7 @@ public class AppHereCheckboxView: AppHereComponentView {
     
     private func setupView(with viewModel: AppHereCheckboxViewModel) {
         guard let themeDict = themeDict, let viewTheme = try? AppHereCheckboxViewThemeModel(with: themeDict) else {
-            self.isHidden = true
+            isHidden = true
             return
         }
         
@@ -50,6 +54,7 @@ public class AppHereCheckboxView: AppHereComponentView {
         
         // MARK: Setup view's appearance with viewTheme
         checkboxButton.setTitle("", for: .normal)
+        firstClickButton.setTitle("", for: .normal)
         trailingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
         bottomConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
         topConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
@@ -64,11 +69,18 @@ public class AppHereCheckboxView: AppHereComponentView {
         checkboxSelectedImageName = viewModel.checkboxSelectedImageName
         checkboxErrorImageName = viewModel.checkboxErrorImageName
         checkboxImageView.image = UIImage(named: checkboxDefaultImageName)
+        firstClickButton.isHidden = !viewModel.isFirstClickButtonEnabled
     }
     
-    @IBAction func checkBoxButtonPressed(_ sender: Any) {
+    @IBAction private func checkBoxButtonPressed(_ sender: Any) {
         isChecked = !isChecked
         checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
+    }
+    
+    @IBAction private func firstClickButtonPressed(_ sender: Any) {
+        isFirstClick = false
+        firstClickButton.isHidden = true
+        firstClickFunction?()
     }
 }
 
@@ -79,8 +91,7 @@ extension AppHereCheckboxView: UserInputtable {
     }
     
     public func hideError() {
-        checkboxButton.layer.borderWidth = 0
-        checkboxImageView.layer.borderWidth = 0
+        
     }
     
     public func showError() {
