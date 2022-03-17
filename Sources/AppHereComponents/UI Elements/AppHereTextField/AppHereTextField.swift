@@ -38,6 +38,7 @@ public class AppHereTextField: UITextField, Themeable {
     private var inputText = String()
     
     @IBInspectable public var themeKey: String? {
+        
         didSet {
             guard let themeKey = themeKey, let themeDict = AppHereThemeManager.shared.getTheme(byKey: themeKey) else {
                 self.isHidden = true
@@ -50,16 +51,17 @@ public class AppHereTextField: UITextField, Themeable {
     }
     
     public var regexPattern: String? {
+        
         didSet {
             guard let pattern = regexPattern else {
                 return
             }
             initPatternArray(pattern: pattern)
-            
         }
     }
     
     private func configureLabelAppearance() {
+        
         guard let themeDict = themeDict, let viewTheme = try? AppHereTextFieldThemeModel(with: themeDict) else {
             self.isHidden = true
             return
@@ -75,6 +77,7 @@ public class AppHereTextField: UITextField, Themeable {
     }
     
     private func initPatternArray(pattern: String) {
+        
         let patternArray = Array(pattern)
         
         for (index, patternItem) in patternArray.enumerated() {
@@ -88,7 +91,8 @@ public class AppHereTextField: UITextField, Themeable {
     }
     
     @objc
-    func textFieldDidChange() {
+    private func textFieldDidChange() {
+        
         inputText = self.text ?? ""
         let inputTextCharArray = Array(inputText)
         var regexFormatedText = ""
@@ -121,6 +125,7 @@ public class AppHereTextField: UITextField, Themeable {
     }
     
     private func getRegexPatternPreConstans() -> String {
+        
         var constantPrefix = ""
         for item in patternRegexArray {
             if item.isConstant, let value = item.value {
@@ -134,6 +139,7 @@ public class AppHereTextField: UITextField, Themeable {
     
     /// - Parameter formattedText: formatted input text according to given regex pattern
     private func setRegexFormattedText(formattedText: String) {
+        
         var inputText = formattedText
         let formattedTextCharArray = Array(formattedText)
         
@@ -156,8 +162,36 @@ public class AppHereTextField: UITextField, Themeable {
         }
     }
     
-    func validate(regex: String, withText text: String) -> Bool {
+    private func validate(regex: String, withText text: String) -> Bool {
+        
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
+    }
+    
+    private func setPasswordToggleImage(_ button: UIButton) {
+        
+        if(isSecureTextEntry) {
+            button.setImage(UIImage(named: "hide-password"), for: .normal)
+        } else{
+            button.setImage(UIImage(named: "show-password"), for: .normal)
+        }
+    }
+    
+    public func enablePasswordToggle() {
+        
+        let button = UIButton(type: .custom)
+        setPasswordToggleImage(button)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        button.frame = CGRect(x: CGFloat(self.frame.size.width - 25), y: CGFloat(5), width: CGFloat(10), height: CGFloat(10))
+        button.addTarget(self, action: #selector(self.togglePasswordView), for: .touchUpInside)
+        self.rightView = button
+        self.rightViewMode = .always
+    }
+    
+    @objc
+    private func togglePasswordView(_ sender: UIButton) {
+        
+        self.isSecureTextEntry.toggle()
+        setPasswordToggleImage(sender)
     }
     
 }
