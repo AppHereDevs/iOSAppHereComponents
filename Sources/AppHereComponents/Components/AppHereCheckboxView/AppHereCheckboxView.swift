@@ -72,9 +72,14 @@ public class AppHereCheckboxView: AppHereComponentView {
         firstClickButton.isHidden = !viewModel.isFirstClickButtonEnabled
     }
     
-    @IBAction private func checkBoxButtonPressed(_ sender: Any) {
-        isChecked = !isChecked
-        checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
+    @IBAction public func checkBoxButtonPressed(_ sender: Any) {
+        if let isCheck = sender as? Bool {
+            isChecked = isCheck
+            checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
+        } else {
+            isChecked = !isChecked
+            checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
+        }
     }
     
     @IBAction private func firstClickButtonPressed(_ sender: Any) {
