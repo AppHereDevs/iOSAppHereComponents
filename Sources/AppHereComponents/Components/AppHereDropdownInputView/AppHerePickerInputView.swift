@@ -8,7 +8,7 @@
 import UIKit
 import CoreModule
 
-class AppHerePickerInputView: AppHereComponentView {
+public final class AppHerePickerInputView: AppHereComponentView {
 
     @IBOutlet private weak var titleLabel: AppHereLabel!
     @IBOutlet private weak var pickerTextField: AppHereTextField!
@@ -66,21 +66,21 @@ class AppHerePickerInputView: AppHereComponentView {
 }
 
 extension AppHerePickerInputView: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         guard let pickerData = viewModel?.pickerData else { return 0 }
         return pickerData.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         guard let pickerData = viewModel?.pickerData, let title = pickerData[safe: row] as? String else { return "" }
         return title
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         guard let pickerData = viewModel?.pickerData, let title = pickerData[safe: row] as? String else { return } // Does not support string
         pickerTextField.text = title
         pickerTextField.resignFirstResponder()
