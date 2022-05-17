@@ -81,7 +81,7 @@ extension AppHerePickerInputView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        guard let pickerData = viewModel?.pickerData, let title = pickerData[safe: row] as? String else { return "" } // Does not support string
+        guard let pickerData = viewModel?.pickerData, let title = pickerData[safe: row] as? String else { return } // Does not support string
         pickerTextField.text = title
         pickerTextField.resignFirstResponder()
     }
