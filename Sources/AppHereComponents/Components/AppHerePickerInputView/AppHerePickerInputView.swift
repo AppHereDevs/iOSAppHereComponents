@@ -13,7 +13,7 @@ public final class AppHerePickerInputView: AppHereComponentView {
     @IBOutlet private weak var titleLabel: AppHereLabel!
     @IBOutlet public weak var pickerTextField: AppHereTextField!
     
-    private lazy var pickerView: UIPickerView = {
+    public lazy var pickerView: UIPickerView = {
       let pickerView = UIPickerView()
       pickerView.dataSource = self
       return pickerView
