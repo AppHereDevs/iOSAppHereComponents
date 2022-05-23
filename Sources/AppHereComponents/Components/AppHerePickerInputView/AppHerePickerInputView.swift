@@ -11,11 +11,10 @@ import CoreModule
 public final class AppHerePickerInputView: AppHereComponentView {
 
     @IBOutlet private weak var titleLabel: AppHereLabel!
-    @IBOutlet private weak var pickerTextField: AppHereTextField!
+    @IBOutlet public weak var pickerTextField: AppHereTextField!
     
     private lazy var pickerView: UIPickerView = {
       let pickerView = UIPickerView()
-      pickerView.delegate = self
       pickerView.dataSource = self
       return pickerView
     }()
@@ -26,15 +25,17 @@ public final class AppHerePickerInputView: AppHereComponentView {
                 self.isHidden = true
                 return
             }
-            setupView(with: viewModel)
+            setupView(with: viewModel, pickerDelegate: viewModel.pickerDelegate)
         }
     }
     
-    private func setupView(with viewModel: AppHerePickerInputViewModel) {
+    private func setupView(with viewModel: AppHerePickerInputViewModel, pickerDelegate: UIPickerViewDelegate) {
         guard let themeDict = themeDict, let viewTheme = try? AppHerePickerInputViewThemeModel(with: themeDict) else {
             self.isHidden = true
             return
         }
+        
+        pickerView.delegate = pickerDelegate
         
         // MARK: Setup view's appearance with viewTheme
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
@@ -65,7 +66,7 @@ public final class AppHerePickerInputView: AppHereComponentView {
     }
 }
 
-extension AppHerePickerInputView: UIPickerViewDelegate, UIPickerViewDataSource {
+extension AppHerePickerInputView: UIPickerViewDataSource {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -78,11 +79,5 @@ extension AppHerePickerInputView: UIPickerViewDelegate, UIPickerViewDataSource {
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         guard let pickerData = viewModel?.pickerData, let title = pickerData[safe: row] as? String else { return "" }
         return title
-    }
-    
-    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        guard let pickerData = viewModel?.pickerData, let title = pickerData[safe: row] as? String else { return } // Does not support string
-        pickerTextField.text = title
-        pickerTextField.resignFirstResponder()
     }
 }
