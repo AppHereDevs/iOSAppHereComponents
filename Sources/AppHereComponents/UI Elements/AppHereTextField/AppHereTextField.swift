@@ -170,9 +170,9 @@ public class AppHereTextField: UITextField, Themeable {
     private func setPasswordToggleImage(_ button: UIButton) {
         
         if(isSecureTextEntry) {
-            button.setImage(UIImage(named: "hide-password"), for: .normal)
-        } else{
             button.setImage(UIImage(named: "show-password"), for: .normal)
+        } else{
+            button.setImage(UIImage(named: "hide-password"), for: .normal)
         }
     }
     
