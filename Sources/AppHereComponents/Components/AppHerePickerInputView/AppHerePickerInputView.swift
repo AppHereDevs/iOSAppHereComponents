@@ -46,10 +46,6 @@ public final class AppHerePickerInputView: AppHereComponentView {
         }
         
         // MARK: Setup view insets
-        //trailingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
-        //bottomConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
-        //topConstraint.constant = viewTheme.verticalInset.valueOrEmpty.CGFloatValue
-        //leadingConstraint.constant = viewTheme.horizontalInset.valueOrEmpty.CGFloatValue
         titleLabel.themeKey = viewTheme.titleLabelThemeKey
         pickerTextField.themeKey = viewTheme.inputTextFieldThemeKey
         pickerTextField.textAlignment = viewModel.textAlignment
@@ -67,6 +63,7 @@ public final class AppHerePickerInputView: AppHereComponentView {
 }
 
 extension AppHerePickerInputView: UIPickerViewDataSource {
+    
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -74,10 +71,5 @@ extension AppHerePickerInputView: UIPickerViewDataSource {
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         guard let pickerData = viewModel?.pickerData else { return 0 }
         return pickerData.count
-    }
-    
-    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        guard let pickerData = viewModel?.pickerData, let title = pickerData[safe: row] as? String else { return "" }
-        return title
     }
 }
