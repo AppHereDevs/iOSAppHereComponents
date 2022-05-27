@@ -92,16 +92,16 @@ extension AppHerePickerInputView: UserInputtable {
     }
     
     public func showError() {
-        pickerTextField.layer.borderWidth = 0
-        errorLabel.text = " "
-    }
-    
-    public func hideError() {
         pickerTextField.layer.borderColor = UIColor(hexString: "B84D97").cgColor
         pickerTextField.layer.borderWidth = 3.0
         pickerTextField.layer.cornerRadius = 5
         
         guard let errorLabelText = viewModel?.errorLabelText else { return }
         errorLabel.text = errorLabelText
+    }
+    
+    public func hideError() {
+        pickerTextField.layer.borderWidth = 0
+        errorLabel.text = " "
     }
 }
