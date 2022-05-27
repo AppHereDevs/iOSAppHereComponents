@@ -73,3 +73,27 @@ extension AppHerePickerInputView: UIPickerViewDataSource {
         return pickerData.count
     }
 }
+
+extension AppHerePickerInputView: UserInputtable {
+    
+    public var isValidInput: Bool {
+        get {
+            guard let inputText = pickerTextField.text else { return false }
+            return inputText.count > 0
+        }
+    }
+    
+    public func showError() {
+        inputTextField.layer.borderWidth = 0
+        errorLabel.text = " "
+    }
+    
+    public func hideError() {
+        inputTextField.layer.borderColor = UIColor(hexString: "B84D97").cgColor
+        inputTextField.layer.borderWidth = 3.0
+        inputTextField.layer.cornerRadius = 5
+        
+        guard let errorLabelText = viewModel?.errorLabelText else { return }
+        errorLabel.text = errorLabelText
+    }
+}
