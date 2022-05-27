@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHerePickerInputView" customModule="AppHereComponents">
             <connections>
+                <outlet property="errorLabel" destination="ppx-rt-BPt" id="Ftg-it-9Xc"/>
                 <outlet property="pickerTextField" destination="4v6-Np-bUk" id="0nz-nz-llG"/>
                 <outlet property="titleLabel" destination="bJl-EM-llL" id="iDg-QW-zwb"/>
             </connections>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="top" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uFN-7l-bSF">
-                    <rect key="frame" x="16" y="16" width="382" height="106"/>
+                    <rect key="frame" x="16" y="16" width="382" height="91.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJl-EM-llL" customClass="AppHereLabel" customModule="AppHereComponents">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
@@ -30,7 +31,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4v6-Np-bUk" customClass="AppHereTextField" customModule="AppHereComponents">
-                            <rect key="frame" x="0.0" y="56" width="382" height="50"/>
+                            <rect key="frame" x="0.0" y="41.5" width="382" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="K8d-Id-4V8"/>
                             </constraints>
@@ -45,14 +46,23 @@
                         <constraint firstItem="bJl-EM-llL" firstAttribute="leading" secondItem="uFN-7l-bSF" secondAttribute="leading" id="lJq-uH-M8k"/>
                     </constraints>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppx-rt-BPt" customClass="AppHereLabel" customModule="AppHereComponents">
+                    <rect key="frame" x="16" y="115.5" width="382" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uFN-7l-bSF" secondAttribute="bottom" constant="16" id="UbC-XL-Qg3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ppx-rt-BPt" secondAttribute="trailing" constant="16" id="9dl-JD-eyK"/>
+                <constraint firstItem="ppx-rt-BPt" firstAttribute="top" secondItem="uFN-7l-bSF" secondAttribute="bottom" constant="8" id="Opi-mH-cea"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uFN-7l-bSF" secondAttribute="trailing" constant="16" id="Vfw-VI-xss"/>
                 <constraint firstItem="uFN-7l-bSF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="j9A-9r-M20"/>
                 <constraint firstItem="uFN-7l-bSF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="jSt-NQ-u40"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ppx-rt-BPt" secondAttribute="bottom" constant="8" id="on9-3Q-7HQ"/>
+                <constraint firstItem="ppx-rt-BPt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="y75-hu-UII"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="133" y="132"/>

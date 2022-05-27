@@ -18,6 +18,7 @@ public class AppHerePickerInputViewThemeModel {
     var horizontalInset: Float?
     var titleLabelThemeKey: String?
     var inputTextFieldThemeKey: String?
+    var errorLabelThemeKey: String?
     
     public init(with themeDict: NSDictionary) throws {
         
@@ -28,5 +29,6 @@ public class AppHerePickerInputViewThemeModel {
         self.horizontalInset = themeDict.value(forKey: "horizontalInset") as? Float
         self.titleLabelThemeKey = themeDict.value(forKey: "titleLabelThemeKey") as? String
         self.inputTextFieldThemeKey = themeDict.value(forKey: "inputTextFieldThemeKey") as? String
+        self.errorLabelThemeKey = themeDict.value(forKey: "errorLabelThemeKey") as? String
     }
 }
