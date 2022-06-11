@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppHereAlertView: AppHereComponentView {
+public class AppHereAlertView: AppHereComponentView {
     
     @IBOutlet private weak var alertIconImageView: UIImageView!
     @IBOutlet private weak var alertLabel: AppHereLabel!
