@@ -18,7 +18,7 @@ public class AppHereAlertView: AppHereComponentView {
     public var approveButtonTapHandler: (() -> Void)?
     
     public init(imageName: String, alertText: String) {
-        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
         self.alertIconImageView.image = UIImage(named: imageName)
         self.alertLabel.text = alertText
     }
