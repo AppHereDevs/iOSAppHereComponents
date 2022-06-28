@@ -17,7 +17,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/ArdOnat/CoreModule.git", .exact("1.3.2")),
         .package(name: "Validator", url: "https://github.com/adamwaite/Validator.git", branch: "master"),
-        .package(name: "Kingfisher", url: "https://github.com/onevcat/Kingfisher.git", .exact( "6.0.0"))
+        .package(name: "Kingfisher", url: "https://github.com/onevcat/Kingfisher.git", branch: "version6-xcode13")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
