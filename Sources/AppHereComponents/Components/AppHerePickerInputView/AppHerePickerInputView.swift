@@ -29,13 +29,14 @@ public final class AppHerePickerInputView: AppHereComponentView {
         }
     }
 
-    private func setupView(with viewModel: AppHerePickerInputViewModel, pickerDelegate: UIPickerViewDelegate) {
+    private func setupView(with viewModel: AppHerePickerInputViewModel, pickerDelegate: PickerManager) {
         guard let themeDict = themeDict, let viewTheme = try? AppHerePickerInputViewThemeModel(with: themeDict) else {
             isHidden = true
             return
         }
 
         pickerView.delegate = pickerDelegate
+        pickerView.dataSource = pickerDelegate
 
         // MARK: Setup view's appearance with viewTheme
 
