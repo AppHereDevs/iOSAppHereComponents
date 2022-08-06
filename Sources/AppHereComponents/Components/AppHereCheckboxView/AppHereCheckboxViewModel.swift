@@ -1,6 +1,6 @@
 //
 //  AppHereCheckboxViewModel.swift
-//  
+//
 //
 //  Created by Arda Onat on 11.02.2022.
 //
@@ -11,9 +11,8 @@ public struct AppHereCheckboxViewModel {
     var checkboxErrorImageName: String
     var informationText: String
     var isFirstClickButtonEnabled: Bool
-    
+
     public init(checkboxDefaultImageName: String, checkboxSelectedImageName: String, checkboxErrorImageName: String, informationText: String, isFirstClickButtonEnabled: Bool = false) {
-        
         self.checkboxDefaultImageName = checkboxDefaultImageName
         self.checkboxSelectedImageName = checkboxSelectedImageName
         self.checkboxErrorImageName = checkboxErrorImageName

@@ -5,24 +5,23 @@
 //  Created by Arda Onat on 19.12.2021.
 //
 
-import XCTest
 @testable import AppHereComponents
+import XCTest
 
 final class AppHereLabelTest: XCTestCase {
-    
     func testLabelIsHiddenWhenThemeIsNotFound() {
         // Given
         setupAppThemeManager()
         let sut = AppHereLabel()
-        
+
         // When
         sut.themeKey = "LabelTheme0"
-        
+
         // Then
         XCTAssertNil(sut.themeDict)
         XCTAssertTrue(sut.isHidden)
     }
-    
+
     func testLabelIsShownThemeDictSetWhenThemeIsFound() {
         // Given
         setupAppThemeManager()
@@ -35,7 +34,7 @@ final class AppHereLabelTest: XCTestCase {
         XCTAssertNotNil(sut.themeDict)
         XCTAssertFalse(sut.isHidden)
     }
-    
+
     func testLabelAppearanceWhenThemeDoesNotIncludeValues() {
         // Given
         setupAppThemeManager()
@@ -48,7 +47,7 @@ final class AppHereLabelTest: XCTestCase {
         XCTAssertEqual(sut.backgroundColor, UIColor(hexString: AppHereLabelThemeModel.defaultBackgroundColor))
         XCTAssertEqual(sut.textColor, UIColor(hexString: AppHereLabelThemeModel.defaultTextColor))
     }
-    
+
     func testLabelAppearanceWhenThemeIncludesValues() {
         // Given
         setupAppThemeManager()
@@ -58,8 +57,8 @@ final class AppHereLabelTest: XCTestCase {
         sut.themeKey = "AppHereLabel-Values"
 
         // Then
-        XCTAssertEqual(sut.backgroundColor, UIColor(hexString:"#FFFFFF"))
-        XCTAssertEqual(sut.textColor, UIColor(hexString:"#00000"))
+        XCTAssertEqual(sut.backgroundColor, UIColor(hexString: "#FFFFFF"))
+        XCTAssertEqual(sut.textColor, UIColor(hexString: "#00000"))
     }
 }
 

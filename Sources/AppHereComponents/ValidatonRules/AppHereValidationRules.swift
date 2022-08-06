@@ -1,6 +1,6 @@
 //
 //  AppHereValidationRules.swift
-//  
+//
 //
 //  Created by Muhammed Sevük on 11.02.2022.
 //
@@ -9,19 +9,18 @@ import Foundation
 import Validator
 
 public enum AppHereValidationError: ValidationError {
-    
     case invalidEmail
     case invalidPhoneNumber
-    
+
     public var message: String {
-        return ""
+        ""
     }
 }
 
 public enum PatternType: ValidationPattern {
     case email
     case phoneNumberWithSpace
-    
+
     public var pattern: String {
         switch self {
         case .email:
@@ -30,7 +29,7 @@ public enum PatternType: ValidationPattern {
             return "^[5]\\d{2} \\d{3} \\d{2} \\d{2}$"
         }
     }
-    
+
     public var regex: String? {
         switch self {
         case .email:
@@ -39,13 +38,13 @@ public enum PatternType: ValidationPattern {
             return "NNN NNN NN NN"
         }
     }
-    
+
     public var rulePattern: ValidationRulePattern {
         switch self {
         case .email:
-            return ValidationRulePattern(pattern: self.pattern, error: AppHereValidationError.invalidEmail)
+            return ValidationRulePattern(pattern: pattern, error: AppHereValidationError.invalidEmail)
         case .phoneNumberWithSpace:
-            return ValidationRulePattern(pattern: self.pattern, error: AppHereValidationError.invalidPhoneNumber)
+            return ValidationRulePattern(pattern: pattern, error: AppHereValidationError.invalidPhoneNumber)
         }
     }
 }

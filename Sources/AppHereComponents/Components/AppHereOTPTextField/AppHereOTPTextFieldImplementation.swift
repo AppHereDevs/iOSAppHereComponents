@@ -16,7 +16,7 @@ class AppHereOTPTextFieldImplementation: NSObject, UITextFieldDelegate {
 
     func textField(
         _ textField: UITextField,
-        shouldChangeCharactersIn range: NSRange,
+        shouldChangeCharactersIn _: NSRange,
         replacementString string: String
     ) -> Bool {
         guard let characterCount = textField.text?.count else { return false }

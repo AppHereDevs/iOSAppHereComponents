@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Arda Onat on 11.02.2022.
 //
@@ -8,9 +8,8 @@
 import Foundation
 
 public class AppHereCheckboxViewThemeModel {
-    
     static var defaultBackgroundColor: String = "#00000000"
-    
+
     var key: String
     var backgroundColor: String
     var cornerRadius: Float?
@@ -19,9 +18,8 @@ public class AppHereCheckboxViewThemeModel {
     var verticalInset: Float?
     var horizontalInset: Float?
     var stackViewSpacing: Float?
-    
+
     public init(with themeDict: NSDictionary) throws {
-        
         key = themeDict.value(forKey: "key") as! String
         backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereInputViewThemeModel.defaultBackgroundColor
         cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float

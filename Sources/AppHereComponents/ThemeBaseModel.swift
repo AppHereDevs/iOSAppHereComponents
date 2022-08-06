@@ -1,6 +1,6 @@
 //
 //  ThemeBaseModel.swift
-//  
+//
 //
 //  Created by Muhammed Sevük on 8.02.2022.
 //

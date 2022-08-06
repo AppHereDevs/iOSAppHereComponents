@@ -1,6 +1,6 @@
 //
 //  AppHereInputViewModel.swift
-//  
+//
 //
 //  Created by Muhammed Sevük on 10.02.2022.
 //
@@ -16,7 +16,7 @@ public struct AppHereInputViewModel {
     var keyboardType: UIKeyboardType
     let validationModel: ValidationModel?
     let textFieldRightImageName: String?
-    
+
     public init(title: String? = nil,
                 phoneLabelText: String? = nil,
                 errorLabelText: String? = nil,
@@ -24,8 +24,8 @@ public struct AppHereInputViewModel {
                 regex: String? = nil,
                 keyboardType: UIKeyboardType = .default,
                 validationModel: ValidationModel? = nil,
-                textFieldRightImageName: String? = nil) {
-        
+                textFieldRightImageName: String? = nil)
+    {
         self.title = title
         self.phoneLabelText = phoneLabelText
         self.placeholder = placeholder
@@ -35,21 +35,22 @@ public struct AppHereInputViewModel {
         self.validationModel = validationModel
         self.textFieldRightImageName = textFieldRightImageName
     }
-    
+
     public struct ValidationModel {
         let patternType: PatternType?
         let regexPattern: String?
         let maxCharLength: Int?
-        //TODO: IsSecureTextEntry will add
-        
+        // TODO: IsSecureTextEntry will add
+
         public init(patternType: PatternType? = nil,
                     regexPattern: String? = nil,
-                    maxCharLength: Int? = nil) {
-            
+                    maxCharLength: Int? = nil)
+        {
             self.patternType = patternType
-            
+
             if let pattern = patternType,
-               let regex = pattern.regex {
+               let regex = pattern.regex
+            {
                 self.regexPattern = regex
             } else {
                 self.regexPattern = regexPattern

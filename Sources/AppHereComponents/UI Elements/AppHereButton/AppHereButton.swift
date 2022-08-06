@@ -1,32 +1,31 @@
 //
 //  AppHereButton.swift
-//  
+//
 //
 //  Created by Arda Onat on 10.02.2022.
 //
 
-import UIKit
 import CoreModule
+import UIKit
 
 public class AppHereButton: UIButton, Themeable {
-    
     public var themeDict: NSDictionary?
-    
+
     @IBInspectable public var themeKey: String? {
         didSet {
             guard let themeKey = themeKey, let themeDict = AppHereThemeManager.shared.getTheme(byKey: themeKey) else {
-                self.isHidden = true
+                isHidden = true
                 return
             }
             self.themeDict = themeDict
-            
+
             configureButtonAppearance()
         }
     }
-    
+
     private func configureButtonAppearance() {
         guard let themeDict = themeDict, let viewTheme = try? AppHereButtonThemeModel(with: themeDict) else {
-            self.isHidden = true
+            isHidden = true
             return
         }
 

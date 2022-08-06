@@ -9,55 +9,54 @@ import Foundation
 import UIKit
 
 public class AppHereTextView: UITextView, Themeable {
-
-    public var placeHolderText: String?{
+    public var placeHolderText: String? {
         didSet {
-            self.text = placeHolderText
+            text = placeHolderText
         }
     }
+
     public var themeDict: NSDictionary?
-    
+
     override public init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         initComponent()
-        
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initComponent()
     }
-    
+
     @IBInspectable public var themeKey: String? {
         didSet {
             guard let themeKey = themeKey, let themeDict = AppHereThemeManager.shared.getTheme(byKey: themeKey) else {
-                self.isHidden = true
+                isHidden = true
                 return
             }
             self.themeDict = themeDict
-            
+
             configureLabelAppearance()
         }
     }
-    
+
     private func configureLabelAppearance() {
         guard let themeDict = themeDict, let viewTheme = try? AppHereTextViewThemeModel(with: themeDict) else {
-            self.isHidden = true
+            isHidden = true
             return
         }
-        
+
         textColor = UIColor(hexString: viewTheme.placeHolderTextColor)
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
         font = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
-        
-        //TODO: Should add Text Alignment
+
+        // TODO: Should add Text Alignment
         /*
-        if let textAlignment = theme.textAlignment {
-            self.textAlignment = textAlignment
-        }
-        */
+         if let textAlignment = theme.textAlignment {
+             self.textAlignment = textAlignment
+         }
+         */
     }
-    
+
     private func initComponent() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(textViewDidBeginEditing(_:)),
@@ -70,35 +69,35 @@ public class AppHereTextView: UITextView, Themeable {
 //                                               name: UITextView.textDidChangeNotification,
 //                                               object: nil)
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
-    @objc private func textViewDidBeginEditing(_ notification: NSNotification) {
+
+    @objc private func textViewDidBeginEditing(_: NSNotification) {
         guard let themeDict = themeDict, let viewTheme = try? AppHereTextViewThemeModel(with: themeDict) else {
-            self.isHidden = true
+            isHidden = true
             return
         }
-        
-        if textColor == UIColor.init(hexString: viewTheme.placeHolderTextColor) {
+
+        if textColor == UIColor(hexString: viewTheme.placeHolderTextColor) {
             text = ""
-            textColor = UIColor.init(hexString: viewTheme.textColor)
+            textColor = UIColor(hexString: viewTheme.textColor)
         }
     }
-    
-    @objc private func textViewDidEndEditing(_ notification: NSNotification) {
+
+    @objc private func textViewDidEndEditing(_: NSNotification) {
         guard let themeDict = themeDict, let viewTheme = try? AppHereTextViewThemeModel(with: themeDict) else {
-            self.isHidden = true
+            isHidden = true
             return
         }
-        
+
         if text?.isEmpty ?? true {
             text = placeHolderText
-            textColor = UIColor.init(hexString: viewTheme.placeHolderTextColor)
+            textColor = UIColor(hexString: viewTheme.placeHolderTextColor)
         }
     }
-    
+
 //    @objc private func textViewDidChange(_ textView: UITextView) {
 //        guard let themeDict = themeDict, let viewTheme = try? AppHereTextViewThemeModel(with: themeDict) else {
 //            self.isHidden = true

@@ -6,8 +6,8 @@
 //  Copyright © 2020 Abdelrhman Eliwa. All rights reserved.
 //
 
-import UIKit
 import CoreModule
+import UIKit
 
 public protocol AppHereOTPTextFieldDelegate: AnyObject {
     func didUserFinishEnter(the code: String)
@@ -16,7 +16,6 @@ public protocol AppHereOTPTextFieldDelegate: AnyObject {
 }
 
 public class AppHereOTPTextField: UITextField, Themeable {
-    
     public var otpDefaultCharacter = ""
     private var otpBackgroundColor: UIColor?
     private var otpFilledBackgroundColor: UIColor?
@@ -37,34 +36,32 @@ public class AppHereOTPTextField: UITextField, Themeable {
         recognizer.addTarget(self, action: #selector(becomeFirstResponder))
         return recognizer
     }()
-    
+
     public weak var otpDelegate: AppHereOTPTextFieldDelegate?
-    
-    public override var text: String? {
+
+    override public var text: String? {
         didSet {
-            self.textDidChange()
+            textDidChange()
         }
     }
-    
+
     public var themeKey: String? {
         didSet {
             guard let themeKey = themeKey, let themeDict = AppHereThemeManager.shared.getTheme(byKey: themeKey) else {
-                self.isHidden = true
+                isHidden = true
                 return
             }
             self.themeDict = themeDict
-            
+
             configureOTPTextFieldAppearance()
         }
     }
-    
+
     public var themeDict: NSDictionary?
-    
-    
+
     private func configureOTPTextFieldAppearance() {
-    
         guard let themeDict = themeDict, let viewTheme = try? AppHereOTPTextFieldThemeModel(with: themeDict) else {
-            self.isHidden = true
+            isHidden = true
             return
         }
         otpBackgroundColor = UIColor(hexString: viewTheme.backgroundColor)
@@ -77,16 +74,14 @@ public class AppHereOTPTextField: UITextField, Themeable {
         otpTextColor = UIColor(hexString: viewTheme.textColor)
         otpFontSize = viewTheme.fontSize
         otpFont = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
-        
     }
-    
+
     public func configure(with slotCount: Int = 4) {
-        
         guard isConfigured == false else { return }
         isConfigured.toggle()
         self.slotCount = slotCount
         configureTextField()
-        
+
         let labelsStackView = createLabelsStackView(with: slotCount)
         addSubview(labelsStackView)
         addGestureRecognizer(tapRecognizer)
@@ -94,10 +89,10 @@ public class AppHereOTPTextField: UITextField, Themeable {
             labelsStackView.topAnchor.constraint(equalTo: topAnchor),
             labelsStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             labelsStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            labelsStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            labelsStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
-    
+
     private func configureTextField() {
         tintColor = .clear
         textColor = .clear
@@ -113,7 +108,7 @@ public class AppHereOTPTextField: UITextField, Themeable {
         delegate = implementation
         implementation.implementationDelegate = self
     }
-    
+
     private func createLabelsStackView(with count: Int) -> UIStackView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -128,7 +123,7 @@ public class AppHereOTPTextField: UITextField, Themeable {
         }
         return stackView
     }
-    
+
     private func createLabel() -> UILabel {
         let label = UILabel()
         label.backgroundColor = otpBackgroundColor
@@ -146,10 +141,10 @@ public class AppHereOTPTextField: UITextField, Themeable {
         }
         return label
     }
-    
+
     @objc
     private func textDidChange() {
-        guard let text = self.text, text.count <= digitLabels.count else { return }
+        guard let text = text, text.count <= digitLabels.count else { return }
         for labelIndex in 0 ..< digitLabels.count {
             let currentLabel = digitLabels[labelIndex]
             if labelIndex < text.count {
@@ -179,16 +174,14 @@ extension AppHereOTPTextField: AppHereOTPTextFieldImplementationProtocol {
 
 extension AppHereOTPTextField: UserInputtable {
     public var isValidInput: Bool {
-        get {
-            guard let text = text else { return false }
-            return text.count == slotCount
-        }
+        guard let text = text else { return false }
+        return text.count == slotCount
     }
-    
+
     public func showError() {
         otpDelegate?.showError()
     }
-    
+
     public func hideError() {
         otpDelegate?.hideError()
     }

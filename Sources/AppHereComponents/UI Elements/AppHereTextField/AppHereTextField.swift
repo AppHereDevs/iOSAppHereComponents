@@ -1,6 +1,6 @@
 //
 //  AppHereTextField.swift
-//  
+//
 //
 //  Created by Muhammed Sevük on 10.02.2022.
 //
@@ -11,7 +11,7 @@ public enum RegexPatternKey: Character {
     case number = "N"
     case letter = "L"
     case both = "B"
-    
+
     var pattern: String {
         switch self {
         case .number:
@@ -32,26 +32,23 @@ struct AppHereTextFieldRegexInputItem {
 }
 
 public class AppHereTextField: UITextField, Themeable {
-    
     public var themeDict: NSDictionary?
     private var patternRegexArray = [AppHereTextFieldRegexInputItem]()
     private var inputText = String()
-    
+
     @IBInspectable public var themeKey: String? {
-        
         didSet {
             guard let themeKey = themeKey, let themeDict = AppHereThemeManager.shared.getTheme(byKey: themeKey) else {
-                self.isHidden = true
+                isHidden = true
                 return
             }
             self.themeDict = themeDict
-            
+
             configureLabelAppearance()
         }
     }
-    
+
     public var regexPattern: String? {
-        
         didSet {
             guard let pattern = regexPattern else {
                 return
@@ -59,11 +56,10 @@ public class AppHereTextField: UITextField, Themeable {
             initPatternArray(pattern: pattern)
         }
     }
-    
+
     private func configureLabelAppearance() {
-        
         guard let themeDict = themeDict, let viewTheme = try? AppHereTextFieldThemeModel(with: themeDict) else {
-            self.isHidden = true
+            isHidden = true
             return
         }
 
@@ -75,36 +71,34 @@ public class AppHereTextField: UITextField, Themeable {
             self.minimumFontSize = minimumFontSize.CGFloatValue
         }
     }
-    
+
     private func initPatternArray(pattern: String) {
-        
         let patternArray = Array(pattern)
-        
+
         for (index, patternItem) in patternArray.enumerated() {
             patternRegexArray.append(AppHereTextFieldRegexInputItem(isConstant: RegexPatternKey(rawValue: patternItem) == nil ? true : false,
                                                                     value: patternItem,
                                                                     itemIndex: index,
                                                                     regex: RegexPatternKey(rawValue: patternItem)?.pattern))
         }
-        self.addTarget(self, action: #selector(self.textFieldDidChange) , for: UIControl.Event.editingChanged)
-        self.addTarget(self, action: #selector(self.textFieldDidChange) , for: UIControl.Event.editingDidBegin)
+        addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingDidBegin)
     }
-    
+
     @objc
     private func textFieldDidChange() {
-        
-        inputText = self.text ?? ""
+        inputText = text ?? ""
         let inputTextCharArray = Array(inputText)
         var regexFormatedText = ""
-        
+
         for inputCharItem in inputTextCharArray {
             guard regexFormatedText.count < patternRegexArray.count else {
                 setRegexFormattedText(formattedText: regexFormatedText)
                 return
             }
-            for regexPatternIndex in regexFormatedText.count...patternRegexArray.count - 1 {
+            for regexPatternIndex in regexFormatedText.count ... patternRegexArray.count - 1 {
                 let patternItem = patternRegexArray[regexPatternIndex]
-                
+
                 if !patternItem.isConstant {
                     if validate(regex: patternItem.regex!, withText: String(inputCharItem)) {
                         regexFormatedText.append(inputCharItem)
@@ -114,7 +108,7 @@ public class AppHereTextField: UITextField, Themeable {
                     }
                 } else {
                     regexFormatedText.append(patternItem.value!)
-                    
+
                     if inputCharItem == patternItem.value {
                         break
                     }
@@ -123,9 +117,8 @@ public class AppHereTextField: UITextField, Themeable {
         }
         setRegexFormattedText(formattedText: regexFormatedText)
     }
-    
+
     private func getRegexPatternPreConstans() -> String {
-        
         var constantPrefix = ""
         for item in patternRegexArray {
             if item.isConstant, let value = item.value {
@@ -136,13 +129,12 @@ public class AppHereTextField: UITextField, Themeable {
         }
         return constantPrefix
     }
-    
+
     /// - Parameter formattedText: formatted input text according to given regex pattern
     private func setRegexFormattedText(formattedText: String) {
-        
         var inputText = formattedText
         let formattedTextCharArray = Array(formattedText)
-        
+
         for _ in formattedTextCharArray.reversed() {
             let lastIndex = inputText.count - 1
             if lastIndex < patternRegexArray.count {
@@ -154,45 +146,39 @@ public class AppHereTextField: UITextField, Themeable {
                 break
             }
         }
-        
+
         if inputText.isEmpty {
-            self.text = getRegexPatternPreConstans()
+            text = getRegexPatternPreConstans()
         } else {
-            self.text = inputText
+            text = inputText
         }
     }
-    
+
     private func validate(regex: String, withText text: String) -> Bool {
-        
-        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
+        NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
-    
+
     private func setPasswordToggleImage(_ button: UIButton) {
-        
-        if(isSecureTextEntry) {
+        if isSecureTextEntry {
             button.setImage(UIImage(named: "show-password"), for: .normal)
-        } else{
+        } else {
             button.setImage(UIImage(named: "hide-password"), for: .normal)
         }
     }
-    
+
     public func enablePasswordToggle() {
-        
         let button = UIButton(type: .custom)
         setPasswordToggleImage(button)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
-        button.frame = CGRect(x: CGFloat(self.frame.size.width - 25), y: CGFloat(5), width: CGFloat(10), height: CGFloat(10))
-        button.addTarget(self, action: #selector(self.togglePasswordView), for: .touchUpInside)
-        self.rightView = button
-        self.rightViewMode = .always
+        button.frame = CGRect(x: CGFloat(frame.size.width - 25), y: CGFloat(5), width: CGFloat(10), height: CGFloat(10))
+        button.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
+        rightView = button
+        rightViewMode = .always
     }
-    
+
     @objc
     private func togglePasswordView(_ sender: UIButton) {
-        
-        self.isSecureTextEntry.toggle()
+        isSecureTextEntry.toggle()
         setPasswordToggleImage(sender)
     }
-    
 }
-

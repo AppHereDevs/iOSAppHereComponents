@@ -6,30 +6,33 @@ import PackageDescription
 let package = Package(
     name: "AppHereComponents",
     platforms: [
-        .iOS(.v11)
+        .iOS(.v11),
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "AppHereComponents",
-            targets: ["AppHereComponents"]),
+            targets: ["AppHereComponents"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/ArdOnat/CoreModule.git", .exact("1.3.2")),
         .package(name: "Validator", url: "https://github.com/adamwaite/Validator.git", branch: "master"),
-        .package(name: "Kingfisher", url: "https://github.com/onevcat/Kingfisher.git", branch: "version6-xcode13")
+        .package(name: "Kingfisher", url: "https://github.com/onevcat/Kingfisher.git", branch: "version6-xcode13"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "AppHereComponents",
-            dependencies: ["CoreModule", "Validator", "Kingfisher"]),
+            dependencies: ["CoreModule", "Validator", "Kingfisher"]
+        ),
         .testTarget(
             name: "AppHereComponentsTests",
             dependencies: ["AppHereComponents"],
             resources: [
-                .process("testThemeFile.json")
-            ])
+                .process("testThemeFile.json"),
+            ]
+        ),
     ]
 )

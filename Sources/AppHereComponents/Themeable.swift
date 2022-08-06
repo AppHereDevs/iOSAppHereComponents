@@ -1,6 +1,6 @@
 //
 //  Themeable.swift
-//  
+//
 //
 //  Created by Arda Onat on 24.12.2021.
 //

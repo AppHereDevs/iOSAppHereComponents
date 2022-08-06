@@ -10,7 +10,7 @@ import Foundation
 public struct AppHereLabelThemeModel {
     static var defaultTextColor: String = "#FFFFF"
     static var defaultBackgroundColor: String = "#00000000"
-    
+
     var key: String
     var textColor: String
     var backgroundColor: String
@@ -18,15 +18,15 @@ public struct AppHereLabelThemeModel {
     var fontSize: Float?
     var cornerRadius: Float?
     var isUnderlined: Bool
-   
+
     // TODO: Add remaining values
-    
+
     /*
-    var numberOfLines: Int?
-    var textAlignment: NSTextAlignment*/
-    
+     var numberOfLines: Int?
+     var textAlignment: NSTextAlignment*/
+
     // TODO: Research UILabel default values
-    
+
     public init(with themeDict: NSDictionary) throws {
         key = themeDict.value(forKey: "key") as! String
         textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereLabelThemeModel.defaultTextColor

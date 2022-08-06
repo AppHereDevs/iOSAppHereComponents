@@ -1,12 +1,12 @@
 //
 //  AppHereInformationViewThemeModel.swift
-//  
+//
 //
 //  Created by Arda Onat on 8.02.2022.
 //
 
-import UIKit
 import Foundation
+import UIKit
 
 public class AppHereInformationViewThemeModel {
     var key: String
@@ -15,7 +15,7 @@ public class AppHereInformationViewThemeModel {
     var horizontalInset: Float?
     var firstLabelThemeKey: String?
     var secondLabelThemeKey: String?
-    
+
     public init(with themeDict: NSDictionary) throws {
         key = themeDict.value(forKey: "key") as! String
         backgroundColor = themeDict.value(forKey: "backgroundColor") as? String
