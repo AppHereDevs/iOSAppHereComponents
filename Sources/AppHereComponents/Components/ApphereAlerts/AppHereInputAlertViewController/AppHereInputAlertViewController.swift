@@ -25,7 +25,7 @@ public struct PresentableInputAlertInformation {
     let centerButtonHidden: Bool
     let isSecureEntry: Bool
 
-    public init(imageName: String, titleText: String, textFieldPlaceHolder: String,descriptionText: String, descriptionLabelHidden: Bool, leftButtonTitle: String, leftButtonHidden: Bool, rightButtonTitle: String, rightButtonHidden: Bool, centerButtonTitle: String, centerButtonHidden: Bool, isSecureEntry: Bool) {
+    public init(imageName: String, titleText: String, textFieldPlaceHolder: String, descriptionText: String, descriptionLabelHidden: Bool, leftButtonTitle: String, leftButtonHidden: Bool, rightButtonTitle: String, rightButtonHidden: Bool, centerButtonTitle: String, centerButtonHidden: Bool, isSecureEntry: Bool) {
         self.imageName = imageName
         self.titleText = titleText
         self.textFieldPlaceHolder = textFieldPlaceHolder
@@ -55,7 +55,7 @@ public final class AppHereInputAlertViewController: UIViewController {
     public var centerButtonHandler: (() -> Void)?
 
     public var inputtedText: String {
-        self.alertInputTextField.text.valueOrEmpty
+        alertInputTextField.text.valueOrEmpty
     }
 
     public init(presentableModel: PresentableInputAlertInformation) {
