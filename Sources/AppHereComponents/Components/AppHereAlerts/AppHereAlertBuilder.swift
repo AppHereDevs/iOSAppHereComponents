@@ -1,8 +1,9 @@
 public protocol AlertBuilding {
     static func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController
+    static func buildAlertViewController(with viewData: AlertModel) -> AppHereAlertViewController
 }
 
-public enum InputAlertViewControllerBuilder {
+public enum InputAlertViewControllerBuilder: AlertBuilding {
     public static func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController {
         let descriptionLabelHidden = viewData.descriptionText == nil
         let leftButtonHidden = viewData.leftButtonTitle == nil
