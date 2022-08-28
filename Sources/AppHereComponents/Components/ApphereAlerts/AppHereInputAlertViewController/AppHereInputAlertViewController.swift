@@ -9,9 +9,20 @@ public struct InputAlertModel {
     let rightButtonTitle: String?
     let centerButtonTitle: String?
     let isSecureEntry: Bool
+
+    public init(imageName: String, titleText: String?, descriptionText: String?, textFieldPlaceHolder: String?, leftButtonTitle: String?, rightButtonTitle: String?, centerButtonTitle: String?, isSecureEntry: Bool) {
+        self.imageName = imageName
+        self.titleText = titleText
+        self.descriptionText = descriptionText
+        self.textFieldPlaceHolder = textFieldPlaceHolder
+        self.leftButtonTitle = leftButtonTitle
+        self.rightButtonTitle = rightButtonTitle
+        self.centerButtonTitle = centerButtonTitle
+        self.isSecureEntry = isSecureEntry
+    }
 }
 
-public struct PresentableInputAlertInformation {
+struct PresentableInputAlertInformation {
     let imageName: String
     let titleText: String
     let textFieldPlaceHolder: String
@@ -25,7 +36,7 @@ public struct PresentableInputAlertInformation {
     let centerButtonHidden: Bool
     let isSecureEntry: Bool
 
-    public init(imageName: String, titleText: String, textFieldPlaceHolder: String, descriptionText: String, descriptionLabelHidden: Bool, leftButtonTitle: String, leftButtonHidden: Bool, rightButtonTitle: String, rightButtonHidden: Bool, centerButtonTitle: String, centerButtonHidden: Bool, isSecureEntry: Bool) {
+    init(imageName: String, titleText: String, textFieldPlaceHolder: String, descriptionText: String, descriptionLabelHidden: Bool, leftButtonTitle: String, leftButtonHidden: Bool, rightButtonTitle: String, rightButtonHidden: Bool, centerButtonTitle: String, centerButtonHidden: Bool, isSecureEntry: Bool) {
         self.imageName = imageName
         self.titleText = titleText
         self.textFieldPlaceHolder = textFieldPlaceHolder
@@ -58,7 +69,7 @@ public final class AppHereInputAlertViewController: UIViewController {
         alertInputTextField.text.valueOrEmpty
     }
 
-    public init(presentableModel: PresentableInputAlertInformation) {
+    init(presentableModel: PresentableInputAlertInformation) {
         super.init(nibName: nil, bundle: .main)
         _ = view
 
