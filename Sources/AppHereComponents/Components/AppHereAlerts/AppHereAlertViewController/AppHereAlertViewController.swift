@@ -70,11 +70,11 @@ public final class AppHereAlertViewController: UIViewController {
         super.init(coder: coder)
     }
 
-    @IBAction private func cancelButtonPressed(_: Any) {
-        cancelButtonHandler?()
+    @IBAction private func leftButtonPressed(_: Any) {
+        leftButtonHandler?()
     }
 
-    @IBAction func confirmButtonPressed(_: Any) {
-        confirmButtonHandler?()
+    @IBAction private func rightButtonPressed(_: Any) {
+        rightButtonHandler?()
     }
 }

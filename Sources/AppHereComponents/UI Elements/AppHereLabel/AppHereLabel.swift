@@ -29,9 +29,9 @@ public class AppHereLabel: UILabel, Themeable {
             if textType == .underlined {
                 let underlineAttribute = [
                     NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
-                    NSAttributedString.Key.foregroundColor: textColor,
-                    NSAttributedString.Key.font: font,
-                    NSAttributedString.Key.backgroundColor: backgroundColor,
+                    NSAttributedString.Key.foregroundColor: textColor as Any,
+                    NSAttributedString.Key.font: font as Any,
+                    NSAttributedString.Key.backgroundColor: backgroundColor as Any,
                 ] as [NSAttributedString.Key: Any]
 
                 attributedText = NSAttributedString(string: text, attributes: underlineAttribute)
