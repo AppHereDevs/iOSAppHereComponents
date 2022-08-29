@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "Kingfisher",
-        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
-        "state": {
-          "branch": "version6-xcode13",
-          "revision": "2742b4de5036f9352d94c891495a3af3b9bdb67c",
-          "version": null
-        }
-      },
-      {
         "package": "Validator",
         "repositoryURL": "https://github.com/adamwaite/Validator.git",
         "state": {

@@ -5,8 +5,11 @@
 //  Created by Muhammed Sevük on 24.05.2022.
 //
 
-import Kingfisher
 import UIKit
+
+public protocol ImageCaching: AnyObject {
+    func cacheImage(for imageView: UIImageView, url: URL)
+}
 
 public final class ApphereVerticalBannerView: AppHereComponentView {
     @IBOutlet private var titleLabel: AppHereLabel!
@@ -22,6 +25,7 @@ public final class ApphereVerticalBannerView: AppHereComponentView {
             setupView(with: viewModel)
         }
     }
+    
 
     private func setupView(with viewModel: ApphereVerticalBannerViewModel) {
         guard let themeDict = themeDict, let viewTheme = try? ApphereVerticalBannerViewThemeModel(with: themeDict) else {
@@ -50,10 +54,12 @@ public final class ApphereVerticalBannerView: AppHereComponentView {
             titleLabel.isHidden = true
         }
 
-        if let stringUrl = viewModel.imageUrl,
-           let url = URL(string: stringUrl)
+        if let imageURL = viewModel.imageUrl,
+           let imageCaching = viewModel.imageCaching
         {
-            imageView.kf.setImage(with: url)
+            imageCaching.cacheImage(for: imageView, url: imageURL)
+        } else {
+            imageView.isHidden = true
         }
     }
 }
