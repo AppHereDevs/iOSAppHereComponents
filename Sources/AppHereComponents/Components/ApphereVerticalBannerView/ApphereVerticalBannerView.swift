@@ -16,6 +16,8 @@ public final class ApphereVerticalBannerView: AppHereComponentView {
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var bannerView: UIView!
 
+    public var imageCaching: ImageCaching?
+
     public var viewModel: ApphereVerticalBannerViewModel? {
         didSet {
             guard let viewModel = viewModel else {
@@ -54,7 +56,7 @@ public final class ApphereVerticalBannerView: AppHereComponentView {
         }
 
         if let imageURL = viewModel.imageUrl,
-           let imageCaching = viewModel.imageCaching
+           let imageCaching = imageCaching
         {
             imageCaching.cacheImage(for: imageView, url: imageURL)
         } else {
