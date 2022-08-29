@@ -45,8 +45,8 @@ public final class AppHereAlertViewController: UIViewController {
     @IBOutlet private var alertLeftButton: AppHereButton!
     @IBOutlet private var alertRightButton: AppHereButton!
 
-    public var cancelButtonHandler: (() -> Void)?
-    public var confirmButtonHandler: (() -> Void)?
+    public var leftButtonHandler: (() -> Void)?
+    public var rightButtonHandler: (() -> Void)?
 
     init(presentableModel: PresentableAlertInformation) {
         super.init(nibName: nil, bundle: .main)
