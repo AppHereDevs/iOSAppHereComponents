@@ -25,7 +25,6 @@ public final class ApphereVerticalBannerView: AppHereComponentView {
             setupView(with: viewModel)
         }
     }
-    
 
     private func setupView(with viewModel: ApphereVerticalBannerViewModel) {
         guard let themeDict = themeDict, let viewTheme = try? ApphereVerticalBannerViewThemeModel(with: themeDict) else {
