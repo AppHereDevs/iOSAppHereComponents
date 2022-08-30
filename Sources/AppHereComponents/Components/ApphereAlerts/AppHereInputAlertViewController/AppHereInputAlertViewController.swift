@@ -2,7 +2,7 @@ import UIKit
 
 public struct InputAlertModel {
     let imageName: String
-    let titleText: String?
+    let titleText: String
     let descriptionText: String?
     let textFieldPlaceHolder: String?
     let leftButtonTitle: String?
@@ -10,7 +10,7 @@ public struct InputAlertModel {
     let centerButtonTitle: String?
     let isSecureEntry: Bool
 
-    public init(imageName: String, titleText: String?, descriptionText: String?, textFieldPlaceHolder: String?, leftButtonTitle: String?, rightButtonTitle: String?, centerButtonTitle: String?, isSecureEntry: Bool) {
+    public init(imageName: String, titleText: String, descriptionText: String?, textFieldPlaceHolder: String?, leftButtonTitle: String?, rightButtonTitle: String?, centerButtonTitle: String?, isSecureEntry: Bool) {
         self.imageName = imageName
         self.titleText = titleText
         self.descriptionText = descriptionText
