@@ -4,6 +4,7 @@ public protocol AlertBuilding {
 }
 
 public class AlertViewControllerBuilder: AlertBuilding {
+    public init() {}
     public static func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController {
         let descriptionLabelHidden = viewData.descriptionText == nil
         let leftButtonHidden = viewData.leftButtonTitle == nil
