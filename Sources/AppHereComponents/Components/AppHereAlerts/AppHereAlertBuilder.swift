@@ -1,11 +1,11 @@
 public protocol AlertBuilding {
-    static func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController
-    static func buildAlertViewController(with viewData: AlertModel) -> AppHereAlertViewController
+    func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController
+    func buildAlertViewController(with viewData: AlertModel) -> AppHereAlertViewController
 }
 
 public class AlertViewControllerBuilder: AlertBuilding {
     public init() {}
-    public static func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController {
+    public func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController {
         let descriptionLabelHidden = viewData.descriptionText == nil
         let leftButtonHidden = viewData.leftButtonTitle == nil
         let rightButtonHidden = viewData.rightButtonTitle == nil
@@ -18,7 +18,7 @@ public class AlertViewControllerBuilder: AlertBuilding {
         return viewController
     }
 
-    public static func buildAlertViewController(with viewData: AlertModel) -> AppHereAlertViewController {
+    public func buildAlertViewController(with viewData: AlertModel) -> AppHereAlertViewController {
         let descriptionLabelHidden = viewData.descriptionText == nil
         let leftButtonHidden = viewData.leftButtonTitle == nil
         let rightButtonHidden = viewData.rightButtonTitle == nil
