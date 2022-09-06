@@ -50,8 +50,8 @@ public final class AppHereAlertViewController: UIViewController {
     public var leftButtonHandler: (() -> Void)?
     public var rightButtonHandler: (() -> Void)?
 
-    init() {
-        super.init(nibName: nil, bundle: .main)
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     public override func viewDidLoad() {
