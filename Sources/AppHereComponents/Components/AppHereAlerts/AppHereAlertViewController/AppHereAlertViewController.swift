@@ -45,12 +45,18 @@ public final class AppHereAlertViewController: UIViewController {
     @IBOutlet private var alertLeftButton: AppHereButton!
     @IBOutlet private var alertRightButton: AppHereButton!
 
+    private let presentableModel: PresentableAlertInformation
+
     public var leftButtonHandler: (() -> Void)?
     public var rightButtonHandler: (() -> Void)?
 
     init(presentableModel: PresentableAlertInformation) {
+        self.presentableModel = presentableModel
         super.init(nibName: nil, bundle: .main)
-        _ = view
+    }
+
+    public override func viewDidLoad() {
+        super.viewDidLoad()
 
         alertImageView.image = UIImage(named: presentableModel.imageName)
 
@@ -67,7 +73,7 @@ public final class AppHereAlertViewController: UIViewController {
     }
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError()
     }
 
     @IBAction private func leftButtonPressed(_: Any) {
