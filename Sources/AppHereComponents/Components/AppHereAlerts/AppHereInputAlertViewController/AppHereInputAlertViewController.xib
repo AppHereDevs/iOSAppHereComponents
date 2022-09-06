@@ -9,7 +9,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHereInputAlertViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHereInputAlertViewController">
+            <connections>
+                <outlet property="alertCenterButton" destination="SdX-Ws-qyE" id="8XX-pC-H91"/>
+                <outlet property="alertDescriptionLabel" destination="nxV-Pm-fFZ" id="y7e-cb-ibw"/>
+                <outlet property="alertImageView" destination="ay1-JL-tJt" id="YrE-N9-HLH"/>
+                <outlet property="alertInputTextField" destination="op0-lz-m7J" id="alN-u6-eH6"/>
+                <outlet property="alertLeftButton" destination="AUJ-0u-1f4" id="BfF-tk-pB2"/>
+                <outlet property="alertRightButton" destination="8Uc-qZ-fKC" id="d5e-8p-TJ6"/>
+                <outlet property="alertTitleLabel" destination="CTa-jq-Clv" id="HJb-up-V0O"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
