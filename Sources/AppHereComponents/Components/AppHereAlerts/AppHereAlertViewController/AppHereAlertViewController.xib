@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHereAlertViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHereAlertViewController" customModule="AppHereComponents">
             <connections>
                 <outlet property="alertDescriptionLabel" destination="oLp-NV-tvU" id="mjp-8Z-w5X"/>
                 <outlet property="alertImageView" destination="HDP-uc-jHi" id="hfM-H9-r5j"/>
