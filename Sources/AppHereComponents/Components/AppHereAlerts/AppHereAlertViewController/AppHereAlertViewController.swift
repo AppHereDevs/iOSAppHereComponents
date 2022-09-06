@@ -45,30 +45,29 @@ public final class AppHereAlertViewController: UIViewController {
     @IBOutlet private var alertLeftButton: AppHereButton!
     @IBOutlet private var alertRightButton: AppHereButton!
 
-    private let presentableModel: PresentableAlertInformation
+    var presentableModel: PresentableAlertInformation?
 
     public var leftButtonHandler: (() -> Void)?
     public var rightButtonHandler: (() -> Void)?
 
-    init(presentableModel: PresentableAlertInformation) {
-        self.presentableModel = presentableModel
+    init() {
         super.init(nibName: nil, bundle: .main)
     }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        alertImageView.image = UIImage(named: presentableModel.imageName)
+        alertImageView.image = UIImage(named: presentableModel!.imageName)
 
-        alertTitleLabel.text = presentableModel.titleText
+        alertTitleLabel.text = presentableModel!.titleText
 
-        alertDescriptionLabel.isHidden = presentableModel.descriptionLabelHidden
-        alertDescriptionLabel.text = presentableModel.descriptionText
+        alertDescriptionLabel.isHidden = presentableModel!.descriptionLabelHidden
+        alertDescriptionLabel.text = presentableModel!.descriptionText
 
-        alertLeftButton.isHidden = presentableModel.leftButtonHidden
-        alertLeftButton.setTitle(presentableModel.leftButtonTitle, for: .normal)
+        alertLeftButton.isHidden = presentableModel!.leftButtonHidden
+        alertLeftButton.setTitle(presentableModel!.leftButtonTitle, for: .normal)
 
-        alertRightButton.isHidden = presentableModel.rightButtonHidden
-        alertRightButton.setTitle(presentableModel.rightButtonTitle, for: .normal)
+        alertRightButton.isHidden = presentableModel!.rightButtonHidden
+        alertRightButton.setTitle(presentableModel!.rightButtonTitle, for: .normal)
     }
 
     required init?(coder: NSCoder) {
