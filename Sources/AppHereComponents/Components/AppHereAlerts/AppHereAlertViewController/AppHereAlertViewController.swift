@@ -57,7 +57,6 @@ public final class AppHereAlertViewController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        var v = self.view
         alertImageView.image = UIImage(named: presentableModel.imageName)
 
         alertTitleLabel.text = presentableModel.titleText
