@@ -10,7 +10,7 @@ import Foundation
 struct AppHereTextFieldThemeModel {
     static var defaultTextColor: String = "#FFFFFF"
     static var defaultBackgroundColor: String = "#00000000"
-    static var defaultTintColor: String = "#FFFFFF"
+    static var defaultTintColor: String = "#000000"
 
     var key: String
     var backgroundColor: String
