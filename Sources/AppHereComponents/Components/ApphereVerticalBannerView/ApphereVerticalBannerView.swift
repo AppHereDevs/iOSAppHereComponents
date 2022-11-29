@@ -58,6 +58,7 @@ public final class ApphereVerticalBannerView: AppHereComponentView {
         if let imageURL = viewModel.imageUrl,
            let imageCaching = imageCaching
         {
+            imageView.isHidden = false
             imageCaching.cacheImage(for: imageView, url: imageURL)
         } else {
             imageView.isHidden = true
