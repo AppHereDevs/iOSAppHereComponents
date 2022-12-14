@@ -29,7 +29,14 @@ public final class AppHerePickerInputView: AppHereComponentView {
         }
     }
 
+    public var doneButtonPressed: (() -> Void)?
+
     public var pickerBarButtonItems: [UIBarButtonItem] = []
+
+    public func addDoneButtonToPicker() {
+        let doneButton = UIBarButtonItem(title: "Bitti", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneButtonPress))
+        pickerBarButtonItems.append(doneButton)
+    }
 
     private func setupView(with viewModel: AppHerePickerInputViewModel, pickerDelegate: PickerManager) {
         guard let themeDict = themeDict, let viewTheme = try? AppHerePickerInputViewThemeModel(with: themeDict) else {
@@ -82,6 +89,11 @@ public final class AppHerePickerInputView: AppHereComponentView {
         toolBar.setItems(pickerBarButtonItems, animated: false)
         toolBar.isUserInteractionEnabled = true
         pickerTextField.inputAccessoryView = toolBar
+    }
+
+    @objc func doneButtonPress() {
+        pickerView.endEditing(true)
+        doneButtonPressed?()
     }
 }
 
