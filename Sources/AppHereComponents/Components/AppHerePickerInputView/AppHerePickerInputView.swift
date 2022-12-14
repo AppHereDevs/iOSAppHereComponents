@@ -29,7 +29,7 @@ public final class AppHerePickerInputView: AppHereComponentView {
         }
     }
 
-    public var doneButtonPressed: (() -> Void)?
+    public var doneButtonPressed: ((Int) -> Void)?
 
     public var pickerBarButtonItems: [UIBarButtonItem] = []
 
@@ -92,8 +92,9 @@ public final class AppHerePickerInputView: AppHereComponentView {
     }
 
     @objc func doneButtonPress() {
-        pickerView.endEditing(true)
-        doneButtonPressed?()
+        pickerTextField.resignFirstResponder()
+        let selectedRow = pickerView.selectedRow(inComponent: 0)
+        doneButtonPressed?(selectedRow)
     }
 }
 
