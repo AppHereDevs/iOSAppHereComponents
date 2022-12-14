@@ -29,6 +29,8 @@ public final class AppHerePickerInputView: AppHereComponentView {
         }
     }
 
+    public var pickerBarButtonItems: [UIBarButtonItem] = []
+
     private func setupView(with viewModel: AppHerePickerInputViewModel, pickerDelegate: PickerManager) {
         guard let themeDict = themeDict, let viewTheme = try? AppHerePickerInputViewThemeModel(with: themeDict) else {
             isHidden = true
@@ -70,6 +72,16 @@ public final class AppHerePickerInputView: AppHereComponentView {
 
         pickerTextField.placeholder = viewModel.placeholder
         pickerTextField.inputView = pickerView
+
+        guard !pickerBarButtonItems.isEmpty else { return }
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = .black
+        toolBar.sizeToFit()
+        toolBar.setItems(pickerBarButtonItems, animated: false)
+        toolBar.isUserInteractionEnabled = true
+        pickerTextField.inputAccessoryView = toolBar
     }
 }
 
