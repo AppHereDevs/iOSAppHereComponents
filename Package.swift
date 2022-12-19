@@ -16,7 +16,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/ArdOnat/CoreModule.git", .exact("1.3.2")),
+        .package(url: "https://github.com/ArdOnat/CoreModule.git", .exact("1.3.4")),
         .package(name: "Validator", url: "https://github.com/adamwaite/Validator.git", branch: "master"),
     ],
     targets: [
