@@ -9,13 +9,14 @@ import Foundation
 import UIKit
 
 public class AppHereTextView: UITextView, Themeable {
+
+    public var themeDict: NSDictionary?
+
     public var placeHolderText: String? {
         didSet {
             text = placeHolderText
         }
     }
-
-    public var themeDict: NSDictionary?
 
     override public init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -48,13 +49,6 @@ public class AppHereTextView: UITextView, Themeable {
         textColor = UIColor(hexString: viewTheme.placeHolderTextColor)
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
         font = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
-
-        // TODO: Should add Text Alignment
-        /*
-         if let textAlignment = theme.textAlignment {
-             self.textAlignment = textAlignment
-         }
-         */
     }
 
     private func initComponent() {
@@ -65,9 +59,6 @@ public class AppHereTextView: UITextView, Themeable {
         NotificationCenter.default.addObserver(self, selector: #selector(textViewDidEndEditing(_:)),
                                                name: UITextView.textDidEndEditingNotification,
                                                object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(textViewDidChange(_:)),
-//                                               name: UITextView.textDidChangeNotification,
-//                                               object: nil)
     }
 
     deinit {
@@ -97,16 +88,4 @@ public class AppHereTextView: UITextView, Themeable {
             textColor = UIColor(hexString: viewTheme.placeHolderTextColor)
         }
     }
-
-//    @objc private func textViewDidChange(_ textView: UITextView) {
-//        guard let themeDict = themeDict, let viewTheme = try? AppHereTextViewThemeModel(with: themeDict) else {
-//            self.isHidden = true
-//            return
-//        }
-//
-//        if text?.isEmpty ?? true {
-//            text = placeHolderText
-//            textColor = UIColor.init(hexString: viewTheme.placeHolderTextColor)
-//        }
-//    }
 }

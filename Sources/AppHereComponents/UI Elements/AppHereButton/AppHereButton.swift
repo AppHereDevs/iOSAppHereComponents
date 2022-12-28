@@ -4,8 +4,6 @@
 //
 //  Created by Arda Onat on 10.02.2022.
 //
-
-import CoreModule
 import UIKit
 
 public class AppHereButton: UIButton, Themeable {

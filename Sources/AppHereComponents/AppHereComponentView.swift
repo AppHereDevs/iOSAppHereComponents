@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-open class AppHereComponentView: UIView, Themeable {
+public class AppHereComponentView: UIView, Themeable {
     var view: UIView!
     public var themeDict: NSDictionary?
 
@@ -22,7 +22,7 @@ open class AppHereComponentView: UIView, Themeable {
         setup()
     }
 
-    func setup() {
+    private func setup() {
         view = fromNib()
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -39,7 +39,7 @@ open class AppHereComponentView: UIView, Themeable {
         }
     }
 
-    func fromNib() -> UIView {
+    private func fromNib() -> UIView {
         let bundle = Bundle.module
         let nibName = type(of: self).description().components(separatedBy: ".").last!
         let nib = UINib(nibName: nibName, bundle: bundle)

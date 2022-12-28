@@ -19,14 +19,6 @@ public struct AppHereLabelThemeModel {
     var cornerRadius: Float?
     var isUnderlined: Bool
 
-    // TODO: Add remaining values
-
-    /*
-     var numberOfLines: Int?
-     var textAlignment: NSTextAlignment*/
-
-    // TODO: Research UILabel default values
-
     public init(with themeDict: NSDictionary) throws {
         key = themeDict.value(forKey: "key") as! String
         textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereLabelThemeModel.defaultTextColor

@@ -19,8 +19,6 @@ public struct AppHereButtonThemeModel {
     var cornerRadius: Float?
     var borderWidth: Float?
 
-    // TODO: Research UIButton default values
-
     public init(with themeDict: NSDictionary) throws {
         key = themeDict.value(forKey: "key") as! String
         textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereButtonThemeModel.defaultTextColor

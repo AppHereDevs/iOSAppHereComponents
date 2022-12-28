@@ -24,7 +24,7 @@ public enum RegexPatternKey: Character {
     }
 }
 
-struct AppHereTextFieldRegexInputItem {
+private struct AppHereTextFieldRegexInputItem {
     var isConstant: Bool = false
     var value: Character?
     var itemIndex: Int?
@@ -32,9 +32,10 @@ struct AppHereTextFieldRegexInputItem {
 }
 
 public class AppHereTextField: UITextField, Themeable {
-    public var themeDict: NSDictionary?
     private var patternRegexArray = [AppHereTextFieldRegexInputItem]()
     private var inputText = String()
+
+    public var themeDict: NSDictionary?
 
     @IBInspectable public var themeKey: String? {
         didSet {
@@ -55,6 +56,16 @@ public class AppHereTextField: UITextField, Themeable {
             }
             initPatternArray(pattern: pattern)
         }
+    }
+
+    public func enablePasswordToggle() {
+        let button = UIButton(type: .custom)
+        setPasswordToggleImage(button)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        button.frame = CGRect(x: CGFloat(frame.size.width - 25), y: CGFloat(5), width: CGFloat(10), height: CGFloat(10))
+        button.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
+        rightView = button
+        rightViewMode = .always
     }
 
     private func configureLabelAppearance() {
@@ -164,16 +175,6 @@ public class AppHereTextField: UITextField, Themeable {
         } else {
             button.setImage(UIImage(named: "hide-password"), for: .normal)
         }
-    }
-
-    public func enablePasswordToggle() {
-        let button = UIButton(type: .custom)
-        setPasswordToggleImage(button)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
-        button.frame = CGRect(x: CGFloat(frame.size.width - 25), y: CGFloat(5), width: CGFloat(10), height: CGFloat(10))
-        button.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
-        rightView = button
-        rightViewMode = .always
     }
 
     @objc

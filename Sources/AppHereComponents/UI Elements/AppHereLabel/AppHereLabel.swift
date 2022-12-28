@@ -93,7 +93,7 @@ public class AppHereLabel: UILabel, Themeable {
     }
 }
 
-extension Int {
+private extension Int {
     var timerString: String {
         let minutes = self / 60 % 60
         let seconds = self % 60
@@ -101,7 +101,7 @@ extension Int {
     }
 }
 
-extension String {
+private extension String {
     var underLined: NSAttributedString {
         NSMutableAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }

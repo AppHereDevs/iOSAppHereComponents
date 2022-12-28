@@ -18,7 +18,6 @@ public struct AppHereTextViewThemeModel {
     var placeHolderTextColor: String
     var fontName: String?
     var fontSize: Float?
-//    var textAlignment: NSTextAlignment?
 
     public init(with themeDict: NSDictionary) throws {
         key = themeDict.value(forKey: "key") as! String
