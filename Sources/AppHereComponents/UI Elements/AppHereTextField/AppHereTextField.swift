@@ -1,10 +1,3 @@
-//
-//  AppHereTextField.swift
-//
-//
-//  Created by Muhammed Sevük on 10.02.2022.
-//
-
 import UIKit
 
 public enum RegexPatternKey: Character {
@@ -68,6 +61,20 @@ public class AppHereTextField: UITextField, Themeable {
         rightViewMode = .always
     }
 
+    private func setPasswordToggleImage(_ button: UIButton) {
+        if isSecureTextEntry {
+            button.setImage(UIImage(named: "show-password"), for: .normal)
+        } else {
+            button.setImage(UIImage(named: "hide-password"), for: .normal)
+        }
+    }
+
+    @objc
+    private func togglePasswordView(_ sender: UIButton) {
+        isSecureTextEntry.toggle()
+        setPasswordToggleImage(sender)
+    }
+
     private func configureLabelAppearance() {
         guard let themeDict = themeDict, let viewTheme = try? AppHereTextFieldThemeModel(with: themeDict) else {
             isHidden = true
@@ -83,14 +90,23 @@ public class AppHereTextField: UITextField, Themeable {
         }
     }
 
+    // MARK: Regex
+
     private func initPatternArray(pattern: String) {
         let patternArray = Array(pattern)
 
         for (index, patternItem) in patternArray.enumerated() {
-            patternRegexArray.append(AppHereTextFieldRegexInputItem(isConstant: RegexPatternKey(rawValue: patternItem) == nil ? true : false,
-                                                                    value: patternItem,
-                                                                    itemIndex: index,
-                                                                    regex: RegexPatternKey(rawValue: patternItem)?.pattern))
+            patternRegexArray
+                .append(
+                    AppHereTextFieldRegexInputItem(
+                        isConstant: RegexPatternKey(rawValue: patternItem) == nil ? true :
+                            false,
+                        value: patternItem,
+                        itemIndex: index,
+                        regex: RegexPatternKey(rawValue: patternItem)?
+                            .pattern
+                    )
+                )
         }
         addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
         addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingDidBegin)
@@ -167,19 +183,5 @@ public class AppHereTextField: UITextField, Themeable {
 
     private func validate(regex: String, withText text: String) -> Bool {
         NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
-    }
-
-    private func setPasswordToggleImage(_ button: UIButton) {
-        if isSecureTextEntry {
-            button.setImage(UIImage(named: "show-password"), for: .normal)
-        } else {
-            button.setImage(UIImage(named: "hide-password"), for: .normal)
-        }
-    }
-
-    @objc
-    private func togglePasswordView(_ sender: UIButton) {
-        isSecureTextEntry.toggle()
-        setPasswordToggleImage(sender)
     }
 }
