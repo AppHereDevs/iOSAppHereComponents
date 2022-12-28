@@ -1,16 +1,25 @@
 import UIKit
 
-public struct InputAlertModel {
-    let imageName: String
-    let titleText: String
-    let descriptionText: String?
-    let textFieldPlaceHolder: String?
-    let leftButtonTitle: String?
-    let rightButtonTitle: String?
-    let centerButtonTitle: String?
-    let isSecureEntry: Bool
+public struct InputAlertModel: AlertModel {
+    public let imageName: String
+    public let titleText: String
+    public let descriptionText: String?
+    public let textFieldPlaceHolder: String?
+    public let leftButtonTitle: String?
+    public let rightButtonTitle: String?
+    public let centerButtonTitle: String?
+    public let isSecureEntry: Bool
 
-    public init(imageName: String, titleText: String, descriptionText: String?, textFieldPlaceHolder: String?, leftButtonTitle: String?, rightButtonTitle: String?, centerButtonTitle: String?, isSecureEntry: Bool) {
+    public init(
+        imageName: String,
+        titleText: String,
+        descriptionText: String?,
+        textFieldPlaceHolder: String?,
+        leftButtonTitle: String?,
+        rightButtonTitle: String?,
+        centerButtonTitle: String?,
+        isSecureEntry: Bool
+    ) {
         self.imageName = imageName
         self.titleText = titleText
         self.descriptionText = descriptionText
@@ -36,7 +45,20 @@ struct PresentableInputAlertInformation {
     let centerButtonHidden: Bool
     let isSecureEntry: Bool
 
-    init(imageName: String, titleText: String, textFieldPlaceHolder: String, descriptionText: String, descriptionLabelHidden: Bool, leftButtonTitle: String, leftButtonHidden: Bool, rightButtonTitle: String, rightButtonHidden: Bool, centerButtonTitle: String, centerButtonHidden: Bool, isSecureEntry: Bool) {
+    init(
+        imageName: String,
+        titleText: String,
+        textFieldPlaceHolder: String,
+        descriptionText: String,
+        descriptionLabelHidden: Bool,
+        leftButtonTitle: String,
+        leftButtonHidden: Bool,
+        rightButtonTitle: String,
+        rightButtonHidden: Bool,
+        centerButtonTitle: String,
+        centerButtonHidden: Bool,
+        isSecureEntry: Bool
+    ) {
         self.imageName = imageName
         self.titleText = titleText
         self.textFieldPlaceHolder = textFieldPlaceHolder

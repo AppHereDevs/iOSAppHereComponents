@@ -1,15 +1,15 @@
 import UIKit
 
-public struct AlertModel {
-    let imageName: String
-    let titleText: String?
-    let descriptionText: String?
-    let leftButtonTitle: String?
-    let rightButtonTitle: String?
+public struct DefaultAlertModel: AlertModel {
+    public let imageName: String
+    public let titleText: String
+    public let descriptionText: String?
+    public let leftButtonTitle: String?
+    public let rightButtonTitle: String?
 
     public init(
         imageName: String,
-        titleText: String?,
+        titleText: String,
         descriptionText: String?,
         leftButtonTitle: String?,
         rightButtonTitle: String?
