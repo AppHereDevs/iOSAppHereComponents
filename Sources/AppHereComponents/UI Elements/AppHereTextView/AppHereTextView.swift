@@ -1,15 +1,7 @@
-//
-//  AppHereTextView.swift
-//
-//
-//  Created by Muhammed Sevük on 8.02.2022.
-//
-
 import Foundation
 import UIKit
 
 public class AppHereTextView: UITextView, Themeable {
-
     public var themeDict: NSDictionary?
 
     public var placeHolderText: String? {
@@ -52,13 +44,18 @@ public class AppHereTextView: UITextView, Themeable {
     }
 
     private func initComponent() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(textViewDidBeginEditing(_:)),
-                                               name: UITextView.textDidBeginEditingNotification,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(textViewDidEndEditing(_:)),
-                                               name: UITextView.textDidEndEditingNotification,
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(textViewDidBeginEditing(_:)),
+            name: UITextView.textDidBeginEditingNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(textViewDidEndEditing(_:)),
+            name: UITextView.textDidEndEditingNotification,
+            object: nil
+        )
     }
 
     deinit {

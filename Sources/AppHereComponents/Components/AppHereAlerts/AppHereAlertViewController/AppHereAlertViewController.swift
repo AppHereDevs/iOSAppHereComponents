@@ -7,7 +7,13 @@ public struct AlertModel {
     let leftButtonTitle: String?
     let rightButtonTitle: String?
 
-    public init(imageName: String, titleText: String?, descriptionText: String?, leftButtonTitle: String?, rightButtonTitle: String?) {
+    public init(
+        imageName: String,
+        titleText: String?,
+        descriptionText: String?,
+        leftButtonTitle: String?,
+        rightButtonTitle: String?
+    ) {
         self.imageName = imageName
         self.titleText = titleText
         self.descriptionText = descriptionText
@@ -26,7 +32,16 @@ struct PresentableAlertInformation {
     let rightButtonTitle: String
     let rightButtonHidden: Bool
 
-    init(imageName: String, titleText: String, descriptionText: String, descriptionLabelHidden: Bool, leftButtonTitle: String, leftButtonHidden: Bool, rightButtonTitle: String, rightButtonHidden: Bool) {
+    init(
+        imageName: String,
+        titleText: String,
+        descriptionText: String,
+        descriptionLabelHidden: Bool,
+        leftButtonTitle: String,
+        leftButtonHidden: Bool,
+        rightButtonTitle: String,
+        rightButtonHidden: Bool
+    ) {
         self.imageName = imageName
         self.titleText = titleText
         self.descriptionText = descriptionText
@@ -54,7 +69,7 @@ public final class AppHereAlertViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         alertImageView.image = UIImage(named: presentableModel!.imageName)
 
@@ -70,7 +85,8 @@ public final class AppHereAlertViewController: UIViewController {
         alertRightButton.setTitle(presentableModel!.rightButtonTitle, for: .normal)
     }
 
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError()
     }
 

@@ -1,10 +1,3 @@
-//
-//  ApphereDropdownInputView.swift
-//
-//
-//  Created by Arda Onat on 15/05/2022.
-//
-
 import CoreModule
 import UIKit
 
@@ -74,7 +67,12 @@ public final class AppHerePickerInputView: AppHereComponentView {
         pickerTextField.inputView = pickerView
 
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Bitti", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneButtonPress))
+        let doneButton = UIBarButtonItem(
+            title: "Bitti",
+            style: UIBarButtonItem.Style.done,
+            target: self,
+            action: #selector(doneButtonPress)
+        )
 
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
