@@ -29,8 +29,8 @@ public class AlertViewControllerBuilder: AlertBuilding {
         let leftButtonHidden = viewData.leftButtonTitle == nil
         let rightButtonHidden = viewData.rightButtonTitle == nil
 
-        let vc = AppHereAlertViewController.loadFromNib()
-        vc.presentableModel = PresentableAlertInformation(
+        let viewController = AppHereAlertViewController.loadFromNib()
+        viewController.presentableModel = PresentableAlertInformation(
             imageName: viewData.imageName,
             titleText: viewData.titleText,
             descriptionText: viewData.descriptionText.valueOrEmpty,
@@ -40,7 +40,7 @@ public class AlertViewControllerBuilder: AlertBuilding {
             rightButtonTitle: viewData.rightButtonTitle.valueOrEmpty,
             rightButtonHidden: rightButtonHidden
         )
-        return vc
+        return viewController
     }
 
     private func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController {
@@ -48,7 +48,8 @@ public class AlertViewControllerBuilder: AlertBuilding {
         let leftButtonHidden = viewData.leftButtonTitle == nil
         let rightButtonHidden = viewData.rightButtonTitle == nil
         let centerButtonHidden = viewData.centerButtonTitle == nil
-        let viewController = AppHereInputAlertViewController(presentableModel: PresentableInputAlertInformation(
+        let viewController = AppHereInputAlertViewController.loadFromNib()
+        viewController.presentableModel = PresentableInputAlertInformation(
             imageName: viewData.imageName,
             titleText: viewData.titleText,
             textFieldPlaceHolder: viewData.textFieldPlaceHolder.valueOrEmpty,
@@ -61,7 +62,7 @@ public class AlertViewControllerBuilder: AlertBuilding {
             centerButtonTitle: viewData.centerButtonTitle.valueOrEmpty,
             centerButtonHidden: centerButtonHidden,
             isSecureEntry: viewData.isSecureEntry
-        ))
+        )
         if viewData.isSecureEntry {
             viewController.enablePasswordToggle()
         }

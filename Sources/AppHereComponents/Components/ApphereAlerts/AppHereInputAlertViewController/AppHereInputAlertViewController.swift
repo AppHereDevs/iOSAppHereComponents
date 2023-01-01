@@ -83,12 +83,43 @@ public final class AppHereInputAlertViewController: UIViewController {
     @IBOutlet private var alertRightButton: AppHereButton!
     @IBOutlet private var alertCenterButton: UIButton!
 
+    var presentableModel: PresentableInputAlertInformation?
+
+    public var inputtedText: String {
+        alertInputTextField.text.valueOrEmpty
+    }
+
     public var leftButtonHandler: (() -> Void)?
     public var rightButtonHandler: (() -> Void)?
     public var centerButtonHandler: (() -> Void)?
 
-    public var inputtedText: String {
-        alertInputTextField.text.valueOrEmpty
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+
+        alertImageView.image = UIImage(named: presentableModel!.imageName)
+        alertTitleLabel.text = presentableModel!.titleText
+        alertInputTextField.placeholder = presentableModel!.textFieldPlaceHolder
+        if #available(iOS 13.0, *) {
+            alertInputTextField.overrideUserInterfaceStyle = .light
+        }
+
+        alertDescriptionLabel.isHidden = presentableModel!.descriptionLabelHidden
+        alertDescriptionLabel.text = presentableModel!.descriptionText
+
+        alertInputTextField.isSecureTextEntry = presentableModel!.isSecureEntry
+
+        alertLeftButton.isHidden = presentableModel!.leftButtonHidden
+        alertLeftButton.setTitle(presentableModel!.leftButtonTitle, for: .normal)
+
+        alertRightButton.isHidden = presentableModel!.rightButtonHidden
+        alertRightButton.setTitle(presentableModel!.rightButtonTitle, for: .normal)
+
+        alertCenterButton.isHidden = presentableModel!.centerButtonHidden
+        alertCenterButton.setTitle(presentableModel!.centerButtonTitle, for: .normal)
     }
 
     init(presentableModel: PresentableInputAlertInformation) {

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHereInputAlertViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHereInputAlertViewController">
             <connections>
                 <outlet property="alertCenterButton" destination="SdX-Ws-qyE" id="8XX-pC-H91"/>
                 <outlet property="alertDescriptionLabel" destination="nxV-Pm-fFZ" id="y7e-cb-ibw"/>
@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kpm-ze-hW1">
-                    <rect key="frame" x="16" y="76" width="268" height="122"/>
+                    <rect key="frame" x="16" y="80" width="268" height="118"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTa-jq-Clv" customClass="AppHereLabel" customModule="AppHereComponents">
                             <rect key="frame" x="0.0" y="0.0" width="268" height="20.5"/>
@@ -47,7 +47,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="op0-lz-m7J" customClass="AppHereTextField" customModule="AppHereComponents">
-                            <rect key="frame" x="0.0" y="57" width="268" height="65"/>
+                            <rect key="frame" x="0.0" y="57" width="268" height="61"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
