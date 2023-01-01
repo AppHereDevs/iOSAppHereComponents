@@ -16,6 +16,7 @@
                 <outlet property="alertLeftButton" destination="ToZ-oI-S22" id="W82-ne-fEK"/>
                 <outlet property="alertRightButton" destination="4TY-jR-nZ7" id="DHP-vG-D1C"/>
                 <outlet property="alertTitleLabel" destination="bBV-M0-vpy" id="N3Y-Nv-rHa"/>
+                <outlet property="view" destination="iN0-l3-epB" id="KgQ-tN-gYD"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
