@@ -122,32 +122,7 @@ public final class AppHereInputAlertViewController: UIViewController {
         alertCenterButton.setTitle(presentableModel!.centerButtonTitle, for: .normal)
     }
 
-    init(presentableModel: PresentableInputAlertInformation) {
-        super.init(nibName: nil, bundle: .main)
-        _ = view
-
-        alertImageView.image = UIImage(named: presentableModel.imageName)
-        alertTitleLabel.text = presentableModel.titleText
-        alertInputTextField.placeholder = presentableModel.textFieldPlaceHolder
-        if #available(iOS 13.0, *) {
-            alertInputTextField.overrideUserInterfaceStyle = .light
-        }
-
-        alertDescriptionLabel.isHidden = presentableModel.descriptionLabelHidden
-        alertDescriptionLabel.text = presentableModel.descriptionText
-
-        alertInputTextField.isSecureTextEntry = presentableModel.isSecureEntry
-
-        alertLeftButton.isHidden = presentableModel.leftButtonHidden
-        alertLeftButton.setTitle(presentableModel.leftButtonTitle, for: .normal)
-
-        alertRightButton.isHidden = presentableModel.rightButtonHidden
-        alertRightButton.setTitle(presentableModel.rightButtonTitle, for: .normal)
-
-        alertCenterButton.isHidden = presentableModel.centerButtonHidden
-        alertCenterButton.setTitle(presentableModel.centerButtonTitle, for: .normal)
-    }
-
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
