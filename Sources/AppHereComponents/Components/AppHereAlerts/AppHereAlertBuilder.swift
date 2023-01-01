@@ -73,7 +73,7 @@ public class AlertViewControllerBuilder: AlertBuilding {
 private extension UIViewController {
     static func loadFromNib() -> Self {
         func instantiateFromNib<T: UIViewController>() -> T {
-            T(nibName: String(describing: T.self), bundle: nil)
+            T(nibName: String(describing: T.self), bundle: .module)
         }
 
         return instantiateFromNib()
