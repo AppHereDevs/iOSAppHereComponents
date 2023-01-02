@@ -27,6 +27,7 @@ struct PresentableAlertInformation {
     let titleText: String
     let descriptionText: String
     let descriptionLabelHidden: Bool
+    let buttonStackViewHidden: Bool
     let leftButtonTitle: String
     let leftButtonHidden: Bool
     let rightButtonTitle: String
@@ -37,6 +38,7 @@ struct PresentableAlertInformation {
         titleText: String,
         descriptionText: String,
         descriptionLabelHidden: Bool,
+        buttonStackViewHidden: Bool,
         leftButtonTitle: String,
         leftButtonHidden: Bool,
         rightButtonTitle: String,
@@ -46,6 +48,7 @@ struct PresentableAlertInformation {
         self.titleText = titleText
         self.descriptionText = descriptionText
         self.descriptionLabelHidden = descriptionLabelHidden
+        self.buttonStackViewHidden = buttonStackViewHidden
         self.leftButtonTitle = leftButtonTitle
         self.leftButtonHidden = leftButtonHidden
         self.rightButtonTitle = rightButtonTitle
@@ -55,8 +58,10 @@ struct PresentableAlertInformation {
 
 public final class AppHereAlertViewController: UIViewController {
     @IBOutlet private var alertImageView: UIImageView!
+    @IBOutlet private var textStackView: UIStackView!
     @IBOutlet private var alertTitleLabel: AppHereLabel!
     @IBOutlet private var alertDescriptionLabel: AppHereLabel!
+    @IBOutlet private var buttonStackView: UIStackView!
     @IBOutlet private var alertLeftButton: AppHereButton!
     @IBOutlet private var alertRightButton: AppHereButton!
 
@@ -77,6 +82,8 @@ public final class AppHereAlertViewController: UIViewController {
 
         alertDescriptionLabel.isHidden = presentableModel!.descriptionLabelHidden
         alertDescriptionLabel.text = presentableModel!.descriptionText
+
+        buttonStackView.isHidden = presentableModel!.buttonStackViewHidden
 
         alertLeftButton.isHidden = presentableModel!.leftButtonHidden
         alertLeftButton.setTitle(presentableModel!.leftButtonTitle, for: .normal)

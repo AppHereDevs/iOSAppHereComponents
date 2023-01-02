@@ -28,6 +28,7 @@ public class AlertViewControllerBuilder: AlertBuilding {
         let descriptionLabelHidden = viewData.descriptionText == nil
         let leftButtonHidden = viewData.leftButtonTitle == nil
         let rightButtonHidden = viewData.rightButtonTitle == nil
+        let buttonStackViewHidden = leftButtonHidden && rightButtonHidden
 
         let viewController = AppHereAlertViewController.loadFromNib()
         viewController.presentableModel = PresentableAlertInformation(
@@ -35,6 +36,7 @@ public class AlertViewControllerBuilder: AlertBuilding {
             titleText: viewData.titleText,
             descriptionText: viewData.descriptionText.valueOrEmpty,
             descriptionLabelHidden: descriptionLabelHidden,
+            buttonStackViewHidden: buttonStackViewHidden,
             leftButtonTitle: viewData.leftButtonTitle.valueOrEmpty,
             leftButtonHidden: leftButtonHidden,
             rightButtonTitle: viewData.rightButtonTitle.valueOrEmpty,
