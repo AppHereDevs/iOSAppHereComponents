@@ -56,7 +56,7 @@ struct PresentableAlertInformation {
     }
 }
 
-public final class AppHereAlertViewController: UIViewController {
+final class AppHereAlertViewController: UIViewController {
     @IBOutlet private var alertImageView: UIImageView!
     @IBOutlet private var textStackView: UIStackView!
     @IBOutlet private var alertTitleLabel: AppHereLabel!
@@ -67,14 +67,14 @@ public final class AppHereAlertViewController: UIViewController {
 
     var presentableModel: PresentableAlertInformation?
 
-    public var leftButtonHandler: (() -> Void)?
-    public var rightButtonHandler: (() -> Void)?
+    var leftButtonHandler: (() -> Void)?
+    var rightButtonHandler: (() -> Void)?
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         alertImageView.image = UIImage(named: presentableModel!.imageName)
 
