@@ -1,4 +1,4 @@
-final class MockUserInputtable: UserInputtable {
+public final class MockUserInputtable: UserInputtable {
     var isValidInput: Bool {
         get { return underlyingIsValidInput }
         set(value) { underlyingIsValidInput = value }

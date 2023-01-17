@@ -1,5 +1,4 @@
-
-final class MockAppHereOTPTextFieldImplementationProtocol: AppHereOTPTextFieldImplementationProtocol {
+public final class MockAppHereOTPTextFieldImplementationProtocol: AppHereOTPTextFieldImplementationProtocol {
     // MARK: - digitalLabelsCount
 
     var digitalLabelsCountCallsCount = 0

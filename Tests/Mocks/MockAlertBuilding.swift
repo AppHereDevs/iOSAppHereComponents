@@ -1,4 +1,4 @@
-final class MockAlertBuilding: AlertBuilding {
+public final class MockAlertBuilding: AlertBuilding {
     // MARK: - buildAlertViewController
 
     var buildAlertViewControllerWithCallsCount = 0

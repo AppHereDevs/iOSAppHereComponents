@@ -1,4 +1,4 @@
-final class MockAlertModel: AlertModel {
+public final class MockAlertModel: AlertModel {
     var imageName: String {
         get { return underlyingImageName }
         set(value) { underlyingImageName = value }
