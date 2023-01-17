@@ -1,10 +1,3 @@
-//
-//  AppHereInputView.swift
-//
-//
-//  Created by Muhammed Sevük on 10.02.2022.
-//
-
 import CoreModule
 import UIKit
 import Validator
@@ -130,7 +123,10 @@ extension AppHereInputView: UITextFieldDelegate {
             return
         }
 
-        if (viewModel.validationModel?.regexPattern?.count) == inputTextField.text?.count, inputTextField.validate() == .valid {
+        if
+            (viewModel.validationModel?.regexPattern?.count) == inputTextField.text?.count,
+            inputTextField.validate() == .valid
+        {
             isValid = true
         }
     }
@@ -140,7 +136,11 @@ extension AppHereInputView: UITextFieldDelegate {
         return true
     }
 
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
+    public func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn _: NSRange,
+        replacementString string: String
+    ) -> Bool {
         guard let viewModel = viewModel, let maxChar = viewModel.validationModel?.maxCharLength else {
             return true
         }

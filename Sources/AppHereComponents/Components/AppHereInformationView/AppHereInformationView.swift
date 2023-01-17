@@ -1,10 +1,3 @@
-//
-//  AppHereInformationView.swift
-//
-//
-//  Created by Arda Onat on 8.02.2022.
-//
-
 import UIKit
 
 public final class AppHereInformationView: AppHereComponentView {

@@ -1,5 +1,5 @@
-@testable import AppHereComponents
 import XCTest
+@testable import AppHereComponents
 
 final class AppHereThemeManagerTests: XCTestCase {
     func testDidAppHereThemeManagerSetupInitializedSharedInstance() {

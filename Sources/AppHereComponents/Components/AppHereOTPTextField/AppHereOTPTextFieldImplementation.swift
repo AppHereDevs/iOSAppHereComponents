@@ -1,10 +1,3 @@
-//
-//  AppHereOTPTextFieldImplementation.swift
-//  ViberTemplate
-//
-//  Created by Abdelrhman Eliwa on 09/05/2021.
-//
-
 import UIKit
 
 protocol AppHereOTPTextFieldImplementationProtocol: AnyObject {

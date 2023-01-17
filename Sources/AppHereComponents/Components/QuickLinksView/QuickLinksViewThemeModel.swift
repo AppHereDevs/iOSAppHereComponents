@@ -1,10 +1,3 @@
-//
-//  QuickLinkViewThemeModel.swift
-//  ooAutos
-//
-//  Created by Arda Onat on 18.12.2021.
-//
-
 import Foundation
 
 public class QuickLinksViewThemeModel {
@@ -16,11 +9,11 @@ public class QuickLinksViewThemeModel {
     var otpTextFieldThemeKey: String?
 
     public init(with themeDict: NSDictionary) throws {
-        key = themeDict.value(forKey: "key") as! String
-        backgroundColor = themeDict.value(forKey: "backgroundColor") as? String
-        labelThemeKey = themeDict.value(forKey: "labelThemeKey") as? String
-        textViewThemeKey = themeDict.value(forKey: "textViewThemeKey") as? String
-        textFieldThemeKey = themeDict.value(forKey: "textFieldThemeKey") as? String
-        otpTextFieldThemeKey = themeDict.value(forKey: "otpTextFieldThemeKey") as? String
+        self.key = themeDict.value(forKey: "key") as! String
+        self.backgroundColor = themeDict.value(forKey: "backgroundColor") as? String
+        self.labelThemeKey = themeDict.value(forKey: "labelThemeKey") as? String
+        self.textViewThemeKey = themeDict.value(forKey: "textViewThemeKey") as? String
+        self.textFieldThemeKey = themeDict.value(forKey: "textFieldThemeKey") as? String
+        self.otpTextFieldThemeKey = themeDict.value(forKey: "otpTextFieldThemeKey") as? String
     }
 }

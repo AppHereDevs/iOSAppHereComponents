@@ -1,10 +1,3 @@
-//
-//  ApphereVerticalBannerViewThemeModel.swift
-//
-//
-//  Created by Muhammed Sevük on 24.05.2022.
-//
-
 import Foundation
 import UIKit
 
@@ -15,9 +8,9 @@ public class ApphereVerticalBannerViewThemeModel {
     var cornerRadius: Float?
 
     public init(with themeDict: NSDictionary) throws {
-        key = themeDict.value(forKey: "key") as! String
-        bannerViewBackgroundColor = themeDict.value(forKey: "bannerViewBackgroundColor") as? String
-        titleLabelThemeKey = themeDict.value(forKey: "titleLabelThemeKey") as? String
-        cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
+        self.key = themeDict.value(forKey: "key") as! String
+        self.bannerViewBackgroundColor = themeDict.value(forKey: "bannerViewBackgroundColor") as? String
+        self.titleLabelThemeKey = themeDict.value(forKey: "titleLabelThemeKey") as? String
+        self.cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
     }
 }
