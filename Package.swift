@@ -13,6 +13,10 @@ let package = Package(
         .library(
             name: "AppHereComponents",
             targets: ["AppHereComponents"]
+        ),
+        .library(
+            name: "AppHereComponentsTests",
+            targets: ["AppHereComponentsTests"]
         )
     ],
     dependencies: [
