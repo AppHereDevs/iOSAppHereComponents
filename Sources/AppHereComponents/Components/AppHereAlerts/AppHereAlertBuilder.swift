@@ -33,10 +33,6 @@ public class AlertViewControllerBuilder: AlertBuilding {
     private func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController {
         let viewController = AppHereInputAlertViewController.loadFromNib()
         viewController.presentableModel = viewData
-        // if viewData.isSecureEntry {
-        //   viewController.enablePasswordToggle()
-        // }
-
         return viewController
     }
 }
