@@ -112,6 +112,10 @@ public final class AppHereInputAlertViewController: UIViewController {
         leftButtonHandler = presentableModel!.leftButtonHandler
         rightButtonHandler = presentableModel!.rightButtonHandler
         centerButtonHandler = presentableModel!.centerButtonHandler
+
+        if presentableModel!.isSecureEntry {
+            alertInputTextField.enablePasswordToggle()
+        }
     }
 
     @available(*, unavailable)
