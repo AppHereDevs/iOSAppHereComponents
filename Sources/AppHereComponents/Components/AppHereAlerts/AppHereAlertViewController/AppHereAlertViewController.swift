@@ -1,58 +1,48 @@
 import UIKit
 
+public typealias AlertButtonHandler = (AppHereAlertViewController) -> Void
+
 public struct DefaultAlertModel: AlertModel {
     public let imageName: String
     public let titleText: String
     public let descriptionText: String?
     public let leftButtonTitle: String?
     public let rightButtonTitle: String?
+    public let leftButtonHandler: AlertButtonHandler?
+    public let rightButtonHandler: AlertButtonHandler?
 
     public init(
         imageName: String,
         titleText: String,
         descriptionText: String?,
         leftButtonTitle: String?,
-        rightButtonTitle: String?
+        rightButtonTitle: String?,
+        leftButtonHandler: AlertButtonHandler? = nil,
+        rightButtonHandler: AlertButtonHandler? = nil
     ) {
         self.imageName = imageName
         self.titleText = titleText
         self.descriptionText = descriptionText
         self.leftButtonTitle = leftButtonTitle
+        self.leftButtonHandler = leftButtonHandler
         self.rightButtonTitle = rightButtonTitle
+        self.rightButtonHandler = rightButtonHandler
     }
-}
 
-struct PresentableAlertInformation {
-    let imageName: String
-    let titleText: String
-    let descriptionText: String
-    let descriptionLabelHidden: Bool
-    let buttonStackViewHidden: Bool
-    let leftButtonTitle: String
-    let leftButtonHidden: Bool
-    let rightButtonTitle: String
-    let rightButtonHidden: Bool
+    var isDescriptionLabelHidden: Bool {
+        descriptionText == nil
+    }
 
-    init(
-        imageName: String,
-        titleText: String,
-        descriptionText: String,
-        descriptionLabelHidden: Bool,
-        buttonStackViewHidden: Bool,
-        leftButtonTitle: String,
-        leftButtonHidden: Bool,
-        rightButtonTitle: String,
-        rightButtonHidden: Bool
-    ) {
-        self.imageName = imageName
-        self.titleText = titleText
-        self.descriptionText = descriptionText
-        self.descriptionLabelHidden = descriptionLabelHidden
-        self.buttonStackViewHidden = buttonStackViewHidden
-        self.leftButtonTitle = leftButtonTitle
-        self.leftButtonHidden = leftButtonHidden
-        self.rightButtonTitle = rightButtonTitle
-        self.rightButtonHidden = rightButtonHidden
+    var isLeftButtonHidden: Bool {
+        leftButtonTitle == nil
+    }
+
+    var isRightButtonHidden: Bool {
+        rightButtonTitle == nil
+    }
+
+    var isButtonStackViewHidden: Bool {
+        isLeftButtonHidden && isRightButtonHidden
     }
 }
 
@@ -65,10 +55,10 @@ public final class AppHereAlertViewController: UIViewController {
     @IBOutlet private var alertLeftButton: AppHereButton!
     @IBOutlet private var alertRightButton: AppHereButton!
 
-    var presentableModel: PresentableAlertInformation?
+    var presentableModel: DefaultAlertModel?
 
-    public var leftButtonHandler: (() -> Void)?
-    public var rightButtonHandler: (() -> Void)?
+    private var leftButtonHandler: AlertButtonHandler?
+    private var rightButtonHandler: AlertButtonHandler?
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -80,16 +70,19 @@ public final class AppHereAlertViewController: UIViewController {
 
         alertTitleLabel.text = presentableModel!.titleText
 
-        alertDescriptionLabel.isHidden = presentableModel!.descriptionLabelHidden
+        alertDescriptionLabel.isHidden = presentableModel!.isDescriptionLabelHidden
         alertDescriptionLabel.text = presentableModel!.descriptionText
 
-        buttonStackView.isHidden = presentableModel!.buttonStackViewHidden
+        buttonStackView.isHidden = presentableModel!.isButtonStackViewHidden
 
-        alertLeftButton.isHidden = presentableModel!.leftButtonHidden
+        alertLeftButton.isHidden = presentableModel!.isLeftButtonHidden
         alertLeftButton.setTitle(presentableModel!.leftButtonTitle, for: .normal)
 
-        alertRightButton.isHidden = presentableModel!.rightButtonHidden
+        alertRightButton.isHidden = presentableModel!.isRightButtonHidden
         alertRightButton.setTitle(presentableModel!.rightButtonTitle, for: .normal)
+
+        leftButtonHandler = presentableModel!.leftButtonHandler
+        rightButtonHandler = presentableModel!.rightButtonHandler
     }
 
     @available(*, unavailable)
@@ -98,10 +91,10 @@ public final class AppHereAlertViewController: UIViewController {
     }
 
     @IBAction private func leftButtonPressed(_: Any) {
-        leftButtonHandler?()
+        leftButtonHandler?(self)
     }
 
     @IBAction private func rightButtonPressed(_: Any) {
-        rightButtonHandler?()
+        rightButtonHandler?(self)
     }
 }

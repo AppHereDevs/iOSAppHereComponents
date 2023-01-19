@@ -25,46 +25,14 @@ public class AlertViewControllerBuilder: AlertBuilding {
     }
 
     private func buildDefaultAlertViewController(with viewData: DefaultAlertModel) -> AppHereAlertViewController {
-        let descriptionLabelHidden = viewData.descriptionText == nil
-        let leftButtonHidden = viewData.leftButtonTitle == nil
-        let rightButtonHidden = viewData.rightButtonTitle == nil
-        let buttonStackViewHidden = leftButtonHidden && rightButtonHidden
-
         let viewController = AppHereAlertViewController.loadFromNib()
-        viewController.presentableModel = PresentableAlertInformation(
-            imageName: viewData.imageName,
-            titleText: viewData.titleText,
-            descriptionText: viewData.descriptionText.valueOrEmpty,
-            descriptionLabelHidden: descriptionLabelHidden,
-            buttonStackViewHidden: buttonStackViewHidden,
-            leftButtonTitle: viewData.leftButtonTitle.valueOrEmpty,
-            leftButtonHidden: leftButtonHidden,
-            rightButtonTitle: viewData.rightButtonTitle.valueOrEmpty,
-            rightButtonHidden: rightButtonHidden
-        )
+        viewController.presentableModel = viewData
         return viewController
     }
 
     private func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController {
-        let descriptionLabelHidden = viewData.descriptionText == nil
-        let leftButtonHidden = viewData.leftButtonTitle == nil
-        let rightButtonHidden = viewData.rightButtonTitle == nil
-        let centerButtonHidden = viewData.centerButtonTitle == nil
         let viewController = AppHereInputAlertViewController.loadFromNib()
-        viewController.presentableModel = PresentableInputAlertInformation(
-            imageName: viewData.imageName,
-            titleText: viewData.titleText,
-            textFieldPlaceHolder: viewData.textFieldPlaceHolder.valueOrEmpty,
-            descriptionText: viewData.descriptionText.valueOrEmpty,
-            descriptionLabelHidden: descriptionLabelHidden,
-            leftButtonTitle: viewData.leftButtonTitle.valueOrEmpty,
-            leftButtonHidden: leftButtonHidden,
-            rightButtonTitle: viewData.rightButtonTitle.valueOrEmpty,
-            rightButtonHidden: rightButtonHidden,
-            centerButtonTitle: viewData.centerButtonTitle.valueOrEmpty,
-            centerButtonHidden: centerButtonHidden,
-            isSecureEntry: viewData.isSecureEntry
-        )
+        viewController.presentableModel = viewData
         if viewData.isSecureEntry {
             viewController.enablePasswordToggle()
         }

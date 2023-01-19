@@ -1,5 +1,7 @@
 import UIKit
 
+public typealias InputAlertButtonHandler = (AppHereInputAlertViewController) -> Void
+
 public struct InputAlertModel: AlertModel {
     public let imageName: String
     public let titleText: String
@@ -9,6 +11,9 @@ public struct InputAlertModel: AlertModel {
     public let rightButtonTitle: String?
     public let centerButtonTitle: String?
     public let isSecureEntry: Bool
+    public let leftButtonHandler: InputAlertButtonHandler?
+    public let rightButtonHandler: InputAlertButtonHandler?
+    public let centerButtonHandler: InputAlertButtonHandler?
 
     public init(
         imageName: String,
@@ -18,7 +23,10 @@ public struct InputAlertModel: AlertModel {
         leftButtonTitle: String?,
         rightButtonTitle: String?,
         centerButtonTitle: String?,
-        isSecureEntry: Bool
+        isSecureEntry: Bool,
+        leftButtonHandler: InputAlertButtonHandler?,
+        rightButtonHandler: InputAlertButtonHandler?,
+        centerButtonHandler: InputAlertButtonHandler?
     ) {
         self.imageName = imageName
         self.titleText = titleText
@@ -28,49 +36,29 @@ public struct InputAlertModel: AlertModel {
         self.rightButtonTitle = rightButtonTitle
         self.centerButtonTitle = centerButtonTitle
         self.isSecureEntry = isSecureEntry
+        self.leftButtonHandler = leftButtonHandler
+        self.rightButtonHandler = rightButtonHandler
+        self.centerButtonHandler = centerButtonHandler
     }
-}
 
-struct PresentableInputAlertInformation {
-    let imageName: String
-    let titleText: String
-    let textFieldPlaceHolder: String
-    let descriptionText: String
-    let descriptionLabelHidden: Bool
-    let leftButtonTitle: String
-    let leftButtonHidden: Bool
-    let rightButtonTitle: String
-    let rightButtonHidden: Bool
-    let centerButtonTitle: String
-    let centerButtonHidden: Bool
-    let isSecureEntry: Bool
+    var isDescriptionLabelHidden: Bool {
+        descriptionText == nil
+    }
 
-    init(
-        imageName: String,
-        titleText: String,
-        textFieldPlaceHolder: String,
-        descriptionText: String,
-        descriptionLabelHidden: Bool,
-        leftButtonTitle: String,
-        leftButtonHidden: Bool,
-        rightButtonTitle: String,
-        rightButtonHidden: Bool,
-        centerButtonTitle: String,
-        centerButtonHidden: Bool,
-        isSecureEntry: Bool
-    ) {
-        self.imageName = imageName
-        self.titleText = titleText
-        self.textFieldPlaceHolder = textFieldPlaceHolder
-        self.descriptionText = descriptionText
-        self.descriptionLabelHidden = descriptionLabelHidden
-        self.leftButtonTitle = leftButtonTitle
-        self.leftButtonHidden = leftButtonHidden
-        self.rightButtonTitle = rightButtonTitle
-        self.rightButtonHidden = rightButtonHidden
-        self.centerButtonTitle = centerButtonTitle
-        self.centerButtonHidden = centerButtonHidden
-        self.isSecureEntry = isSecureEntry
+    var isLeftButtonHidden: Bool {
+        leftButtonTitle == nil
+    }
+
+    var isRightButtonHidden: Bool {
+        rightButtonTitle == nil
+    }
+
+    var isCenterButtonHidden: Bool {
+        centerButtonTitle == nil
+    }
+
+    var isButtonStackViewHidden: Bool {
+        isLeftButtonHidden && isRightButtonHidden
     }
 }
 
@@ -83,15 +71,15 @@ public final class AppHereInputAlertViewController: UIViewController {
     @IBOutlet private var alertRightButton: AppHereButton!
     @IBOutlet private var alertCenterButton: UIButton!
 
-    var presentableModel: PresentableInputAlertInformation?
+    var presentableModel: InputAlertModel?
 
     public var inputtedText: String {
         alertInputTextField.text.valueOrEmpty
     }
 
-    public var leftButtonHandler: (() -> Void)?
-    public var rightButtonHandler: (() -> Void)?
-    public var centerButtonHandler: (() -> Void)?
+    private var leftButtonHandler: InputAlertButtonHandler?
+    private var rightButtonHandler: InputAlertButtonHandler?
+    private var centerButtonHandler: InputAlertButtonHandler?
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -107,19 +95,23 @@ public final class AppHereInputAlertViewController: UIViewController {
             alertInputTextField.overrideUserInterfaceStyle = .light
         }
 
-        alertDescriptionLabel.isHidden = presentableModel!.descriptionLabelHidden
+        alertDescriptionLabel.isHidden = presentableModel!.isDescriptionLabelHidden
         alertDescriptionLabel.text = presentableModel!.descriptionText
 
         alertInputTextField.isSecureTextEntry = presentableModel!.isSecureEntry
 
-        alertLeftButton.isHidden = presentableModel!.leftButtonHidden
+        alertLeftButton.isHidden = presentableModel!.isLeftButtonHidden
         alertLeftButton.setTitle(presentableModel!.leftButtonTitle, for: .normal)
 
-        alertRightButton.isHidden = presentableModel!.rightButtonHidden
+        alertRightButton.isHidden = presentableModel!.isRightButtonHidden
         alertRightButton.setTitle(presentableModel!.rightButtonTitle, for: .normal)
 
-        alertCenterButton.isHidden = presentableModel!.centerButtonHidden
+        alertCenterButton.isHidden = presentableModel!.isCenterButtonHidden
         alertCenterButton.setTitle(presentableModel!.centerButtonTitle, for: .normal)
+
+        leftButtonHandler = presentableModel!.leftButtonHandler
+        rightButtonHandler = presentableModel!.rightButtonHandler
+        centerButtonHandler = presentableModel!.centerButtonHandler
     }
 
     @available(*, unavailable)
@@ -127,19 +119,19 @@ public final class AppHereInputAlertViewController: UIViewController {
         super.init(coder: coder)
     }
 
-    public func enablePasswordToggle() {
+    func enablePasswordToggle() {
         alertInputTextField.enablePasswordToggle()
     }
 
     @IBAction private func leftButtonPressed(_: Any) {
-        leftButtonHandler?()
+        leftButtonHandler?(self)
     }
 
     @IBAction private func rightButtonPressed(_: Any) {
-        rightButtonHandler?()
+        rightButtonHandler?(self)
     }
 
     @IBAction private func centerButtonPressed(_: Any) {
-        centerButtonHandler?()
+        centerButtonHandler?(self)
     }
 }
