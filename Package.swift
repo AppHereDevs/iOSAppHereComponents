@@ -13,14 +13,10 @@ let package = Package(
         .library(
             name: "AppHereComponents",
             targets: ["AppHereComponents"]
-        ),
-        .library(
-            name: "AppHereComponentsTests",
-            targets: ["AppHereComponentsTests"]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/ArdOnat/CoreModule.git", .exact("1.3.6")),
+        .package(url: "https://github.com/ArdOnat/CoreModule.git", .exact("1.3.7")),
         .package(name: "Validator", url: "https://github.com/adamwaite/Validator.git", branch: "master")
     ],
     targets: [
