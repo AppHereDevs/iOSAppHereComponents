@@ -11,6 +11,7 @@ public struct InputAlertModel: AlertModel {
     public let rightButtonTitle: String?
     public let centerButtonTitle: String?
     public let isSecureEntry: Bool
+    public let isFillingMandatory: Bool
     public let leftButtonHandler: InputAlertButtonHandler?
     public let rightButtonHandler: InputAlertButtonHandler?
     public let centerButtonHandler: InputAlertButtonHandler?
@@ -24,6 +25,7 @@ public struct InputAlertModel: AlertModel {
         rightButtonTitle: String?,
         centerButtonTitle: String?,
         isSecureEntry: Bool,
+        isFillingMandatory: Bool = true,
         leftButtonHandler: InputAlertButtonHandler?,
         rightButtonHandler: InputAlertButtonHandler?,
         centerButtonHandler: InputAlertButtonHandler?
@@ -36,6 +38,7 @@ public struct InputAlertModel: AlertModel {
         self.rightButtonTitle = rightButtonTitle
         self.centerButtonTitle = centerButtonTitle
         self.isSecureEntry = isSecureEntry
+        self.isFillingMandatory = isFillingMandatory
         self.leftButtonHandler = leftButtonHandler
         self.rightButtonHandler = rightButtonHandler
         self.centerButtonHandler = centerButtonHandler
@@ -115,6 +118,26 @@ public final class AppHereInputAlertViewController: UIViewController {
 
         if presentableModel!.isSecureEntry {
             alertInputTextField.enablePasswordToggle()
+        }
+
+        if presentableModel!.isFillingMandatory {
+            alertRightButton.isUserInteractionEnabled = false
+            alertRightButton.alpha = 0.6
+            alertInputTextField.addTarget(
+                self,
+                action: #selector(AppHereInputAlertViewController.textFieldDidChange(_:)),
+                for: .editingChanged
+            )
+        }
+    }
+
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if textField.text?.count ?? 0 > 0 {
+            alertRightButton.alpha = 1
+            alertRightButton.isUserInteractionEnabled = true
+        } else {
+            alertRightButton.alpha = 0.6
+            alertRightButton.isUserInteractionEnabled = false
         }
     }
 
