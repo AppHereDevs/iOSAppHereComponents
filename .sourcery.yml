@@ -1,0 +1,12 @@
+configurations:    
+    - sources:
+        - Sources/AppHereComponents
+        - Sources/AppHereComponents/Components/AppHereAlerts/AppHereAlertBuilder.swift
+        - Sources/AppHereComponents/UIElements
+      templates:
+        - SourceryTemplates/InternalAutoMockable.stencil
+      output: 
+        Tests/Mocks/AutoMockable.generated.swift
+      args:
+        autoMockableImports: [CoreModule]
+        autoMockableTestableImports: [iOSAppHereComponents]
