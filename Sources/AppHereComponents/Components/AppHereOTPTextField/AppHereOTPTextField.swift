@@ -18,7 +18,7 @@ public class AppHereOTPTextField: UITextField, Themeable {
     private var otpFilledBorderWidth: Float?
     private var otpTextColor: UIColor?
     private var otpFontSize: Float?
-    private var otpFont: UIFont = UIFont.boldSystemFont(ofSize: 24)
+    private var otpFont: UIFont = .boldSystemFont(ofSize: 24)
     private var slotCount: Int = 0
     private var implementation = AppHereOTPTextFieldImplementation()
     private var isConfigured = false
