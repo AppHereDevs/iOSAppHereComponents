@@ -6,18 +6,18 @@ import PackageDescription
 let package = Package(
     name: "AppHereComponents",
     platforms: [
-        .iOS(.v11),
+        .iOS(.v11)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "AppHereComponents",
             targets: ["AppHereComponents"]
-        ),
+        )
     ],
     dependencies: [
-        .package(url: "https://github.com/ArdOnat/CoreModule.git", .exact("1.3.4")),
-        .package(name: "Validator", url: "https://github.com/adamwaite/Validator.git", branch: "master"),
+        .package(url: "https://github.com/ArdOnat/CoreModule.git", .exact("1.3.7")),
+        .package(name: "Validator", url: "https://github.com/adamwaite/Validator.git", branch: "master")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -30,8 +30,8 @@ let package = Package(
             name: "AppHereComponentsTests",
             dependencies: ["AppHereComponents"],
             resources: [
-                .process("testThemeFile.json"),
+                .process("testThemeFile.json")
             ]
-        ),
+        )
     ]
 )
