@@ -1,10 +1,3 @@
-//
-//  AppHereInputViewModel.swift
-//
-//
-//  Created by Muhammed Sevük on 10.02.2022.
-//
-
 import UIKit
 
 public struct AppHereInputViewModel {
@@ -17,15 +10,16 @@ public struct AppHereInputViewModel {
     let validationModel: ValidationModel?
     let textFieldRightImageName: String?
 
-    public init(title: String? = nil,
-                phoneLabelText: String? = nil,
-                errorLabelText: String? = nil,
-                placeholder: String,
-                regex: String? = nil,
-                keyboardType: UIKeyboardType = .default,
-                validationModel: ValidationModel? = nil,
-                textFieldRightImageName: String? = nil)
-    {
+    public init(
+        title: String? = nil,
+        phoneLabelText: String? = nil,
+        errorLabelText: String? = nil,
+        placeholder: String,
+        regex: String? = nil,
+        keyboardType: UIKeyboardType = .default,
+        validationModel: ValidationModel? = nil,
+        textFieldRightImageName: String? = nil
+    ) {
         self.title = title
         self.phoneLabelText = phoneLabelText
         self.placeholder = placeholder
@@ -42,14 +36,16 @@ public struct AppHereInputViewModel {
         let maxCharLength: Int?
         // TODO: IsSecureTextEntry will add
 
-        public init(patternType: PatternType? = nil,
-                    regexPattern: String? = nil,
-                    maxCharLength: Int? = nil)
-        {
+        public init(
+            patternType: PatternType? = nil,
+            regexPattern: String? = nil,
+            maxCharLength: Int? = nil
+        ) {
             self.patternType = patternType
 
-            if let pattern = patternType,
-               let regex = pattern.regex
+            if
+                let pattern = patternType,
+                let regex = pattern.regex
             {
                 self.regexPattern = regex
             } else {

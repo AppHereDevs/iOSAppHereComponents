@@ -1,10 +1,3 @@
-//
-//  UIColor+HexString.swift
-//
-//
-//  Created by Arda Onat on 19.12.2021.
-//
-
 import UIKit
 
 public extension UIColor {

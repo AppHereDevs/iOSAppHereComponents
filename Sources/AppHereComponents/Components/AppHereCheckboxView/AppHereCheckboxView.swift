@@ -1,10 +1,3 @@
-//
-//  AppHereCheckboxView.swift
-//
-//
-//  Created by Arda Onat on 11.02.2022.
-//
-
 import CoreModule
 import UIKit
 
@@ -77,10 +70,14 @@ public class AppHereCheckboxView: AppHereComponentView {
     @IBAction public func checkBoxButtonPressed(_ sender: Any) {
         if let isCheck = sender as? Bool {
             isChecked = isCheck
-            checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
+            checkboxImageView
+                .image = isChecked ? UIImage(named: checkboxSelectedImageName) :
+                UIImage(named: checkboxDefaultImageName)
         } else {
             isChecked = !isChecked
-            checkboxImageView.image = isChecked ? UIImage(named: checkboxSelectedImageName) : UIImage(named: checkboxDefaultImageName)
+            checkboxImageView
+                .image = isChecked ? UIImage(named: checkboxSelectedImageName) :
+                UIImage(named: checkboxDefaultImageName)
         }
     }
 

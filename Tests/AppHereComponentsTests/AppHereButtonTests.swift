@@ -1,12 +1,5 @@
-//
-//  AppHereButtonTests.swift
-//
-//
-//  Created by Arda Onat on 10.02.2022.
-//
-
-@testable import AppHereComponents
 import XCTest
+@testable import AppHereComponents
 
 final class AppHereButtonTest: XCTestCase {
     func testButtonIsHiddenWhenThemeIsNotFound() {

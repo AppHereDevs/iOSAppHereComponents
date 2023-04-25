@@ -1,10 +1,3 @@
-//
-//  AppHereLabelThemeModel.swift
-//
-//
-//  Created by Arda Onat on 19.12.2021.
-//
-
 import Foundation
 
 public struct AppHereLabelThemeModel {
@@ -20,12 +13,13 @@ public struct AppHereLabelThemeModel {
     var isUnderlined: Bool
 
     public init(with themeDict: NSDictionary) throws {
-        key = themeDict.value(forKey: "key") as! String
-        textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereLabelThemeModel.defaultTextColor
-        backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereLabelThemeModel.defaultBackgroundColor
-        fontName = themeDict.value(forKey: "fontName") as? String
-        fontSize = themeDict.value(forKey: "fontSize") as? Float
-        cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
-        isUnderlined = themeDict.value(forKey: "isUnderlined") as? Bool ?? false
+        self.key = themeDict.value(forKey: "key") as! String
+        self.textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereLabelThemeModel.defaultTextColor
+        self.backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereLabelThemeModel
+            .defaultBackgroundColor
+        self.fontName = themeDict.value(forKey: "fontName") as? String
+        self.fontSize = themeDict.value(forKey: "fontSize") as? Float
+        self.cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
+        self.isUnderlined = themeDict.value(forKey: "isUnderlined") as? Bool ?? false
     }
 }

@@ -1,10 +1,3 @@
-//
-//  AppHerePickerInputViewModel.swift
-//
-//
-//  Created by Arda Onat on 15/05/2022.
-//
-
 import UIKit
 
 public typealias PickerManager = UIPickerViewDelegate & UIPickerViewDataSource
@@ -16,13 +9,14 @@ public struct AppHerePickerInputViewModel {
     let textAlignment: NSTextAlignment
     let pickerDelegate: UIPickerViewDelegate & UIPickerViewDataSource
 
-    public init(title: String? = nil,
-                errorLabelText: String? = nil,
-                placeholder: String? = nil,
-                pickerData: [Any]? = nil,
-                textAlignment: NSTextAlignment = .left,
-                pickerDelegate: PickerManager)
-    {
+    public init(
+        title: String? = nil,
+        errorLabelText: String? = nil,
+        placeholder: String? = nil,
+        pickerData: [Any]? = nil,
+        textAlignment: NSTextAlignment = .left,
+        pickerDelegate: PickerManager
+    ) {
         self.title = title
         self.errorLabelText = errorLabelText
         self.placeholder = placeholder

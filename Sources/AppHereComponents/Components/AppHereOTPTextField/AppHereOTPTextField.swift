@@ -1,11 +1,3 @@
-//
-//  AppHereOTPTextField.swift
-//  AppHereOTPTextField
-//
-//  Created by Abdelrhman Eliwa on 10/12/20.
-//  Copyright © 2020 Abdelrhman Eliwa. All rights reserved.
-//
-
 import CoreModule
 import UIKit
 
@@ -26,7 +18,7 @@ public class AppHereOTPTextField: UITextField, Themeable {
     private var otpFilledBorderWidth: Float?
     private var otpTextColor: UIColor?
     private var otpFontSize: Float?
-    private var otpFont: UIFont = UIFont.boldSystemFont(ofSize: 24)
+    private var otpFont: UIFont = .boldSystemFont(ofSize: 24)
     private var slotCount: Int = 0
     private var implementation = AppHereOTPTextFieldImplementation()
     private var isConfigured = false
@@ -89,7 +81,7 @@ public class AppHereOTPTextField: UITextField, Themeable {
             labelsStackView.topAnchor.constraint(equalTo: topAnchor),
             labelsStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             labelsStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            labelsStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            labelsStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 

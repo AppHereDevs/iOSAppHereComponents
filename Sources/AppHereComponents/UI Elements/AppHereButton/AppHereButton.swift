@@ -1,9 +1,3 @@
-//
-//  AppHereButton.swift
-//
-//
-//  Created by Arda Onat on 10.02.2022.
-//
 import UIKit
 
 public class AppHereButton: UIButton, Themeable {
@@ -28,7 +22,10 @@ public class AppHereButton: UIButton, Themeable {
         }
 
         tintColor = UIColor(hexString: viewTheme.textColor)
-        titleLabel?.font = AppHereThemeManager.shared.getFont(fontName: viewTheme.fontName, fontSize: viewTheme.fontSize)
+        titleLabel?.font = AppHereThemeManager.shared.getFont(
+            fontName: viewTheme.fontName,
+            fontSize: viewTheme.fontSize
+        )
         backgroundColor = UIColor(hexString: viewTheme.backgroundColor)
         layer.cornerRadius = viewTheme.cornerRadius.valueOrEmpty.CGFloatValue
         layer.borderWidth = viewTheme.borderWidth.valueOrEmpty.CGFloatValue

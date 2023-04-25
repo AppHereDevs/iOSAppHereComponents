@@ -1,10 +1,3 @@
-//
-//  File.swift
-//
-//
-//  Created by Muhammed Sevük on 8.02.2022.
-//
-
 import Foundation
 
 public struct AppHereTextViewThemeModel {
@@ -20,11 +13,13 @@ public struct AppHereTextViewThemeModel {
     var fontSize: Float?
 
     public init(with themeDict: NSDictionary) throws {
-        key = themeDict.value(forKey: "key") as! String
-        textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereTextViewThemeModel.defaultTextColor
-        backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereTextViewThemeModel.defaultBackgroundColor
-        placeHolderTextColor = themeDict.value(forKey: "placeHolderTextColor") as? String ?? AppHereTextViewThemeModel.defaultPlaceHolderTextColor
-        fontName = themeDict.value(forKey: "fontName") as? String
-        fontSize = themeDict.value(forKey: "fontSize") as? Float
+        self.key = themeDict.value(forKey: "key") as! String
+        self.textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereTextViewThemeModel.defaultTextColor
+        self.backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereTextViewThemeModel
+            .defaultBackgroundColor
+        self.placeHolderTextColor = themeDict
+            .value(forKey: "placeHolderTextColor") as? String ?? AppHereTextViewThemeModel.defaultPlaceHolderTextColor
+        self.fontName = themeDict.value(forKey: "fontName") as? String
+        self.fontSize = themeDict.value(forKey: "fontSize") as? Float
     }
 }

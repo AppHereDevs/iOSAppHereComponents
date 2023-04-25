@@ -1,10 +1,3 @@
-//
-//  AppHereLabel.swift
-//
-//
-//  Created by Arda Onat on 19.12.2021.
-//
-
 import UIKit
 
 public class AppHereLabel: UILabel, Themeable {
@@ -31,7 +24,7 @@ public class AppHereLabel: UILabel, Themeable {
                     NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
                     NSAttributedString.Key.foregroundColor: textColor as Any,
                     NSAttributedString.Key.font: font as Any,
-                    NSAttributedString.Key.backgroundColor: backgroundColor as Any,
+                    NSAttributedString.Key.backgroundColor: backgroundColor as Any
                 ] as [NSAttributedString.Key: Any]
 
                 attributedText = NSAttributedString(string: text, attributes: underlineAttribute)
@@ -76,7 +69,13 @@ public class AppHereLabel: UILabel, Themeable {
     public func startCountdown(from seconds: Int, completion: (() -> Void)?) {
         isHidden = false
         text = seconds.timerString
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(update),
+            userInfo: nil,
+            repeats: true
+        )
 
         countDownSeconds = seconds
         timerCompletion = completion

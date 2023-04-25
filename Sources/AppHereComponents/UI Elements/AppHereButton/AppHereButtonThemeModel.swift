@@ -1,10 +1,3 @@
-//
-//  AppHereButtonThemeModel.swift
-//
-//
-//  Created by Arda Onat on 10.02.2022.
-//
-
 import Foundation
 
 public struct AppHereButtonThemeModel {
@@ -20,12 +13,13 @@ public struct AppHereButtonThemeModel {
     var borderWidth: Float?
 
     public init(with themeDict: NSDictionary) throws {
-        key = themeDict.value(forKey: "key") as! String
-        textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereButtonThemeModel.defaultTextColor
-        backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereButtonThemeModel.defaultBackgroundColor
-        fontName = themeDict.value(forKey: "fontName") as? String
-        fontSize = themeDict.value(forKey: "fontSize") as? Float
-        cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
-        borderWidth = themeDict.value(forKey: "borderWidth") as? Float
+        self.key = themeDict.value(forKey: "key") as! String
+        self.textColor = themeDict.value(forKey: "textColor") as? String ?? AppHereButtonThemeModel.defaultTextColor
+        self.backgroundColor = themeDict.value(forKey: "backgroundColor") as? String ?? AppHereButtonThemeModel
+            .defaultBackgroundColor
+        self.fontName = themeDict.value(forKey: "fontName") as? String
+        self.fontSize = themeDict.value(forKey: "fontSize") as? Float
+        self.cornerRadius = themeDict.value(forKey: "cornerRadius") as? Float
+        self.borderWidth = themeDict.value(forKey: "borderWidth") as? Float
     }
 }

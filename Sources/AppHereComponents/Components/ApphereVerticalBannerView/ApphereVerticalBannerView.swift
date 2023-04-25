@@ -1,10 +1,3 @@
-//
-//  ApphereVerticalBannerView.swift
-//
-//
-//  Created by Muhammed Sevük on 24.05.2022.
-//
-
 import UIKit
 
 public protocol ImageCaching: AnyObject {
@@ -29,7 +22,10 @@ public final class ApphereVerticalBannerView: AppHereComponentView {
     }
 
     private func setupView(with viewModel: ApphereVerticalBannerViewModel) {
-        guard let themeDict = themeDict, let viewTheme = try? ApphereVerticalBannerViewThemeModel(with: themeDict) else {
+        guard
+            let themeDict = themeDict,
+            let viewTheme = try? ApphereVerticalBannerViewThemeModel(with: themeDict)
+        else {
             isHidden = true
             return
         }
@@ -55,8 +51,9 @@ public final class ApphereVerticalBannerView: AppHereComponentView {
             titleLabel.isHidden = true
         }
 
-        if let imageURL = viewModel.imageUrl,
-           let imageCaching = imageCaching
+        if
+            let imageURL = viewModel.imageUrl,
+            let imageCaching = imageCaching
         {
             imageView.isHidden = false
             imageCaching.cacheImage(for: imageView, url: imageURL)

@@ -1,12 +1,5 @@
-//
-//  AppHereLabelTest.swift
-//
-//
-//  Created by Arda Onat on 19.12.2021.
-//
-
-@testable import AppHereComponents
 import XCTest
+@testable import AppHereComponents
 
 final class AppHereLabelTest: XCTestCase {
     func testLabelIsHiddenWhenThemeIsNotFound() {

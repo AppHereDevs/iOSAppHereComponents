@@ -1,10 +1,3 @@
-//
-//  AppHereValidationRules.swift
-//
-//
-//  Created by Muhammed Sevük on 11.02.2022.
-//
-
 import Foundation
 import Validator
 

@@ -1,10 +1,3 @@
-//
-//  AppHereInformationViewModel.swift
-//
-//
-//  Created by Arda Onat on 8.02.2022.
-//
-
 public struct AppHereInformationViewModel {
     var firstInformationText: String?
     var secondInformationText: String?

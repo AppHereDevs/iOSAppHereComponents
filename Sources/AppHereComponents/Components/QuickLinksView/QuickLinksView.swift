@@ -1,10 +1,3 @@
-//
-//  QuickLinksView.swift
-//  ooAutos
-//
-//  Created by Arda Onat on 18.12.2021.
-//
-
 import UIKit
 
 public final class QuickLinksView: AppHereComponentView {
