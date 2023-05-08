@@ -1,4 +1,4 @@
-public struct DefaultAlertModel: AlertModel {
+public struct DefaultAlertModel {
     public let imageName: String
     public let titleText: String
     public let descriptionText: String?
