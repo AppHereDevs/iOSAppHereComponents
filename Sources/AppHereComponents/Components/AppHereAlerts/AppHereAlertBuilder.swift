@@ -25,20 +25,18 @@ public class AlertViewControllerBuilder: AlertBuilding {
     }
 
     private func buildDefaultAlertViewController(with viewData: DefaultAlertModel) -> AppHereAlertViewController {
-        let viewController = AppHereAlertViewController.loadFromNib()
-        viewController.presentableModel = viewData
+        let viewController = AppHereAlertViewController(presentableModel: viewData)
         return viewController
     }
 
     private func buildInputAlertViewController(with viewData: InputAlertModel) -> AppHereInputAlertViewController {
-        let viewController = AppHereInputAlertViewController.loadFromNib()
-        viewController.presentableModel = viewData
+        let viewController = AppHereInputAlertViewController(presentableModel: viewData)
         return viewController
     }
 }
 
 private extension UIViewController {
-    static func loadFromNib() -> Self {
+    func loadFromNib() -> Self {
         func instantiateFromNib<T: UIViewController>() -> T {
             T(nibName: String(describing: T.self), bundle: .module)
         }
