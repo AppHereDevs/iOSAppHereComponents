@@ -1,13 +1,13 @@
 public struct DefaultAlertModel {
     public let imageName: String
-    public let titleText: String
+    public let titleText: String?
     public let descriptionText: String?
     public let leftButtonTitle: String?
     public let rightButtonTitle: String?
 
     public init(
         imageName: String,
-        titleText: String,
+        titleText: String?,
         descriptionText: String?,
         leftButtonTitle: String?,
         rightButtonTitle: String?
@@ -17,6 +17,10 @@ public struct DefaultAlertModel {
         self.descriptionText = descriptionText
         self.leftButtonTitle = leftButtonTitle
         self.rightButtonTitle = rightButtonTitle
+    }
+
+    var isTitleLabelHidden: Bool {
+        titleText == nil
     }
 
     var isDescriptionLabelHidden: Bool {

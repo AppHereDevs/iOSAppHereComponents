@@ -25,6 +25,7 @@ public final class AppHereAlertViewController: UIViewController {
         super.viewDidLoad()
         alertImageView.image = UIImage(named: presentableModel.imageName)
 
+        alertTitleLabel.isHidden = presentableModel.isTitleLabelHidden
         alertTitleLabel.text = presentableModel.titleText
 
         alertDescriptionLabel.isHidden = presentableModel.isDescriptionLabelHidden
