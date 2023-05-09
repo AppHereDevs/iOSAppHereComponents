@@ -2,50 +2,6 @@ import UIKit
 
 public typealias AlertButtonHandler = (AppHereAlertViewController) -> Void
 
-public struct DefaultAlertModel: AlertModel {
-    public let imageName: String
-    public let titleText: String
-    public let descriptionText: String?
-    public let leftButtonTitle: String?
-    public let rightButtonTitle: String?
-    public let leftButtonHandler: AlertButtonHandler?
-    public let rightButtonHandler: AlertButtonHandler?
-
-    public init(
-        imageName: String,
-        titleText: String,
-        descriptionText: String?,
-        leftButtonTitle: String?,
-        rightButtonTitle: String?,
-        leftButtonHandler: AlertButtonHandler? = nil,
-        rightButtonHandler: AlertButtonHandler? = nil
-    ) {
-        self.imageName = imageName
-        self.titleText = titleText
-        self.descriptionText = descriptionText
-        self.leftButtonTitle = leftButtonTitle
-        self.leftButtonHandler = leftButtonHandler
-        self.rightButtonTitle = rightButtonTitle
-        self.rightButtonHandler = rightButtonHandler
-    }
-
-    var isDescriptionLabelHidden: Bool {
-        descriptionText == nil
-    }
-
-    var isLeftButtonHidden: Bool {
-        leftButtonTitle == nil
-    }
-
-    var isRightButtonHidden: Bool {
-        rightButtonTitle == nil
-    }
-
-    var isButtonStackViewHidden: Bool {
-        isLeftButtonHidden && isRightButtonHidden
-    }
-}
-
 public final class AppHereAlertViewController: UIViewController {
     @IBOutlet private var alertImageView: UIImageView!
     @IBOutlet private var textStackView: UIStackView!
@@ -55,34 +11,33 @@ public final class AppHereAlertViewController: UIViewController {
     @IBOutlet private var alertLeftButton: AppHereButton!
     @IBOutlet private var alertRightButton: AppHereButton!
 
-    var presentableModel: DefaultAlertModel?
+    public var leftButtonHandler: AlertButtonHandler?
+    public var rightButtonHandler: AlertButtonHandler?
 
-    private var leftButtonHandler: AlertButtonHandler?
-    private var rightButtonHandler: AlertButtonHandler?
+    private let presentableModel: DefaultAlertModel
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    init(presentableModel: DefaultAlertModel) {
+        self.presentableModel = presentableModel
+        super.init(nibName: String(describing: AppHereAlertViewController.self), bundle: .module)
     }
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        alertImageView.image = UIImage(named: presentableModel!.imageName)
+        alertImageView.image = UIImage(named: presentableModel.imageName)
 
-        alertTitleLabel.text = presentableModel!.titleText
+        alertTitleLabel.isHidden = presentableModel.isTitleLabelHidden
+        alertTitleLabel.text = presentableModel.titleText
 
-        alertDescriptionLabel.isHidden = presentableModel!.isDescriptionLabelHidden
-        alertDescriptionLabel.text = presentableModel!.descriptionText
+        alertDescriptionLabel.isHidden = presentableModel.isDescriptionLabelHidden
+        alertDescriptionLabel.text = presentableModel.descriptionText
 
-        buttonStackView.isHidden = presentableModel!.isButtonStackViewHidden
+        buttonStackView.isHidden = presentableModel.isButtonStackViewHidden
 
-        alertLeftButton.isHidden = presentableModel!.isLeftButtonHidden
-        alertLeftButton.setTitle(presentableModel!.leftButtonTitle, for: .normal)
+        alertLeftButton.isHidden = presentableModel.isLeftButtonHidden
+        alertLeftButton.setTitle(presentableModel.leftButtonTitle, for: .normal)
 
-        alertRightButton.isHidden = presentableModel!.isRightButtonHidden
-        alertRightButton.setTitle(presentableModel!.rightButtonTitle, for: .normal)
-
-        leftButtonHandler = presentableModel!.leftButtonHandler
-        rightButtonHandler = presentableModel!.rightButtonHandler
+        alertRightButton.isHidden = presentableModel.isRightButtonHidden
+        alertRightButton.setTitle(presentableModel.rightButtonTitle, for: .normal)
     }
 
     @available(*, unavailable)
