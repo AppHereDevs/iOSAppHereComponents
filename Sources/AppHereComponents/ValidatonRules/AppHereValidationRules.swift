@@ -1,5 +1,4 @@
 import Foundation
-import Validator
 
 public enum AppHereValidationError: ValidationError {
     case invalidEmail

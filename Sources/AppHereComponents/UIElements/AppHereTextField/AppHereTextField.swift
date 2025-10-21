@@ -29,6 +29,7 @@ public class AppHereTextField: UITextField, Themeable {
     private var inputText = String()
 
     public var themeDict: NSDictionary?
+    public var validationRules: ValidationRuleSet<String>?
 
     @IBInspectable public var themeKey: String? {
         didSet {
@@ -183,5 +184,17 @@ public class AppHereTextField: UITextField, Themeable {
 
     private func validate(regex: String, withText text: String) -> Bool {
         NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
+    }
+    
+    public func validate() -> ValidationResult {
+        guard let text = text else {
+            return .invalid([AppHereValidationError.invalidEmail])
+        }
+        
+        if let rules = validationRules {
+            return rules.validate(text)
+        }
+        
+        return .valid
     }
 }

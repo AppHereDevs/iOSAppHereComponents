@@ -1,6 +1,5 @@
 import CoreModule
 import UIKit
-import Validator
 
 public final class AppHereInputView: AppHereComponentView {
     @IBOutlet private var trailingConstraint: NSLayoutConstraint!
@@ -98,7 +97,7 @@ public final class AppHereInputView: AppHereComponentView {
     }
 
     public func setValidationRuleSet(_ patternType: PatternType) {
-        var validationRules = ValidationRuleSet<String>()
+        let validationRules = ValidationRuleSet<String>()
         validationRules.add(rule: patternType.rulePattern)
         inputTextField.validationRules = validationRules
         inputTextField.regexPattern = patternType.regex
